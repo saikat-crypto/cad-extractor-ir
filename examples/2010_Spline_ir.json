@@ -1,0 +1,60 @@
+{
+  "format": "LAVINCI_CAD_IR_V1",
+  "metadata": {
+    "source_file": "2010_Spline.dwg",
+    "dxf_version": "AC1024",
+    "cad_version": "R2010",
+    "units": 1,
+    "measurement_system": "Imperial",
+    "author": "Unknown"
+  },
+  "extents": {
+    "min": [
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.0,
+      0.0
+    ],
+    "width": 0.0,
+    "height": 0.0
+  },
+  "layers": [
+    {
+      "name": "0",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Defpoints",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    }
+  ],
+  "bill_of_materials": {},
+  "annotations": [],
+  "components": [],
+  "geometry_primitives": {
+    "summary": {
+      "total_lines": 0,
+      "total_arcs": 0,
+      "total_polylines": 0,
+      "total_components": 0,
+      "total_annotations": 0
+    },
+    "primitives": {
+      "lines": [],
+      "arcs": [],
+      "polylines": []
+    }
+  }
+}

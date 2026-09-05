@@ -1,0 +1,71 @@
+{
+  "format": "LAVINCI_CAD_IR_V1",
+  "metadata": {
+    "source_file": "2018_Arc.dwg",
+    "dxf_version": "AC1032",
+    "cad_version": "R2018",
+    "units": 1,
+    "measurement_system": "Imperial",
+    "author": "Unknown"
+  },
+  "extents": {
+    "min": [
+      -18.193,
+      6.687
+    ],
+    "max": [
+      -18.193,
+      6.687
+    ],
+    "width": 0.0,
+    "height": 0.0
+  },
+  "layers": [
+    {
+      "name": "0",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Defpoints",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    }
+  ],
+  "bill_of_materials": {},
+  "annotations": [],
+  "components": [],
+  "geometry_primitives": {
+    "summary": {
+      "total_lines": 0,
+      "total_arcs": 1,
+      "total_polylines": 0,
+      "total_components": 0,
+      "total_annotations": 0
+    },
+    "primitives": {
+      "lines": [],
+      "arcs": [
+        {
+          "layer": "0",
+          "center": [
+            -18.193,
+            6.687
+          ],
+          "radius": 8.293,
+          "start_angle": 114.73,
+          "end_angle": 87.02
+        }
+      ],
+      "polylines": []
+    }
+  }
+}

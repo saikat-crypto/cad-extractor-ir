@@ -1,0 +1,118 @@
+{
+  "format": "LAVINCI_CAD_IR_V1",
+  "metadata": {
+    "source_file": "2000_Leader.dwg",
+    "dxf_version": "AC1015",
+    "cad_version": "R2000",
+    "units": 1,
+    "measurement_system": "Imperial",
+    "author": "Unknown"
+  },
+  "extents": {
+    "min": [
+      9.574,
+      2.198
+    ],
+    "max": [
+      33.066,
+      12.844
+    ],
+    "width": 23.492,
+    "height": 10.646
+  },
+  "layers": [
+    {
+      "name": "0",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Defpoints",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    }
+  ],
+  "bill_of_materials": {},
+  "annotations": [
+    {
+      "type": "MTEXT",
+      "layer": "0",
+      "text": "MTEXT",
+      "position": [
+        15.481,
+        12.844
+      ],
+      "height": 0.18
+    }
+  ],
+  "components": [],
+  "geometry_primitives": {
+    "summary": {
+      "total_lines": 1,
+      "total_arcs": 0,
+      "total_polylines": 1,
+      "total_components": 0,
+      "total_annotations": 1
+    },
+    "primitives": {
+      "lines": [
+        {
+          "layer": "0",
+          "start": [
+            9.574,
+            10.07
+          ],
+          "end": [
+            14.631,
+            10.07
+          ]
+        }
+      ],
+      "arcs": [],
+      "polylines": [
+        {
+          "layer": "0",
+          "is_closed": true,
+          "points": [
+            [
+              18.255,
+              3.182
+            ],
+            [
+              29.173,
+              2.198
+            ],
+            [
+              32.216,
+              4.479
+            ],
+            [
+              33.066,
+              9.399
+            ],
+            [
+              27.428,
+              11.01
+            ],
+            [
+              21.119,
+              7.476
+            ],
+            [
+              18.882,
+              4.927
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "format": "LAVINCI_CAD_IR_V1",
+  "metadata": {
+    "source_file": "2007_Line.dwg",
+    "dxf_version": "AC1021",
+    "cad_version": "R2007",
+    "units": 1,
+    "measurement_system": "Imperial",
+    "author": "Unknown"
+  },
+  "extents": {
+    "min": [
+      11.031,
+      2.812
+    ],
+    "max": [
+      21.608,
+      16.638
+    ],
+    "width": 10.577,
+    "height": 13.826
+  },
+  "layers": [
+    {
+      "name": "0",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Defpoints",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    }
+  ],
+  "bill_of_materials": {},
+  "annotations": [],
+  "components": [],
+  "geometry_primitives": {
+    "summary": {
+      "total_lines": 1,
+      "total_arcs": 0,
+      "total_polylines": 0,
+      "total_components": 0,
+      "total_annotations": 0
+    },
+    "primitives": {
+      "lines": [
+        {
+          "layer": "0",
+          "start": [
+            21.608,
+            2.812
+          ],
+          "end": [
+            11.031,
+            16.638
+          ]
+        }
+      ],
+      "arcs": [],
+      "polylines": []
+    }
+  }
+}
