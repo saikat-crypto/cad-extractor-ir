@@ -187,7 +187,12 @@ cad-extractor blueprint.dwg -o blueprint_ir.json
 
 To maintain technical integrity and clear expectations, here is an explicit breakdown of what CAD Extractor IR solves and current architectural boundaries:
 
-### ✅ Hardened & Solved in v3:
+### ✅ Hardened & Solved in v3.1:
+* **Dual-Format Dispatcher (Native DXF + Binary DWG)**: Ingests native ASCII `.dxf` files directly via `ezdxf` with zero subprocess overhead, while routing `.dwg` binaries through headless LibreDWG.
+* **Accurate Bounding Box Geometry**: Arc and Circle bounding boxes now correctly compute physical extent boundaries ($c \pm r$) rather than collapsing to the center point. Dimension `defpoint2` is also included.
+* **Subprocess Denial-of-Service Protection**: Subprocess execution now has a strict 120-second timeout, preventing worker hangs on pathological or cyclical files.
+* **Surrogate-Safe Unicode Sanitization**: Unpaired UTF-16 surrogates (`\ud800`–`\udfff`) from legacy Windows CAD drawings are automatically sanitized, guaranteeing 100% crash-free UTF-8 JSON serialization.
+* **Safe ACI Color Parsing**: Handles negative ACI integers (AutoCAD turned-off layers) safely without `IndexError`.
 * **Reusable Block Definitions (`block_definitions`)**: Captures full internal vector geometry (lines, arcs, circles, polylines) for every block in the drawing. Downstream DXF/SVG/PDF converters now render all components (doors, windows, plumbing, electrical fixtures) with 100% visual fidelity instead of empty stubs.
 * **True `BYLAYER` Color Semantics**: Leaves `color = None` for entities inheriting layer styling, preserving native AutoCAD layer-based style switching rather than baking static overrides.
 * **Full `CIRCLE` Primitive Extraction**: Ingests circular engineering geometries (pipe cross-sections, columns, receptacles) alongside lines and arcs.
@@ -197,6 +202,8 @@ To maintain technical integrity and clear expectations, here is an explicit brea
 * **Anonymous Block Disambiguation**: Resolves cryptic internal block identifiers (e.g. `*U48`, `*B20`) into human-readable component labels (`ANDERSEN CASEMENT (*U48)`).
 * **MTEXT Formatting Sanitization**: Strips proprietary AutoCAD RTF formatting tags (`\f...;`, `\H...;`, `\L` underline, `\P`), returning clean human-readable text.
 * **Dimension Entity Extraction**: Ingests `DIMENSION` entities, measurement values, definition points, and tolerance strings.
+
+For the exhaustive adversarial audit cataloging 15 tested failure modes, see [AUDIT_REPORT.md](AUDIT_REPORT.md).
 
 ### ⚠️ Current Architectural Boundaries:
 1. **Underlying Parser Dependency**: Binary `.dwg` decoding is currently orchestrated via `GNU LibreDWG` as the headless binary reader. Unrecognized custom third-party C++ objects (AutoCAD Architecture/Civil 3D proxy entities) may be ignored.

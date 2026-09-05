@@ -216,38 +216,30 @@ class TestAdversarialStress(unittest.TestCase):
         self.assertEqual(len(ir.layers), len(restored.layers))
 
     # -------------------------------------------------------------------------
-    # Failure Mode Reproducers (Documenting Gaps)
+    # Verified Failure Mode Remediations (Fixed in v3.1)
     # -------------------------------------------------------------------------
-    def test_failure_mode_fm01_direct_dxf_ingestion_fails(self):
-        """FM-01: extract_cad_ir unconditionally passes DXF to dwg2dxf, crashing."""
+    def test_remediation_fm01_direct_dxf_ingestion_succeeds(self):
+        """FM-01: extract_cad_ir natively processes DXF files without crashing."""
         dxf = os.path.join(FIXTURES_DIR, "empty_02_no_layers.dxf")
-        with self.assertRaises(RuntimeError) as ctx:
-            extract_cad_ir(dxf)
-        self.assertIn("Invalid DWG, magic", str(ctx.exception))
+        ir = extract_cad_ir(dxf)
+        self.assertIsInstance(ir, CADIntermediateRepresentation)
+        self.assertEqual(ir.format, "LAVINCI_CAD_IR_V3")
 
-    def test_failure_mode_fm08_surrogate_serialization_failure(self):
-        """FM-08: Lone surrogates in DXF text trigger Pydantic serialization crash."""
-        from pydantic_core import PydanticSerializationError
-        from cad_extractor.models import CADAnnotation
-        ann = CADAnnotation(
-            type="TEXT",
-            layer="0",
-            space="Model",
-            raw_text="surrogate",
-            clean_text="\ud800",
-            position=[0.0, 0.0],
-            height=1.0,
-        )
-        with self.assertRaises(PydanticSerializationError):
-            ann.model_dump_json()
+    def test_remediation_fm08_surrogate_serialization_resilience(self):
+        """FM-08: Lone surrogates in CAD text are safely sanitized, preventing JSON crash."""
+        dxf = os.path.join(FIXTURES_DIR, "unicode_01_surrogate_uD800.dxf")
+        ir = extract_cad_ir(dxf)
+        self.assertIsInstance(ir, CADIntermediateRepresentation)
+        json_dump = ir.model_dump_json()
+        self.assertTrue(len(json_dump) > 0)
 
-    def test_failure_mode_fm06_arc_circle_extents_omits_radius(self):
-        """FM-06: Arc and Circle bounding box only updates center, ignoring radius."""
+    def test_remediation_fm06_arc_circle_extents_includes_radius(self):
+        """FM-06: Arc and Circle bounding box correctly includes radius."""
         arc_dwg = os.path.abspath(os.path.join(os.path.dirname(__file__), "../examples/2013_Arc.dwg"))
         ir = extract_cad_ir(arc_dwg)
-        # Bounding box width and height are 0.0 even though radius is ~8.293
-        self.assertEqual(ir.extents.width, 0.0)
-        self.assertEqual(ir.extents.height, 0.0)
+        # 2013_Arc has radius ~8.293, so width and height must equal 2 * radius ~16.586
+        self.assertAlmostEqual(ir.extents.width, 16.586, places=2)
+        self.assertAlmostEqual(ir.extents.height, 16.586, places=2)
 
 if __name__ == "__main__":
     unittest.main()
