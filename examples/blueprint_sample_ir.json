@@ -1,0 +1,6482 @@
+{
+  "format": "LAVINCI_CAD_IR_V1",
+  "metadata": {
+    "source_file": "sample.dwg",
+    "dxf_version": "AC1021",
+    "cad_version": "R2007",
+    "units": 6,
+    "measurement_system": "Metric",
+    "author": "Unknown"
+  },
+  "extents": {
+    "min": [
+      122.2619546529124,
+      162.3557281698318
+    ],
+    "max": [
+      147.706,
+      178.8339281698318
+    ],
+    "width": 25.444,
+    "height": 16.478
+  },
+  "layers": [
+    {
+      "name": "0",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "DB - Windows",
+      "color_aci": 5,
+      "hex_color": "#0000FF",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Defpoints",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Dimensions",
+      "color_aci": 1,
+      "hex_color": "#FF0000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Text",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Viewports",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": true,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Walls",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Stairs",
+      "color_aci": 203,
+      "hex_color": "#777777",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Deck",
+      "color_aci": 4,
+      "hex_color": "#00FFFF",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Cabinetry",
+      "color_aci": 95,
+      "hex_color": "#777777",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Schedules",
+      "color_aci": 7,
+      "hex_color": "#000000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Appliances",
+      "color_aci": 3,
+      "hex_color": "#00FF00",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Doors",
+      "color_aci": 155,
+      "hex_color": "#777777",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Power",
+      "color_aci": 6,
+      "hex_color": "#FF00FF",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "Lighting",
+      "color_aci": 1,
+      "hex_color": "#FF0000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "BDRTXT",
+      "color_aci": 6,
+      "hex_color": "#FF00FF",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    },
+    {
+      "name": "BRDTITLE",
+      "color_aci": 1,
+      "hex_color": "#FF0000",
+      "is_off": false,
+      "is_locked": false,
+      "is_frozen": false,
+      "linetype": "Continuous"
+    }
+  ],
+  "bill_of_materials": {
+    "Receptacle": 44,
+    "Lighting fixture": 28,
+    "*B20": 13,
+    "*U48": 10,
+    "*U50": 8,
+    "*U45": 7,
+    "*B21": 5,
+    "*U46": 4,
+    "*B17": 3,
+    "*U38": 3,
+    "*B18": 2,
+    "Bathtub": 2,
+    "*U40": 2,
+    "*U43": 2,
+    "*B31": 2,
+    "*U51": 2,
+    "Toilet": 1,
+    "Sink": 1,
+    "*B24": 1,
+    "*B19": 1,
+    "*B23": 1,
+    "*B22": 1,
+    "*U42": 1,
+    "*U47": 1,
+    "*U41": 1,
+    "*U44": 1,
+    "*U39": 1,
+    "*B27": 1,
+    "Door - French": 1,
+    "*B29": 1,
+    "*B30": 1,
+    "*B32": 1,
+    "*B34": 1,
+    "*B33": 1,
+    "*B35": 1,
+    "*B36": 1,
+    "*B37": 1,
+    "*U49": 1,
+    "*U52": 1,
+    "*U53": 1
+  },
+  "annotations": [
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LLIVING ROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        130.094,
+        170.676
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LFORUM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        131.397,
+        166.991
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LKITCHEN\\P\\H0.6667x;\\lTILE FLOOR}",
+      "position": [
+        126.306,
+        173.409
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LDINNING ROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        124.747,
+        167.731
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LLAUNDRY\\P\\H0.6667x;\\lTILE FLOOR}",
+      "position": [
+        125.424,
+        175.813
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        128.294,
+        175.558
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "position": [
+        130.667,
+        175.925
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LMASTER\\PBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        141.43,
+        166.926
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "position": [
+        141.01,
+        171.167
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        144.772,
+        167.025
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LWALK-IN\\PCLOSET\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        142.833,
+        171.788
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "position": [
+        146.04,
+        170.677
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        141.133,
+        173.999
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        144.742,
+        171.655
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        145.612,
+        173.829
+      ],
+      "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "text": "{\\LSTUDY\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "position": [
+        124.224,
+        169.981
+      ],
+      "height": 0.23
+    }
+  ],
+  "components": [
+    {
+      "block_name": "Toilet",
+      "layer": "Walls",
+      "position": [
+        147.506,
+        168.085,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.001,
+        0.001,
+        0.001
+      ]
+    },
+    {
+      "block_name": "*B17",
+      "layer": "Appliances",
+      "position": [
+        146.727,
+        168.11,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.967,
+        0.967,
+        0.967
+      ]
+    },
+    {
+      "block_name": "*B17",
+      "layer": "Appliances",
+      "position": [
+        141.557,
+        171.739,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.967,
+        0.967,
+        0.967
+      ]
+    },
+    {
+      "block_name": "*B17",
+      "layer": "Appliances",
+      "position": [
+        131.035,
+        176.772,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.967,
+        0.967,
+        0.967
+      ]
+    },
+    {
+      "block_name": "*B18",
+      "layer": "Appliances",
+      "position": [
+        140.05,
+        171.711,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.987,
+        0.987,
+        0.987
+      ]
+    },
+    {
+      "block_name": "Sink",
+      "layer": "Appliances",
+      "position": [
+        147.461,
+        169.978,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.987,
+        0.987,
+        0.987
+      ]
+    },
+    {
+      "block_name": "*B18",
+      "layer": "Appliances",
+      "position": [
+        129.04,
+        175.323,
+        0.0
+      ],
+      "rotation": 132.9,
+      "scale": [
+        0.987,
+        0.987,
+        0.987
+      ]
+    },
+    {
+      "block_name": "*B24",
+      "layer": "Appliances",
+      "position": [
+        127.591,
+        172.554,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1.012,
+        1.012,
+        1.012
+      ]
+    },
+    {
+      "block_name": "*B19",
+      "layer": "Appliances",
+      "position": [
+        125.909,
+        174.976,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.987,
+        0.987,
+        0.987
+      ]
+    },
+    {
+      "block_name": "*B23",
+      "layer": "Appliances",
+      "position": [
+        124.757,
+        173.025,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Bathtub",
+      "layer": "Appliances",
+      "position": [
+        145.652,
+        168.085,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        1.009,
+        1.009,
+        1.009
+      ]
+    },
+    {
+      "block_name": "Bathtub",
+      "layer": "Appliances",
+      "position": [
+        141.999,
+        169.766,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1.009,
+        1.009,
+        1.009
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        124.418,
+        170.912,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        124.361,
+        168.36,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        122.919,
+        169.957,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        127.625,
+        166.705,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        125.301,
+        165.197,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        124.418,
+        168.271,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        127.765,
+        167.844,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        129.188,
+        167.026,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        133.308,
+        167.614,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        133.308,
+        170.338,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        133.308,
+        174.011,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        129.659,
+        174.011,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        131.321,
+        174.976,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        127.765,
+        174.329,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        127.765,
+        172.576,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        128.831,
+        175.53,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        124.837,
+        174.491,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        127.625,
+        174.548,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        126.815,
+        174.976,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        129.657,
+        175.116,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        138.914,
+        173.011,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        141.139,
+        174.916,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        140.513,
+        171.963,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        142.323,
+        171.963,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        145.04,
+        172.579,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        144.187,
+        170.573,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        146.377,
+        170.892,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        146.319,
+        174.916,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        147.506,
+        171.586,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        147.506,
+        173.396,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        147.506,
+        170.498,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        145.04,
+        168.846,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        147.506,
+        166.568,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        146.319,
+        174.916,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        146.12,
+        167.935,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        144.187,
+        167.651,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        138.914,
+        167.22,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        139.8,
+        165.258,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        139.371,
+        165.857,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        141.953,
+        164.8,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        144.037,
+        166.739,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        141.219,
+        169.155,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        139.37,
+        168.632,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Receptacle",
+      "layer": "Power",
+      "position": [
+        140.594,
+        171.763,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        140.557,
+        170.613,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        140.349,
+        169.572,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        143.07,
+        169.572,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        142.863,
+        170.613,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        142.583,
+        173.136,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        141.541,
+        172.928,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        145.457,
+        172.408,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        146.498,
+        172.2,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        146.498,
+        169.518,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        145.457,
+        169.726,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        143.777,
+        167.828,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        142.735,
+        167.62,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        141.389,
+        167.675,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        147.006,
+        167.218,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B21",
+      "layer": "Lighting",
+      "position": [
+        145.358,
+        167.937,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        144.463,
+        167.343,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        144.953,
+        165.462,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        147.158,
+        165.6,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B21",
+      "layer": "Lighting",
+      "position": [
+        145.118,
+        167.937,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        144.379,
+        170.007,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        144.744,
+        172.058,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B21",
+      "layer": "Lighting",
+      "position": [
+        144.187,
+        171.854,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        127.365,
+        167.022,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        126.323,
+        166.815,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        124.977,
+        166.87,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B22",
+      "layer": "Lighting",
+      "position": [
+        130.398,
+        166.331,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        131.437,
+        169.739,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        131.437,
+        172.39,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        132.63,
+        167.432,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        123.923,
+        171.673,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        123.389,
+        173.051,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        125.383,
+        171.673,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        126.189,
+        172.206,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        126.189,
+        173.702,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        127.359,
+        171.155,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        124.45,
+        169.701,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        126.849,
+        169.688,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        125.945,
+        168.706,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        128.03,
+        170.871,
+        0.0
+      ],
+      "rotation": 269.98,
+      "scale": [
+        -0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        123.775,
+        175.9,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        130.113,
+        176.083,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        127.957,
+        176.475,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "Lighting fixture",
+      "layer": "Lighting",
+      "position": [
+        128.491,
+        174.043,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B21",
+      "layer": "Lighting",
+      "position": [
+        129.245,
+        172.989,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B21",
+      "layer": "Lighting",
+      "position": [
+        127.843,
+        177.11,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        126.162,
+        175.8,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*B20",
+      "layer": "Lighting",
+      "position": [
+        129.19,
+        175.924,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        0.025,
+        0.025,
+        0.025
+      ]
+    },
+    {
+      "block_name": "*U46",
+      "layer": "DB - Windows",
+      "position": [
+        122.262,
+        166.781,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U42",
+      "layer": "DB - Windows",
+      "position": [
+        124.682,
+        164.549,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U40",
+      "layer": "DB - Windows",
+      "position": [
+        130.457,
+        164.997,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U40",
+      "layer": "DB - Windows",
+      "position": [
+        131.871,
+        164.997,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U47",
+      "layer": "DB - Windows",
+      "position": [
+        133.308,
+        168.266,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U43",
+      "layer": "DB - Windows",
+      "position": [
+        122.719,
+        169.987,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U46",
+      "layer": "DB - Windows",
+      "position": [
+        122.262,
+        172.632,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U41",
+      "layer": "DB - Windows",
+      "position": [
+        133.317,
+        173.416,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U46",
+      "layer": "DB - Windows",
+      "position": [
+        138.714,
+        172.632,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U46",
+      "layer": "DB - Windows",
+      "position": [
+        138.714,
+        166.841,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U44",
+      "layer": "DB - Windows",
+      "position": [
+        141.035,
+        164.609,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U43",
+      "layer": "DB - Windows",
+      "position": [
+        139.171,
+        169.927,
+        0.0
+      ],
+      "rotation": 270.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        147.706,
+        166.258,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        147.706,
+        167.558,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        147.706,
+        169.086,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        147.706,
+        170.386,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        147.306,
+        165.058,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        145.087,
+        165.058,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U45",
+      "layer": "DB - Windows",
+      "position": [
+        146.196,
+        165.058,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U38",
+      "layer": "Doors",
+      "position": [
+        128.831,
+        173.29,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U38",
+      "layer": "Doors",
+      "position": [
+        132.457,
+        165.35,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U38",
+      "layer": "Doors",
+      "position": [
+        142.849,
+        173.242,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U39",
+      "layer": "Doors",
+      "position": [
+        144.701,
+        173.242,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B27",
+      "layer": "Doors",
+      "position": [
+        125.948,
+        168.898,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "Door - French",
+      "layer": "Doors",
+      "position": [
+        127.549,
+        168.271,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B29",
+      "layer": "Doors",
+      "position": [
+        126.589,
+        177.11,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B30",
+      "layer": "Doors",
+      "position": [
+        126.424,
+        177.034,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B31",
+      "layer": "Doors",
+      "position": [
+        128.92,
+        177.034,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B32",
+      "layer": "Doors",
+      "position": [
+        131.771,
+        165.197,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B31",
+      "layer": "Doors",
+      "position": [
+        145.19,
+        170.715,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B34",
+      "layer": "Doors",
+      "position": [
+        145.19,
+        170.92,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B33",
+      "layer": "Doors",
+      "position": [
+        144.037,
+        172.011,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B35",
+      "layer": "Doors",
+      "position": [
+        144.037,
+        169.077,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B36",
+      "layer": "Doors",
+      "position": [
+        139.416,
+        169.305,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*B37",
+      "layer": "Doors",
+      "position": [
+        142.225,
+        169.305,
+        0.0
+      ],
+      "rotation": 180.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        123.443,
+        177.11,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        124.119,
+        177.11,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        129.414,
+        177.11,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        130.114,
+        177.11,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U49",
+      "layer": "DB - Windows",
+      "position": [
+        122.979,
+        164.997,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        122.919,
+        165.258,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        122.919,
+        168.61,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        122.919,
+        171.063,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        122.919,
+        174.402,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U51",
+      "layer": "DB - Windows",
+      "position": [
+        122.919,
+        175.702,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U51",
+      "layer": "DB - Windows",
+      "position": [
+        131.931,
+        174.976,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        139.932,
+        174.916,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        140.632,
+        174.916,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        141.332,
+        174.916,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        145.045,
+        174.916,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        145.745,
+        174.916,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U48",
+      "layer": "DB - Windows",
+      "position": [
+        146.445,
+        174.916,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        139.371,
+        171.124,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        139.371,
+        174.316,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        139.371,
+        168.655,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U50",
+      "layer": "DB - Windows",
+      "position": [
+        139.371,
+        165.318,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U52",
+      "layer": "DB - Windows",
+      "position": [
+        139.432,
+        165.058,
+        0.0
+      ],
+      "rotation": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "block_name": "*U53",
+      "layer": "DB - Windows",
+      "position": [
+        147.706,
+        173.716,
+        0.0
+      ],
+      "rotation": 90.0,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "geometry_primitives": {
+    "summary": {
+      "total_lines": 282,
+      "total_arcs": 31,
+      "total_polylines": 7,
+      "total_components": 161,
+      "total_annotations": 16
+    },
+    "primitives": {
+      "lines": [
+        {
+          "layer": "Deck",
+          "start": [
+            129.18,
+            162.864
+          ],
+          "end": [
+            133.447,
+            162.864
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            130.006,
+            167.026
+          ],
+          "end": [
+            130.006,
+            165.197
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            128.99,
+            167.026
+          ],
+          "end": [
+            128.99,
+            165.197
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            129.244,
+            167.026
+          ],
+          "end": [
+            129.244,
+            165.197
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            129.498,
+            167.026
+          ],
+          "end": [
+            129.498,
+            165.197
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            129.752,
+            167.026
+          ],
+          "end": [
+            129.752,
+            165.197
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            128.679,
+            165.197
+          ],
+          "end": [
+            128.679,
+            167.026
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            131.314,
+            162.864
+          ],
+          "end": [
+            131.314,
+            162.356
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            131.314,
+            162.356
+          ],
+          "end": [
+            129.18,
+            162.356
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            129.269,
+            163.169
+          ],
+          "end": [
+            129.269,
+            164.997
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            129.244,
+            163.169
+          ],
+          "end": [
+            129.244,
+            164.997
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            129.18,
+            164.997
+          ],
+          "end": [
+            129.18,
+            162.356
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            129.18,
+            162.61
+          ],
+          "end": [
+            131.314,
+            162.61
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            128.679,
+            166.112
+          ],
+          "end": [
+            130.26,
+            166.112
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            127.765,
+            167.026
+          ],
+          "end": [
+            130.26,
+            167.026
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            128.063,
+            178.834
+          ],
+          "end": [
+            128.063,
+            177.31
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            128.317,
+            178.834
+          ],
+          "end": [
+            128.317,
+            177.31
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            127.809,
+            178.834
+          ],
+          "end": [
+            127.809,
+            177.31
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            126.285,
+            177.31
+          ],
+          "end": [
+            126.285,
+            178.834
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            125.446,
+            174.367
+          ],
+          "end": [
+            127.015,
+            174.367
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            125.446,
+            174.367
+          ],
+          "end": [
+            125.446,
+            172.373
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            127.015,
+            172.563
+          ],
+          "end": [
+            127.015,
+            174.367
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            126.285,
+            178.834
+          ],
+          "end": [
+            128.317,
+            178.834
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            146.174,
+            167.086
+          ],
+          "end": [
+            146.174,
+            165.258
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            146.428,
+            167.086
+          ],
+          "end": [
+            146.428,
+            165.258
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            146.682,
+            167.086
+          ],
+          "end": [
+            146.682,
+            165.258
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            145.412,
+            167.086
+          ],
+          "end": [
+            145.412,
+            165.258
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            145.666,
+            167.086
+          ],
+          "end": [
+            145.666,
+            165.258
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            145.92,
+            167.086
+          ],
+          "end": [
+            145.92,
+            165.258
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            145.101,
+            165.258
+          ],
+          "end": [
+            145.101,
+            167.086
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            133.384,
+            163.169
+          ],
+          "end": [
+            133.384,
+            164.997
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            133.359,
+            163.169
+          ],
+          "end": [
+            133.359,
+            164.997
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            133.447,
+            164.997
+          ],
+          "end": [
+            133.447,
+            162.864
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            133.143,
+            162.927
+          ],
+          "end": [
+            131.466,
+            162.927
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            133.143,
+            162.953
+          ],
+          "end": [
+            131.466,
+            162.953
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            144.187,
+            167.086
+          ],
+          "end": [
+            146.682,
+            167.086
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            124.532,
+            172.373
+          ],
+          "end": [
+            125.446,
+            172.373
+          ]
+        },
+        {
+          "layer": "0",
+          "start": [
+            127.625,
+            171.001
+          ],
+          "end": [
+            127.625,
+            171.001
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            122.919,
+            168.271
+          ],
+          "end": [
+            122.919,
+            166.112
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            127.015,
+            172.563
+          ],
+          "end": [
+            127.015,
+            172.792
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            123.376,
+            171.306
+          ],
+          "end": [
+            125.86,
+            171.306
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            125.86,
+            171.001
+          ],
+          "end": [
+            125.86,
+            171.306
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            123.376,
+            171.306
+          ],
+          "end": [
+            123.376,
+            171.001
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            123.986,
+            172.982
+          ],
+          "end": [
+            123.986,
+            172.373
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            122.919,
+            174.062
+          ],
+          "end": [
+            122.919,
+            171.903
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            122.919,
+            172.373
+          ],
+          "end": [
+            123.986,
+            172.373
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            123.986,
+            172.373
+          ],
+          "end": [
+            124.443,
+            172.373
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            123.986,
+            172.982
+          ],
+          "end": [
+            123.986,
+            174.062
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            124.443,
+            172.373
+          ],
+          "end": [
+            124.443,
+            174.062
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            124.532,
+            172.373
+          ],
+          "end": [
+            124.532,
+            174.062
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            124.443,
+            172.373
+          ],
+          "end": [
+            124.532,
+            172.373
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            130.26,
+            167.026
+          ],
+          "end": [
+            130.26,
+            165.197
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            129.714,
+            166.569
+          ],
+          "end": [
+            128.878,
+            166.569
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            128.878,
+            166.569
+          ],
+          "end": [
+            129.103,
+            166.794
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            128.878,
+            166.569
+          ],
+          "end": [
+            129.103,
+            166.344
+          ]
+        },
+        {
+          "layer": "Text",
+          "start": [
+            147.152,
+            165.713
+          ],
+          "end": [
+            146.316,
+            165.713
+          ]
+        },
+        {
+          "layer": "Text",
+          "start": [
+            146.316,
+            165.713
+          ],
+          "end": [
+            146.541,
+            165.938
+          ]
+        },
+        {
+          "layer": "Text",
+          "start": [
+            146.316,
+            165.713
+          ],
+          "end": [
+            146.541,
+            165.488
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            127.015,
+            172.563
+          ],
+          "end": [
+            127.625,
+            172.563
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            126.637,
+            175.922
+          ],
+          "end": [
+            127.033,
+            176.151
+          ]
+        },
+        {
+          "layer": "Dimensions",
+          "start": [
+            127.033,
+            176.151
+          ],
+          "end": [
+            127.429,
+            175.922
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            147.506,
+            169.218
+          ],
+          "end": [
+            146.897,
+            169.218
+          ]
+        },
+        {
+          "layer": "Stairs",
+          "start": [
+            146.682,
+            166.172
+          ],
+          "end": [
+            144.187,
+            166.172
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            126.348,
+            177.31
+          ],
+          "end": [
+            126.348,
+            178.529
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            126.374,
+            177.31
+          ],
+          "end": [
+            126.374,
+            178.529
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            126.589,
+            178.77
+          ],
+          "end": [
+            127.504,
+            178.77
+          ]
+        },
+        {
+          "layer": "Deck",
+          "start": [
+            126.589,
+            178.745
+          ],
+          "end": [
+            127.504,
+            178.745
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            127.231,
+            165.197
+          ],
+          "end": [
+            123.834,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.086,
+            164.6
+          ],
+          "end": [
+            143.763,
+            164.6
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.286,
+            164.8
+          ],
+          "end": [
+            143.563,
+            164.8
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            143.763,
+            164.6
+          ],
+          "end": [
+            143.763,
+            165.058
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            143.563,
+            164.8
+          ],
+          "end": [
+            143.563,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.086,
+            164.6
+          ],
+          "end": [
+            140.086,
+            165.058
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.286,
+            164.8
+          ],
+          "end": [
+            140.286,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.086,
+            165.058
+          ],
+          "end": [
+            139.171,
+            165.058
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.286,
+            165.258
+          ],
+          "end": [
+            139.371,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            165.058
+          ],
+          "end": [
+            139.171,
+            165.972
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.371,
+            165.258
+          ],
+          "end": [
+            139.371,
+            166.172
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            165.972
+          ],
+          "end": [
+            138.714,
+            165.972
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.371,
+            166.172
+          ],
+          "end": [
+            138.914,
+            166.172
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.714,
+            165.972
+          ],
+          "end": [
+            138.714,
+            168.41
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.914,
+            166.172
+          ],
+          "end": [
+            138.914,
+            168.21
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.714,
+            168.41
+          ],
+          "end": [
+            139.171,
+            168.41
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.914,
+            168.21
+          ],
+          "end": [
+            139.371,
+            168.21
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            168.41
+          ],
+          "end": [
+            139.171,
+            171.763
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.371,
+            168.21
+          ],
+          "end": [
+            139.371,
+            169.155
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.371,
+            169.305
+          ],
+          "end": [
+            139.371,
+            171.763
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            171.763
+          ],
+          "end": [
+            138.714,
+            171.763
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            171.963
+          ],
+          "end": [
+            138.914,
+            171.963
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.714,
+            171.763
+          ],
+          "end": [
+            138.714,
+            174.202
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.914,
+            171.963
+          ],
+          "end": [
+            138.914,
+            174.002
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.714,
+            174.202
+          ],
+          "end": [
+            139.171,
+            174.202
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            138.914,
+            174.002
+          ],
+          "end": [
+            139.371,
+            174.002
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            174.202
+          ],
+          "end": [
+            139.171,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.371,
+            174.002
+          ],
+          "end": [
+            139.371,
+            174.916
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            175.116
+          ],
+          "end": [
+            147.706,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.371,
+            174.916
+          ],
+          "end": [
+            142.849,
+            174.916
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            147.706,
+            175.116
+          ],
+          "end": [
+            147.706,
+            165.058
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            147.506,
+            174.916
+          ],
+          "end": [
+            147.506,
+            170.892
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            147.706,
+            165.058
+          ],
+          "end": [
+            143.763,
+            165.058
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            147.506,
+            165.258
+          ],
+          "end": [
+            144.187,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.849,
+            171.763
+          ],
+          "end": [
+            139.371,
+            171.763
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.171,
+            171.763
+          ],
+          "end": [
+            138.914,
+            171.763
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.999,
+            170.378
+          ],
+          "end": [
+            141.999,
+            171.813
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.849,
+            170.228
+          ],
+          "end": [
+            141.849,
+            171.763
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            171.813
+          ],
+          "end": [
+            141.999,
+            171.813
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.999,
+            170.378
+          ],
+          "end": [
+            142.406,
+            170.378
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.149,
+            170.228
+          ],
+          "end": [
+            142.406,
+            170.228
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.149,
+            170.228
+          ],
+          "end": [
+            142.149,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.999,
+            170.005
+          ],
+          "end": [
+            141.999,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.216,
+            169.305
+          ],
+          "end": [
+            141.999,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.216,
+            169.155
+          ],
+          "end": [
+            142.225,
+            169.155
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.149,
+            169.305
+          ],
+          "end": [
+            142.225,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.925,
+            169.155
+          ],
+          "end": [
+            142.925,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.225,
+            169.155
+          ],
+          "end": [
+            142.225,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            140.216,
+            169.305
+          ],
+          "end": [
+            140.216,
+            169.155
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.406,
+            170.228
+          ],
+          "end": [
+            142.406,
+            170.378
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.187,
+            172.011
+          ],
+          "end": [
+            144.187,
+            169.077
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            172.011
+          ],
+          "end": [
+            144.037,
+            171.963
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            172.811
+          ],
+          "end": [
+            144.187,
+            172.811
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            172.011
+          ],
+          "end": [
+            144.187,
+            172.011
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            169.305
+          ],
+          "end": [
+            142.925,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            169.155
+          ],
+          "end": [
+            142.925,
+            169.155
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            169.077
+          ],
+          "end": [
+            144.037,
+            169.155
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            169.077
+          ],
+          "end": [
+            144.187,
+            169.077
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            168.277
+          ],
+          "end": [
+            144.187,
+            168.277
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            169.305
+          ],
+          "end": [
+            144.037,
+            171.813
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.187,
+            168.245
+          ],
+          "end": [
+            144.187,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.187,
+            168.277
+          ],
+          "end": [
+            144.187,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            168.277
+          ],
+          "end": [
+            144.037,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            165.258
+          ],
+          "end": [
+            143.563,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            173.038
+          ],
+          "end": [
+            145.19,
+            171.72
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            172.888
+          ],
+          "end": [
+            145.04,
+            171.72
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            173.038
+          ],
+          "end": [
+            144.701,
+            173.038
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            172.888
+          ],
+          "end": [
+            144.187,
+            172.888
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.701,
+            173.242
+          ],
+          "end": [
+            144.701,
+            173.038
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.551,
+            173.242
+          ],
+          "end": [
+            144.551,
+            173.038
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.551,
+            173.038
+          ],
+          "end": [
+            143.85,
+            173.038
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            143.85,
+            173.038
+          ],
+          "end": [
+            143.85,
+            174.916
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            143.7,
+            173.038
+          ],
+          "end": [
+            143.7,
+            174.916
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            143.85,
+            174.916
+          ],
+          "end": [
+            144.551,
+            174.916
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.999,
+            173.038
+          ],
+          "end": [
+            143.7,
+            173.038
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.849,
+            172.888
+          ],
+          "end": [
+            144.037,
+            172.888
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.999,
+            173.242
+          ],
+          "end": [
+            142.999,
+            173.038
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.849,
+            173.242
+          ],
+          "end": [
+            142.849,
+            172.888
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.187,
+            172.811
+          ],
+          "end": [
+            144.187,
+            172.888
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.037,
+            172.811
+          ],
+          "end": [
+            144.037,
+            172.888
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            171.72
+          ],
+          "end": [
+            145.19,
+            171.72
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            170.92
+          ],
+          "end": [
+            145.19,
+            170.92
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            170.892
+          ],
+          "end": [
+            147.506,
+            170.892
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            170.742
+          ],
+          "end": [
+            147.506,
+            170.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            170.92
+          ],
+          "end": [
+            145.19,
+            170.892
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            170.92
+          ],
+          "end": [
+            145.04,
+            170.715
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            147.506,
+            170.742
+          ],
+          "end": [
+            147.506,
+            168.085
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            170.742
+          ],
+          "end": [
+            145.19,
+            170.715
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            170.715
+          ],
+          "end": [
+            145.19,
+            170.715
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            169.915
+          ],
+          "end": [
+            145.19,
+            169.915
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            169.915
+          ],
+          "end": [
+            145.19,
+            168.085
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            169.915
+          ],
+          "end": [
+            145.04,
+            167.935
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.19,
+            168.085
+          ],
+          "end": [
+            147.506,
+            168.085
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            145.04,
+            167.935
+          ],
+          "end": [
+            147.506,
+            167.935
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            147.506,
+            167.935
+          ],
+          "end": [
+            147.506,
+            165.258
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.416,
+            169.305
+          ],
+          "end": [
+            139.371,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.416,
+            169.155
+          ],
+          "end": [
+            139.371,
+            169.155
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            139.416,
+            169.155
+          ],
+          "end": [
+            139.416,
+            169.305
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.999,
+            174.742
+          ],
+          "end": [
+            142.849,
+            174.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.999,
+            173.242
+          ],
+          "end": [
+            142.849,
+            173.242
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.999,
+            174.916
+          ],
+          "end": [
+            142.999,
+            174.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.849,
+            174.916
+          ],
+          "end": [
+            142.849,
+            174.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            142.999,
+            174.916
+          ],
+          "end": [
+            143.7,
+            174.916
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.551,
+            174.742
+          ],
+          "end": [
+            144.701,
+            174.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.551,
+            173.242
+          ],
+          "end": [
+            144.701,
+            173.242
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.701,
+            174.916
+          ],
+          "end": [
+            144.701,
+            174.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.551,
+            174.916
+          ],
+          "end": [
+            144.551,
+            174.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            144.701,
+            174.916
+          ],
+          "end": [
+            147.506,
+            174.916
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            140.91,
+            171.763
+          ],
+          "end": [
+            140.91,
+            171.155
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            140.91,
+            171.155
+          ],
+          "end": [
+            139.371,
+            171.155
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "start": [
+            146.897,
+            169.218
+          ],
+          "end": [
+            146.897,
+            170.742
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.999,
+            170.228
+          ],
+          "end": [
+            141.999,
+            170.005
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            177.034
+          ],
+          "end": [
+            128.92,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            177.11
+          ],
+          "end": [
+            131.174,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            131.174,
+            177.11
+          ],
+          "end": [
+            131.174,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            131.174,
+            175.116
+          ],
+          "end": [
+            128.92,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            175.116
+          ],
+          "end": [
+            128.92,
+            176.234
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            176.234
+          ],
+          "end": [
+            128.831,
+            176.234
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.831,
+            176.234
+          ],
+          "end": [
+            128.831,
+            174.79
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.831,
+            174.79
+          ],
+          "end": [
+            128.92,
+            174.79
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            174.79
+          ],
+          "end": [
+            128.92,
+            174.976
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            129.519,
+            174.976
+          ],
+          "end": [
+            129.519,
+            173.128
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            129.519,
+            173.128
+          ],
+          "end": [
+            128.92,
+            173.128
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            173.128
+          ],
+          "end": [
+            128.92,
+            173.29
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            173.29
+          ],
+          "end": [
+            128.831,
+            173.29
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.831,
+            173.29
+          ],
+          "end": [
+            128.831,
+            172.989
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.831,
+            172.989
+          ],
+          "end": [
+            129.659,
+            172.989
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            129.659,
+            172.989
+          ],
+          "end": [
+            129.659,
+            174.976
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            129.659,
+            174.976
+          ],
+          "end": [
+            133.308,
+            174.976
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            133.308,
+            174.976
+          ],
+          "end": [
+            133.308,
+            167.166
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            133.308,
+            167.166
+          ],
+          "end": [
+            132.457,
+            167.166
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.457,
+            167.166
+          ],
+          "end": [
+            132.457,
+            166.85
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.457,
+            166.85
+          ],
+          "end": [
+            132.546,
+            166.85
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.546,
+            166.85
+          ],
+          "end": [
+            132.546,
+            167.026
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.546,
+            167.026
+          ],
+          "end": [
+            133.308,
+            167.026
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            133.308,
+            167.026
+          ],
+          "end": [
+            133.308,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            133.308,
+            165.197
+          ],
+          "end": [
+            132.546,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.546,
+            165.197
+          ],
+          "end": [
+            132.546,
+            165.35
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.546,
+            165.35
+          ],
+          "end": [
+            132.457,
+            165.35
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.457,
+            165.35
+          ],
+          "end": [
+            132.457,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            132.457,
+            165.197
+          ],
+          "end": [
+            131.771,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            131.771,
+            165.197
+          ],
+          "end": [
+            131.771,
+            164.997
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.504,
+            177.31
+          ],
+          "end": [
+            127.504,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.504,
+            177.11
+          ],
+          "end": [
+            128.831,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.831,
+            177.11
+          ],
+          "end": [
+            128.831,
+            177.034
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.831,
+            177.034
+          ],
+          "end": [
+            128.92,
+            177.034
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.231,
+            165.197
+          ],
+          "end": [
+            127.625,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            165.197
+          ],
+          "end": [
+            127.625,
+            168.271
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            168.271
+          ],
+          "end": [
+            127.549,
+            168.271
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.549,
+            168.271
+          ],
+          "end": [
+            127.549,
+            168.36
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.549,
+            168.36
+          ],
+          "end": [
+            127.625,
+            168.36
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            168.36
+          ],
+          "end": [
+            127.625,
+            168.569
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            168.569
+          ],
+          "end": [
+            127.765,
+            168.569
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.765,
+            168.569
+          ],
+          "end": [
+            127.765,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.765,
+            165.197
+          ],
+          "end": [
+            130.871,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            130.871,
+            165.197
+          ],
+          "end": [
+            130.871,
+            164.997
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.589,
+            177.31
+          ],
+          "end": [
+            126.589,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.589,
+            177.11
+          ],
+          "end": [
+            126.513,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            177.11
+          ],
+          "end": [
+            126.513,
+            177.034
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            177.034
+          ],
+          "end": [
+            126.424,
+            177.034
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.424,
+            177.034
+          ],
+          "end": [
+            126.424,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.424,
+            177.11
+          ],
+          "end": [
+            122.919,
+            177.11
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            177.11
+          ],
+          "end": [
+            122.919,
+            174.202
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            174.202
+          ],
+          "end": [
+            124.748,
+            174.202
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            124.748,
+            174.202
+          ],
+          "end": [
+            124.748,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            124.748,
+            175.116
+          ],
+          "end": [
+            126.424,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.424,
+            175.116
+          ],
+          "end": [
+            126.424,
+            176.234
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            176.234
+          ],
+          "end": [
+            126.513,
+            175.967
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            175.967
+          ],
+          "end": [
+            126.637,
+            175.967
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.637,
+            175.967
+          ],
+          "end": [
+            126.637,
+            175.878
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.637,
+            175.878
+          ],
+          "end": [
+            126.513,
+            175.878
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            175.878
+          ],
+          "end": [
+            126.513,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            175.116
+          ],
+          "end": [
+            127.676,
+            175.116
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.676,
+            175.116
+          ],
+          "end": [
+            127.676,
+            175.878
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.676,
+            175.878
+          ],
+          "end": [
+            127.552,
+            175.878
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.552,
+            175.878
+          ],
+          "end": [
+            127.552,
+            175.967
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.552,
+            175.967
+          ],
+          "end": [
+            127.765,
+            175.967
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.765,
+            175.967
+          ],
+          "end": [
+            127.765,
+            170.703
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.765,
+            170.703
+          ],
+          "end": [
+            127.625,
+            170.703
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            170.703
+          ],
+          "end": [
+            127.625,
+            170.912
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            170.912
+          ],
+          "end": [
+            127.549,
+            170.912
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.549,
+            170.912
+          ],
+          "end": [
+            127.549,
+            171.001
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.549,
+            171.001
+          ],
+          "end": [
+            127.625,
+            171.001
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            171.001
+          ],
+          "end": [
+            127.625,
+            174.976
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.625,
+            174.976
+          ],
+          "end": [
+            124.837,
+            174.976
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            124.837,
+            174.976
+          ],
+          "end": [
+            124.837,
+            174.062
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            124.837,
+            174.062
+          ],
+          "end": [
+            122.462,
+            174.062
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.462,
+            174.062
+          ],
+          "end": [
+            122.462,
+            171.903
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.462,
+            171.903
+          ],
+          "end": [
+            122.919,
+            171.903
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            171.903
+          ],
+          "end": [
+            122.919,
+            171.001
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            171.001
+          ],
+          "end": [
+            126.025,
+            171.001
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.025,
+            171.001
+          ],
+          "end": [
+            126.025,
+            170.912
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.025,
+            170.912
+          ],
+          "end": [
+            125.948,
+            170.912
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.948,
+            170.912
+          ],
+          "end": [
+            125.948,
+            170.398
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.948,
+            170.398
+          ],
+          "end": [
+            125.86,
+            170.398
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.86,
+            170.398
+          ],
+          "end": [
+            125.86,
+            170.912
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.86,
+            170.912
+          ],
+          "end": [
+            122.919,
+            170.912
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            170.912
+          ],
+          "end": [
+            122.919,
+            168.36
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            168.36
+          ],
+          "end": [
+            125.86,
+            168.36
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.86,
+            168.36
+          ],
+          "end": [
+            125.86,
+            168.898
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.86,
+            168.898
+          ],
+          "end": [
+            125.948,
+            168.898
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.948,
+            168.898
+          ],
+          "end": [
+            125.948,
+            168.36
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            125.948,
+            168.36
+          ],
+          "end": [
+            126.049,
+            168.36
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.049,
+            168.36
+          ],
+          "end": [
+            126.049,
+            168.271
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.049,
+            168.271
+          ],
+          "end": [
+            122.462,
+            168.271
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.462,
+            168.271
+          ],
+          "end": [
+            122.462,
+            166.112
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.462,
+            166.112
+          ],
+          "end": [
+            122.919,
+            166.112
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            166.112
+          ],
+          "end": [
+            122.919,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            122.919,
+            165.197
+          ],
+          "end": [
+            123.834,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            123.834,
+            165.197
+          ],
+          "end": [
+            123.834,
+            164.74
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            123.834,
+            164.74
+          ],
+          "end": [
+            127.231,
+            164.74
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            127.231,
+            164.74
+          ],
+          "end": [
+            127.231,
+            165.197
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            126.513,
+            176.234
+          ],
+          "end": [
+            126.424,
+            176.234
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            141.849,
+            170.228
+          ],
+          "end": [
+            141.999,
+            170.228
+          ]
+        },
+        {
+          "layer": "Walls",
+          "start": [
+            128.92,
+            174.976
+          ],
+          "end": [
+            129.519,
+            174.976
+          ]
+        }
+      ],
+      "arcs": [
+        {
+          "layer": "Lighting",
+          "center": [
+            140.725,
+            170.074
+          ],
+          "radius": 0.627,
+          "start_angle": 120.71,
+          "end_angle": 233.21
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            142.695,
+            170.074
+          ],
+          "radius": 0.627,
+          "start_angle": 306.79,
+          "end_angle": 59.29
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            142.08,
+            172.76
+          ],
+          "radius": 0.627,
+          "start_angle": 36.79,
+          "end_angle": 149.29
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            145.959,
+            172.032
+          ],
+          "radius": 0.627,
+          "start_angle": 30.71,
+          "end_angle": 143.21
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            145.959,
+            169.351
+          ],
+          "radius": 0.627,
+          "start_angle": 30.71,
+          "end_angle": 143.21
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            143.23,
+            168.16
+          ],
+          "radius": 0.639,
+          "start_angle": 237.6,
+          "end_angle": 328.71
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            142.044,
+            167.3
+          ],
+          "radius": 0.627,
+          "start_angle": 30.71,
+          "end_angle": 143.21
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            146.304,
+            166.858
+          ],
+          "radius": 2.051,
+          "start_angle": 166.33,
+          "end_angle": 222.88
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            145.779,
+            169.324
+          ],
+          "radius": 3.92,
+          "start_angle": 260.05,
+          "end_angle": 288.24
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            145.761,
+            166.485
+          ],
+          "radius": 1.578,
+          "start_angle": 332.33,
+          "end_angle": 27.67
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            144.003,
+            169.74
+          ],
+          "radius": 2.474,
+          "start_angle": 284.34,
+          "end_angle": 303.21
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            146.522,
+            169.362
+          ],
+          "radius": 2.199,
+          "start_angle": 167.07,
+          "end_angle": 230.32
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            135.238,
+            173.666
+          ],
+          "radius": 9.791,
+          "start_angle": 339.01,
+          "end_angle": 350.54
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            144.537,
+            172.23
+          ],
+          "radius": 0.385,
+          "start_angle": 257.46,
+          "end_angle": 302.4
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            127.03,
+            166.448
+          ],
+          "radius": 0.664,
+          "start_angle": 59.76,
+          "end_angle": 146.55
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            125.663,
+            167.083
+          ],
+          "radius": 0.575,
+          "start_angle": 201.78,
+          "end_angle": 332.14
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            130.252,
+            167.012
+          ],
+          "radius": 0.697,
+          "start_angle": 219.49,
+          "end_angle": 282.1
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            133.195,
+            169.153
+          ],
+          "radius": 1.811,
+          "start_angle": 166.13,
+          "end_angle": 251.84
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            129.26,
+            171.065
+          ],
+          "radius": 2.68,
+          "start_angle": 330.36,
+          "end_angle": 29.64
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            127.06,
+            171.977
+          ],
+          "radius": 0.875,
+          "start_angle": 174.94,
+          "end_angle": 289.95
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            124.88,
+            172.954
+          ],
+          "radius": 1.641,
+          "start_angle": 332.89,
+          "end_angle": 27.11
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            125.988,
+            171.539
+          ],
+          "radius": 0.669,
+          "start_angle": 85.84,
+          "end_angle": 154.69
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            124.653,
+            172.965
+          ],
+          "radius": 1.619,
+          "start_angle": 243.18,
+          "end_angle": 296.82
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            124.311,
+            172.701
+          ],
+          "radius": 1.161,
+          "start_angle": 162.45,
+          "end_angle": 242.26
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            124.507,
+            168.015
+          ],
+          "radius": 1.84,
+          "start_angle": 22.08,
+          "end_angle": 91.78
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            126.641,
+            170.909
+          ],
+          "radius": 1.39,
+          "start_angle": 278.6,
+          "end_angle": 358.43
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            129.645,
+            176.818
+          ],
+          "radius": 1.003,
+          "start_angle": 242.97,
+          "end_angle": 297.82
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            124.692,
+            173.308
+          ],
+          "radius": 2.894,
+          "start_angle": 59.45,
+          "end_angle": 108.48
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            127.944,
+            176.647
+          ],
+          "radius": 0.221,
+          "start_angle": 117.29,
+          "end_angle": 230.86
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            125.985,
+            174.948
+          ],
+          "radius": 2.616,
+          "start_angle": 343.27,
+          "end_angle": 35.71
+        },
+        {
+          "layer": "Lighting",
+          "center": [
+            129.097,
+            173.455
+          ],
+          "radius": 0.747,
+          "start_angle": 144.3,
+          "end_angle": 281.4
+        }
+      ],
+      "polylines": [
+        {
+          "layer": "Walls",
+          "is_closed": true,
+          "points": [
+            [
+              139.171,
+              168.41
+            ],
+            [
+              138.714,
+              168.41
+            ],
+            [
+              138.714,
+              165.972
+            ],
+            [
+              139.171,
+              165.972
+            ],
+            [
+              139.171,
+              165.058
+            ],
+            [
+              140.086,
+              165.058
+            ],
+            [
+              140.086,
+              164.6
+            ],
+            [
+              143.763,
+              164.6
+            ],
+            [
+              143.763,
+              165.058
+            ],
+            [
+              147.706,
+              165.058
+            ],
+            [
+              147.706,
+              175.116
+            ],
+            [
+              139.171,
+              175.116
+            ],
+            [
+              139.171,
+              174.202
+            ],
+            [
+              138.714,
+              174.202
+            ],
+            [
+              138.714,
+              171.763
+            ],
+            [
+              139.171,
+              171.763
+            ]
+          ]
+        },
+        {
+          "layer": "Walls",
+          "is_closed": false,
+          "points": [
+            [
+              139.371,
+              171.763
+            ],
+            [
+              141.815,
+              171.763
+            ]
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "is_closed": false,
+          "points": [
+            [
+              129.835,
+              175.116
+            ],
+            [
+              129.835,
+              175.319
+            ],
+            [
+              129.123,
+              176.03
+            ],
+            [
+              128.92,
+              176.03
+            ]
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "is_closed": false,
+          "points": [
+            [
+              126.361,
+              174.976
+            ],
+            [
+              126.361,
+              174.672
+            ],
+            [
+              127.32,
+              174.672
+            ],
+            [
+              127.32,
+              172.563
+            ]
+          ]
+        },
+        {
+          "layer": "Cabinetry",
+          "is_closed": false,
+          "points": [
+            [
+              124.837,
+              174.062
+            ],
+            [
+              125.142,
+              174.062
+            ],
+            [
+              125.142,
+              174.672
+            ],
+            [
+              125.446,
+              174.672
+            ],
+            [
+              125.446,
+              174.976
+            ]
+          ]
+        },
+        {
+          "layer": "Walls",
+          "is_closed": false,
+          "points": [
+            [
+              131.771,
+              164.997
+            ],
+            [
+              133.508,
+              164.997
+            ],
+            [
+              133.508,
+              175.176
+            ],
+            [
+              131.374,
+              175.176
+            ],
+            [
+              131.374,
+              177.31
+            ],
+            [
+              127.504,
+              177.31
+            ]
+          ]
+        },
+        {
+          "layer": "Walls",
+          "is_closed": false,
+          "points": [
+            [
+              130.871,
+              164.997
+            ],
+            [
+              127.431,
+              164.997
+            ],
+            [
+              127.431,
+              164.54
+            ],
+            [
+              123.634,
+              164.54
+            ],
+            [
+              123.634,
+              164.997
+            ],
+            [
+              122.719,
+              164.997
+            ],
+            [
+              122.719,
+              165.912
+            ],
+            [
+              122.262,
+              165.912
+            ],
+            [
+              122.262,
+              168.471
+            ],
+            [
+              122.719,
+              168.471
+            ],
+            [
+              122.719,
+              171.703
+            ],
+            [
+              122.262,
+              171.703
+            ],
+            [
+              122.262,
+              174.262
+            ],
+            [
+              122.719,
+              174.262
+            ],
+            [
+              122.719,
+              177.31
+            ],
+            [
+              126.589,
+              177.31
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}
