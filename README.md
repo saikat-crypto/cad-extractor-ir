@@ -76,7 +76,7 @@ Extracting simple data—such as room dimensions, layer topologies, or a Bill of
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/cad-extractor-ir.git
+git clone https://github.com/saikat-crypto/cad-extractor-ir.git
 cd cad-extractor-ir
 
 # Install package
