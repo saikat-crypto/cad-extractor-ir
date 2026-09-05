@@ -26,7 +26,34 @@ from collections import Counter
 from typing import Dict, Any, List, Optional, Tuple
 
 import ezdxf
+import ezdxf.tools.crypt as _ezdxf_crypt
 from ezdxf.colors import aci2rgb
+
+# Robustly monkeypatch ACIS crypt decode to handle non-ASCII characters without crashing
+_orig_crypt_decode = _ezdxf_crypt.decode
+def _safe_crypt_decode(text_lines):
+    def _decode_safe(text):
+        dectab = _ezdxf_crypt._decode_table
+        s = []
+        if isinstance(text, str):
+            text_bytes = text.encode("ascii", errors="replace")
+        else:
+            text_bytes = bytes(text)
+        skip = False
+        for c in text_bytes:
+            if skip:
+                skip = False
+                continue
+            if c in dectab:
+                s.append(dectab[c])
+                skip = (c == 0x5E)
+            else:
+                s.append(chr(c ^ 0x5F))
+        return "".join(s)
+    return (_decode_safe(line) for line in text_lines)
+
+_ezdxf_crypt.decode = _safe_crypt_decode
+
 
 from .models import (
     CADIntermediateRepresentation,
