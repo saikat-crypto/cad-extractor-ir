@@ -149,6 +149,8 @@ docker push <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/lavinci-dwg-extract
 
 ## 📐 Intermediate Representation (IR) Sample Schema
 
+For the full detailed schema, design choices, and field reference, see [CAD_IR_SPECIFICATION.md](docs/CAD_IR_SPECIFICATION.md).
+
 ```json
 {
   "format": "LAVINCI_CAD_IR_V1",
