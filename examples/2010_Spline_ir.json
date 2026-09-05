@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V1",
+  "format": "LAVINCI_CAD_IR_V2",
   "metadata": {
     "source_file": "2010_Spline.dwg",
     "dxf_version": "AC1024",
@@ -20,11 +20,39 @@
     "width": 0.0,
     "height": 0.0
   },
+  "layouts": [
+    {
+      "name": "Layout1",
+      "is_active": false,
+      "extents_min": [
+        0.0,
+        0.0
+      ],
+      "extents_max": [
+        0.0,
+        0.0
+      ],
+      "viewports": []
+    },
+    {
+      "name": "Layout2",
+      "is_active": false,
+      "extents_min": [
+        0.0,
+        0.0
+      ],
+      "extents_max": [
+        0.0,
+        0.0
+      ],
+      "viewports": []
+    }
+  ],
   "layers": [
     {
       "name": "0",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -33,7 +61,7 @@
     {
       "name": "Defpoints",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -42,6 +70,7 @@
   ],
   "bill_of_materials": {},
   "annotations": [],
+  "dimensions": [],
   "components": [],
   "geometry_primitives": {
     "summary": {
@@ -49,7 +78,8 @@
       "total_arcs": 0,
       "total_polylines": 0,
       "total_components": 0,
-      "total_annotations": 0
+      "total_annotations": 0,
+      "total_dimensions": 0
     },
     "primitives": {
       "lines": [],

@@ -117,8 +117,16 @@ cad-extractor blueprint.dwg --bom
 === Bill of Materials (BOM) ===
 Component Name                      | Quantity  
 ------------------------------------------------
+```text
+=== Bill of Materials (BOM) ===
+Component Name                      | Quantity  
+------------------------------------------------
 Receptacle                          | 44        
 Lighting fixture                    | 28        
+ANDERSEN CASEMENT (*U48)            | 10        
+ANDERSEN CASEMENT (*U50)            | 8         
+ANDERSEN CASEMENT (*U45)            | 7         
+TRU STYLE BI-FOLD (*U38)            | 3         
 Bathtub                             | 2         
 Toilet                              | 1         
 Sink                                | 1         
@@ -128,6 +136,63 @@ Export complete Intermediate Representation to JSON:
 ```bash
 cad-extractor blueprint.dwg -o blueprint_ir.json
 ```
+
+---
+
+## 📐 Intermediate Representation (IR v2) Sample Schema
+
+```json
+{
+  "format": "LAVINCI_CAD_IR_V2",
+  "metadata": {
+    "source_file": "floor_plan.dwg",
+    "cad_version": "R2007",
+    "measurement_system": "Metric"
+  },
+  "extents": {
+    "width": 524.403,
+    "height": 501.854
+  },
+  "layouts": [
+    {
+      "name": "ISO A1",
+      "is_active": false,
+      "viewports": [{ "center": [414.7, 279.2], "width": 848.88, "height": 636.32 }]
+    }
+  ],
+  "layers": [
+    { "name": "Lighting", "color_aci": 1, "hex_color": "#ff0000", "is_off": false },
+    { "name": "Power", "color_aci": 6, "hex_color": "#ff00ff", "is_off": false }
+  ],
+  "bill_of_materials": {
+    "Receptacle": 44,
+    "Lighting fixture": 28,
+    "ANDERSEN CASEMENT (*U48)": 10,
+    "TRU STYLE BI-FOLD (*U38)": 3,
+    "Bathtub": 2,
+    "Toilet": 1
+  }
+}
+```
+
+---
+
+## 🔍 Technical Transparency: Engineering Capabilities & Current Boundaries
+
+To maintain technical integrity and clear expectations, here is an explicit breakdown of what CAD Extractor IR solves and current architectural boundaries:
+
+### ✅ Hardened & Solved in v2:
+* **Full 256 ACI Palette & 24-bit TrueColor**: Maps AutoCAD's complete color table to web-native RGB hex strings with proper `ByLayer` inheritance.
+* **Paper Space & Print Layouts**: Scans all drawing layouts (A1, A3, ANSI sheets) and captures `VIEWPORT` bounding boxes and camera scales.
+* **Deep Block Inspection & Attribute Mining**: Mines `ATTRIB` tags (manufacturer, style, model, cost codes) directly off blocks.
+* **Anonymous Block Disambiguation**: Resolves cryptic internal block identifiers (e.g. `*U48`, `*B20`) into human-readable component labels (`ANDERSEN CASEMENT (*U48)`).
+* **MTEXT Formatting Sanitization**: Strips proprietary AutoCAD RTF formatting tags (`\f...;`, `\H...;`, `\L` underline, `\P`), returning clean human-readable text.
+* **Dimension Entity Extraction**: Ingests `DIMENSION` entities, measurement values, definition points, and tolerance strings.
+
+### ⚠️ Current Architectural Boundaries:
+1. **Underlying Parser Dependency**: Binary `.dwg` decoding is currently orchestrated via `GNU LibreDWG` as the headless binary reader. Unrecognized custom third-party C++ objects (AutoCAD Architecture/Civil 3D proxy entities) may be ignored.
+2. **ACIS 3D Solid Geometry**: 2D vector primitives and meshes are fully extracted. However, proprietary binary ACIS B-Rep solid kernels (`3DSOLID`, `REGION`) are not yet decomposed into boundary topological faces.
+3. **External Dependencies (XREFs & SHX Fonts)**: Text strings embedded within the file are extracted cleanly. However, visual glyph generation that depends on proprietary compiled `.shx` shape fonts or externally linked XREF drawings requires those external asset files to be bundled with the drawing.
 
 ---
 
@@ -147,39 +212,8 @@ docker push <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/lavinci-dwg-extract
 
 ---
 
-## 📐 Intermediate Representation (IR) Sample Schema
-
-For the full detailed schema, design choices, and field reference, see [CAD_IR_SPECIFICATION.md](docs/CAD_IR_SPECIFICATION.md).
-
-```json
-{
-  "format": "LAVINCI_CAD_IR_V1",
-  "metadata": {
-    "source_file": "floor_plan.dwg",
-    "cad_version": "R2007",
-    "measurement_system": "Metric"
-  },
-  "extents": {
-    "width": 25.444,
-    "height": 16.478
-  },
-  "layers": [
-    { "name": "Lighting", "hex_color": "#FF0000", "is_off": false },
-    { "name": "Power", "hex_color": "#FF00FF", "is_off": false }
-  ],
-  "bill_of_materials": {
-    "Receptacle": 44,
-    "Lighting fixture": 28,
-    "Bathtub": 2,
-    "Toilet": 1
-  }
-}
-```
-
----
-
 ## 📄 License & Credits
 
-* **Author**: [Saikat Dutta Chowdhury](https://github.com/)
+* **Author**: [Saikat Dutta Chowdhury](https://github.com/saikat-crypto)
 * **Project**: Part of the **La Vinci** engineering initiative.
 * **License**: Licensed under the [MIT License](LICENSE).

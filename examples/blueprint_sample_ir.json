@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V1",
+  "format": "LAVINCI_CAD_IR_V2",
   "metadata": {
     "source_file": "blueprint_sample.dwg",
     "dxf_version": "AC1021",
@@ -10,21 +10,70 @@
   },
   "extents": {
     "min": [
-      122.262,
-      162.356
+      0.0,
+      0.0
     ],
     "max": [
-      147.706,
-      178.834
+      524.403,
+      501.854
     ],
-    "width": 25.444,
-    "height": 16.478
+    "width": 524.403,
+    "height": 501.854
   },
+  "layouts": [
+    {
+      "name": "ISO A1",
+      "is_active": false,
+      "extents_min": [
+        0.0,
+        0.0
+      ],
+      "extents_max": [
+        0.0,
+        0.0
+      ],
+      "viewports": [
+        {
+          "center": [
+            414.706,
+            279.206
+          ],
+          "width": 848.88,
+          "height": 636.328,
+          "view_center": null,
+          "view_height": 636.328,
+          "status": 1
+        },
+        {
+          "center": [
+            157.932,
+            354.541
+          ],
+          "width": 247.435,
+          "height": 339.318,
+          "view_center": null,
+          "view_height": 16.966,
+          "status": 1
+        },
+        {
+          "center": [
+            403.399,
+            339.88
+          ],
+          "width": 203.8,
+          "height": 231.917,
+          "view_center": null,
+          "view_height": 11.596,
+          "status": 1
+        }
+      ]
+    }
+  ],
   "layers": [
     {
       "name": "0",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -33,7 +82,7 @@
     {
       "name": "DB - Windows",
       "color_aci": 5,
-      "hex_color": "#0000FF",
+      "hex_color": "#0000ff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -42,7 +91,7 @@
     {
       "name": "Defpoints",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -51,7 +100,7 @@
     {
       "name": "Dimensions",
       "color_aci": 1,
-      "hex_color": "#FF0000",
+      "hex_color": "#ff0000",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -60,7 +109,7 @@
     {
       "name": "Text",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -69,7 +118,7 @@
     {
       "name": "Viewports",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": true,
       "is_locked": false,
       "is_frozen": false,
@@ -78,7 +127,7 @@
     {
       "name": "Walls",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -87,7 +136,7 @@
     {
       "name": "Stairs",
       "color_aci": 203,
-      "hex_color": "#777777",
+      "hex_color": "#9152a5",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -96,7 +145,7 @@
     {
       "name": "Deck",
       "color_aci": 4,
-      "hex_color": "#00FFFF",
+      "hex_color": "#00ffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -105,7 +154,7 @@
     {
       "name": "Cabinetry",
       "color_aci": 95,
-      "hex_color": "#777777",
+      "hex_color": "#3f7f3f",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -114,7 +163,7 @@
     {
       "name": "Schedules",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -123,7 +172,7 @@
     {
       "name": "Appliances",
       "color_aci": 3,
-      "hex_color": "#00FF00",
+      "hex_color": "#00ff00",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -132,7 +181,7 @@
     {
       "name": "Doors",
       "color_aci": 155,
-      "hex_color": "#777777",
+      "hex_color": "#3f5f7f",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -141,7 +190,7 @@
     {
       "name": "Power",
       "color_aci": 6,
-      "hex_color": "#FF00FF",
+      "hex_color": "#ff00ff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -150,7 +199,7 @@
     {
       "name": "Lighting",
       "color_aci": 1,
-      "hex_color": "#FF0000",
+      "hex_color": "#ff0000",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -159,7 +208,7 @@
     {
       "name": "BDRTXT",
       "color_aci": 6,
-      "hex_color": "#FF00FF",
+      "hex_color": "#ff00ff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -168,7 +217,7 @@
     {
       "name": "BRDTITLE",
       "color_aci": 1,
-      "hex_color": "#FF0000",
+      "hex_color": "#ff0000",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -179,49 +228,54 @@
     "Receptacle": 44,
     "Lighting fixture": 28,
     "*B20": 13,
-    "*U48": 10,
-    "*U50": 8,
-    "*U45": 7,
+    "ANDERSEN CASEMENT (*U48)": 10,
+    "ANDERSEN CASEMENT (*U50)": 8,
+    "ANDERSEN CASEMENT (*U45)": 7,
     "*B21": 5,
-    "*U46": 4,
+    "ANDERSEN CASEMENT (*U46)": 4,
     "*B17": 3,
-    "*U38": 3,
+    "TRU STYLE BI-FOLD (*U38)": 3,
     "*B18": 2,
     "Bathtub": 2,
-    "*U40": 2,
-    "*U43": 2,
-    "*B31": 2,
-    "*U51": 2,
+    "ANDERSEN TILT-WASH (*U40)": 2,
+    "ANDERSEN CASEMENT (*U43)": 2,
+    "TRU STYLE ONE PANEL (*B31)": 2,
+    "ANDERSEN CASEMENT (*U51)": 2,
     "Toilet": 1,
     "Sink": 1,
     "*B24": 1,
     "*B19": 1,
     "*B23": 1,
     "*B22": 1,
-    "*U42": 1,
-    "*U47": 1,
-    "*U41": 1,
-    "*U44": 1,
-    "*U39": 1,
-    "*B27": 1,
+    "ANDERSEN CASEMENT (*U42)": 1,
+    "ANDERSEN CASEMENT (*U47)": 1,
+    "ANDERSEN CASEMENT (*U41)": 1,
+    "ANDERSEN CASEMENT (*U44)": 1,
+    "TRU STYLE BI-FOLD (*U39)": 1,
+    "TRU STYLE FRENCH DOORS (*B27)": 1,
     "Door - French": 1,
-    "*B29": 1,
-    "*B30": 1,
-    "*B32": 1,
-    "*B34": 1,
-    "*B33": 1,
-    "*B35": 1,
-    "*B36": 1,
-    "*B37": 1,
-    "*U49": 1,
-    "*U52": 1,
-    "*U53": 1
+    "TRU STYLE TWO PANEL (*B29)": 1,
+    "TRU STYLE ONE PANEL (*B30)": 1,
+    "TRU STYLE TWO PANEL (*B32)": 1,
+    "TRU STYLE ONE PANEL (*B34)": 1,
+    "TRU STYLE ONE PANEL (*B33)": 1,
+    "TRU STYLE ONE PANEL (*B35)": 1,
+    "TRU STYLE ONE PANEL (*B36)": 1,
+    "TRU STYLE ONE PANEL (*B37)": 1,
+    "ANDERSEN CASEMENT (*U49)": 1,
+    "ANDERSEN CASEMENT (*U52)": 1,
+    "ANDERSEN CASEMENT (*U53)": 1,
+    "ARCHBDR-D": 1,
+    "*B13": 1,
+    "*B14": 1
   },
   "annotations": [
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LLIVING ROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LLIVING ROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "LIVING ROOM\nHRWD FLOOR",
       "position": [
         130.094,
         170.676
@@ -231,7 +285,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LFORUM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LFORUM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "FORUM\nHRWD FLOOR",
       "position": [
         131.397,
         166.991
@@ -241,7 +297,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LKITCHEN\\P\\H0.6667x;\\lTILE FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LKITCHEN\\P\\H0.6667x;\\lTILE FLOOR}",
+      "clean_text": "KITCHEN\nTILE FLOOR",
       "position": [
         126.306,
         173.409
@@ -251,7 +309,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LDINNING ROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LDINNING ROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "DINNING ROOM\nHRWD FLOOR",
       "position": [
         124.747,
         167.731
@@ -261,7 +321,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LLAUNDRY\\P\\H0.6667x;\\lTILE FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LLAUNDRY\\P\\H0.6667x;\\lTILE FLOOR}",
+      "clean_text": "LAUNDRY\nTILE FLOOR",
       "position": [
         125.424,
         175.813
@@ -271,7 +333,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "HALL\nHRWD FLOOR",
       "position": [
         128.294,
         175.558
@@ -281,7 +345,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "clean_text": "B/R\nTILE FLOOR",
       "position": [
         130.667,
         175.925
@@ -291,7 +357,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LMASTER\\PBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LMASTER\\PBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "MASTER\nBEDROOM\nHRWD FLOOR",
       "position": [
         141.43,
         166.926
@@ -301,7 +369,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "clean_text": "B/R\nTILE FLOOR",
       "position": [
         141.01,
         171.167
@@ -311,7 +381,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "HALL\nHRWD FLOOR",
       "position": [
         144.772,
         167.025
@@ -321,7 +393,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LWALK-IN\\PCLOSET\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LWALK-IN\\PCLOSET\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "WALK-IN\nCLOSET\nHRWD FLOOR",
       "position": [
         142.833,
         171.788
@@ -331,7 +405,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LB/R\\P\\H0.6667x;\\lTILE FLOOR}",
+      "clean_text": "B/R\nTILE FLOOR",
       "position": [
         146.04,
         170.677
@@ -341,7 +417,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "BEDROOM\nHRWD FLOOR",
       "position": [
         141.133,
         173.999
@@ -351,7 +429,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LHALL\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "HALL\nHRWD FLOOR",
       "position": [
         144.742,
         171.655
@@ -361,7 +441,9 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LBEDROOM\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "BEDROOM\nHRWD FLOOR",
       "position": [
         145.612,
         173.829
@@ -371,18 +453,35 @@
     {
       "type": "MTEXT",
       "layer": "Text",
-      "text": "{\\LSTUDY\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "space": "Model",
+      "raw_text": "{\\LSTUDY\\P\\H0.6667x;\\lHRWD FLOOR}",
+      "clean_text": "STUDY\nHRWD FLOOR",
       "position": [
         124.224,
         169.981
       ],
       "height": 0.23
+    },
+    {
+      "type": "MTEXT",
+      "layer": "Text",
+      "space": "ISO A1",
+      "raw_text": "{\\H2x;\\LGENERAL NOTES:  \\H0.889x;   \\H0.7498x; \\H0.7501x;                      \\P\\pi-12,l12,t12;\\H1.25x;\\l1.\tFOUNDATION VENTILATION EQUAL TO 300 SQ MM OF NET OPENING FOR EACH 45700 SQ MM OF UNDER FLOOR AREA. ALL FOUNDATION TO COMPLY TO CURRANT UNIFORM BUILDING STANDARDS.\\P2.\tVERIFY ALL DIMENSIONS AND CONDITIONS BEFORE BUILDING OR STARTING CONSTRUCTION. NOTIFY THE DESIGNER IMMEDIATELY OF ANY DISCREPANCY OR VARIATION.\\P3.\tVERIFY ROUGH OPENINGS AND FRAMING REQUIREMENTS PRIOR TO FRAMING.\\P4.\tINTERIOR OF HOUSE IS TO BE PAINTED WHITE WITH 75MM OAK  BASE BOARD (SEE DETAIL) & 100MM OAK COVES AT ALL JUNCTIONS BETWEEN WALL & CEILING OR BEAMS & CEILING (SEE DETAIL).\\P5.\tALL EXTERIOR WALL ARE TO BE 50MMX150MM FRAMING. INTERIOR WALLS ARE TO BE 50MMX100MM FRAMING AND ARE NO LOAD BARRING UNLESS OTHERWISE SPECIFIED. ALL HEADERS ON FIRST FLOOR ARE TO BE DBL. 50MM X 250MM AND ALL HEADERS ON SECOND FLOOR ARE TO BE DBL. 50MMX200MM.\\P6.\tROOFING SYSTEM IS TO BE ENGEERINERED TRUSSES. OVERHANG IS TO BE 600MM AT ALL EVES.\\P7.\tSTUCCO SIDING IS TO BE QUIKRETE QUIKWALL FIBERGLASS REINFORCED STUCCO (FRS) #1200 APPLICATION IS TO MEET ALL LOCAL CODE REQUIREMENTS.\\P8.\tMETAL ROOFING IS TO BE MCELROYMETAL, INC. MASTERLOK-90 STRUCTURAL STANDING SEAM ROOF SYSTEM.}",
+      "clean_text": "GENERAL NOTES:                            \n\ni-12,l12,t12;1.\tFOUNDATION VENTILATION EQUAL TO 300 SQ MM OF NET OPENING FOR EACH 45700 SQ MM OF UNDER FLOOR AREA. ALL FOUNDATION TO COMPLY TO CURRANT UNIFORM BUILDING STANDARDS.\n2.\tVERIFY ALL DIMENSIONS AND CONDITIONS BEFORE BUILDING OR STARTING CONSTRUCTION. NOTIFY THE DESIGNER IMMEDIATELY OF ANY DISCREPANCY OR VARIATION.\n3.\tVERIFY ROUGH OPENINGS AND FRAMING REQUIREMENTS PRIOR TO FRAMING.\n4.\tINTERIOR OF HOUSE IS TO BE PAINTED WHITE WITH 75MM OAK  BASE BOARD (SEE DETAIL) & 100MM OAK COVES AT ALL JUNCTIONS BETWEEN WALL & CEILING OR BEAMS & CEILING (SEE DETAIL).\n5.\tALL EXTERIOR WALL ARE TO BE 50MMX150MM FRAMING. INTERIOR WALLS ARE TO BE 50MMX100MM FRAMING AND ARE NO LOAD BARRING UNLESS OTHERWISE SPECIFIED. ALL HEADERS ON FIRST FLOOR ARE TO BE DBL. 50MM X 250MM AND ALL HEADERS ON SECOND FLOOR ARE TO BE DBL. 50MMX200MM.\n6.\tROOFING SYSTEM IS TO BE ENGEERINERED TRUSSES. OVERHANG IS TO BE 600MM AT ALL EVES.\n7.\tSTUCCO SIDING IS TO BE QUIKRETE QUIKWALL FIBERGLASS REINFORCED STUCCO (FRS) #1200 APPLICATION IS TO MEET ALL LOCAL CODE REQUIREMENTS.\n8.\tMETAL ROOFING IS TO BE MCELROYMETAL, INC. MASTERLOK-90 STRUCTURAL STANDING SEAM ROOF SYSTEM.",
+      "position": [
+        524.403,
+        501.854
+      ],
+      "height": 4.0
     }
   ],
+  "dimensions": [],
   "components": [
     {
       "block_name": "Toilet",
+      "resolved_name": "Toilet",
       "layer": "Walls",
+      "space": "Model",
       "position": [
         147.506,
         168.085,
@@ -393,11 +492,14 @@
         0.001,
         0.001,
         0.001
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B17",
+      "resolved_name": "*B17",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         146.727,
         168.11,
@@ -408,11 +510,14 @@
         0.967,
         0.967,
         0.967
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B17",
+      "resolved_name": "*B17",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         141.557,
         171.739,
@@ -423,11 +528,14 @@
         0.967,
         0.967,
         0.967
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B17",
+      "resolved_name": "*B17",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         131.035,
         176.772,
@@ -438,11 +546,14 @@
         0.967,
         0.967,
         0.967
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B18",
+      "resolved_name": "*B18",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         140.05,
         171.711,
@@ -453,11 +564,14 @@
         0.987,
         0.987,
         0.987
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Sink",
+      "resolved_name": "Sink",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         147.461,
         169.978,
@@ -468,11 +582,14 @@
         0.987,
         0.987,
         0.987
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B18",
+      "resolved_name": "*B18",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         129.04,
         175.323,
@@ -483,11 +600,14 @@
         0.987,
         0.987,
         0.987
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B24",
+      "resolved_name": "*B24",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         127.591,
         172.554,
@@ -498,11 +618,14 @@
         1.012,
         1.012,
         1.012
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B19",
+      "resolved_name": "*B19",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         125.909,
         174.976,
@@ -513,11 +636,14 @@
         0.987,
         0.987,
         0.987
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B23",
+      "resolved_name": "*B23",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         124.757,
         173.025,
@@ -528,11 +654,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Bathtub",
+      "resolved_name": "Bathtub",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         145.652,
         168.085,
@@ -543,11 +672,14 @@
         1.009,
         1.009,
         1.009
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Bathtub",
+      "resolved_name": "Bathtub",
       "layer": "Appliances",
+      "space": "Model",
       "position": [
         141.999,
         169.766,
@@ -558,11 +690,14 @@
         1.009,
         1.009,
         1.009
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         124.418,
         170.912,
@@ -573,11 +708,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         124.361,
         168.36,
@@ -588,11 +728,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         122.919,
         169.957,
@@ -603,11 +748,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         127.625,
         166.705,
@@ -618,11 +768,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         125.301,
         165.197,
@@ -633,11 +788,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         124.418,
         168.271,
@@ -648,11 +808,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         127.765,
         167.844,
@@ -663,11 +828,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         129.188,
         167.026,
@@ -678,11 +848,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         133.308,
         167.614,
@@ -693,11 +868,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         133.308,
         170.338,
@@ -708,11 +888,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         133.308,
         174.011,
@@ -723,11 +908,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         129.659,
         174.011,
@@ -738,11 +928,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         131.321,
         174.976,
@@ -753,11 +948,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         127.765,
         174.329,
@@ -768,11 +968,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         127.765,
         172.576,
@@ -783,11 +988,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         128.831,
         175.53,
@@ -798,11 +1008,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         124.837,
         174.491,
@@ -813,11 +1028,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         127.625,
         174.548,
@@ -828,11 +1048,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         126.815,
         174.976,
@@ -843,11 +1068,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         129.657,
         175.116,
@@ -858,11 +1088,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         138.914,
         173.011,
@@ -873,11 +1108,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         141.139,
         174.916,
@@ -888,11 +1128,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         140.513,
         171.963,
@@ -903,11 +1148,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         142.323,
         171.963,
@@ -918,11 +1168,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         145.04,
         172.579,
@@ -933,11 +1188,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         144.187,
         170.573,
@@ -948,11 +1208,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         146.377,
         170.892,
@@ -963,11 +1228,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         146.319,
         174.916,
@@ -978,11 +1248,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         147.506,
         171.586,
@@ -993,11 +1268,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         147.506,
         173.396,
@@ -1008,11 +1288,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         147.506,
         170.498,
@@ -1023,11 +1308,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         145.04,
         168.846,
@@ -1038,11 +1328,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         147.506,
         166.568,
@@ -1053,11 +1348,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         146.319,
         174.916,
@@ -1068,11 +1368,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         146.12,
         167.935,
@@ -1083,11 +1388,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         144.187,
         167.651,
@@ -1098,11 +1408,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         138.914,
         167.22,
@@ -1113,11 +1428,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         139.8,
         165.258,
@@ -1128,11 +1448,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         139.371,
         165.857,
@@ -1143,11 +1468,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         141.953,
         164.8,
@@ -1158,11 +1488,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         144.037,
         166.739,
@@ -1173,11 +1508,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         141.219,
         169.155,
@@ -1188,11 +1528,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         139.37,
         168.632,
@@ -1203,11 +1548,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Receptacle",
+      "resolved_name": "Receptacle",
       "layer": "Power",
+      "space": "Model",
       "position": [
         140.594,
         171.763,
@@ -1218,11 +1568,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         140.557,
         170.613,
@@ -1233,11 +1588,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         140.349,
         169.572,
@@ -1248,11 +1606,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         143.07,
         169.572,
@@ -1263,11 +1626,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         142.863,
         170.613,
@@ -1278,11 +1646,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         142.583,
         173.136,
@@ -1293,11 +1664,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         141.541,
         172.928,
@@ -1308,11 +1684,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         145.457,
         172.408,
@@ -1323,11 +1702,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         146.498,
         172.2,
@@ -1338,11 +1722,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         146.498,
         169.518,
@@ -1353,11 +1740,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         145.457,
         169.726,
@@ -1368,11 +1758,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         143.777,
         167.828,
@@ -1383,11 +1778,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         142.735,
         167.62,
@@ -1398,11 +1798,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         141.389,
         167.675,
@@ -1413,11 +1816,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         147.006,
         167.218,
@@ -1428,11 +1834,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B21",
+      "resolved_name": "*B21",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         145.358,
         167.937,
@@ -1443,11 +1852,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         144.463,
         167.343,
@@ -1458,11 +1872,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         144.953,
         165.462,
@@ -1473,11 +1890,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         147.158,
         165.6,
@@ -1488,11 +1908,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B21",
+      "resolved_name": "*B21",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         145.118,
         167.937,
@@ -1503,11 +1926,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         144.379,
         170.007,
@@ -1518,11 +1946,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         144.744,
         172.058,
@@ -1533,11 +1964,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B21",
+      "resolved_name": "*B21",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         144.187,
         171.854,
@@ -1548,11 +1982,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         127.365,
         167.022,
@@ -1563,11 +2002,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         126.323,
         166.815,
@@ -1578,11 +2022,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         124.977,
         166.87,
@@ -1593,11 +2040,14 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B22",
+      "resolved_name": "*B22",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         130.398,
         166.331,
@@ -1608,11 +2058,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         131.437,
         169.739,
@@ -1623,11 +2078,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         131.437,
         172.39,
@@ -1638,11 +2096,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         132.63,
         167.432,
@@ -1653,11 +2114,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         123.923,
         171.673,
@@ -1668,11 +2134,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         123.389,
         173.051,
@@ -1683,11 +2152,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         125.383,
         171.673,
@@ -1698,11 +2170,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         126.189,
         172.206,
@@ -1713,11 +2188,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         126.189,
         173.702,
@@ -1728,11 +2206,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         127.359,
         171.155,
@@ -1743,11 +2224,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         124.45,
         169.701,
@@ -1758,11 +2244,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         126.849,
         169.688,
@@ -1773,11 +2262,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         125.945,
         168.706,
@@ -1788,11 +2280,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         128.03,
         170.871,
@@ -1803,11 +2300,16 @@
         -0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         123.775,
         175.9,
@@ -1818,11 +2320,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         130.113,
         176.083,
@@ -1833,11 +2338,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         127.957,
         176.475,
@@ -1848,11 +2356,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "Lighting fixture",
+      "resolved_name": "Lighting fixture",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         128.491,
         174.043,
@@ -1863,11 +2374,14 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {}
     },
     {
       "block_name": "*B21",
+      "resolved_name": "*B21",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         129.245,
         172.989,
@@ -1878,11 +2392,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B21",
+      "resolved_name": "*B21",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         127.843,
         177.11,
@@ -1893,11 +2412,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         126.162,
         175.8,
@@ -1908,11 +2432,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*B20",
+      "resolved_name": "*B20",
       "layer": "Lighting",
+      "space": "Model",
       "position": [
         129.19,
         175.924,
@@ -1923,11 +2452,16 @@
         0.025,
         0.025,
         0.025
-      ]
+      ],
+      "attributes": {
+        "ESTCODE": ""
+      }
     },
     {
       "block_name": "*U46",
+      "resolved_name": "ANDERSEN CASEMENT (*U46)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.262,
         166.781,
@@ -1938,11 +2472,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U42",
+      "resolved_name": "ANDERSEN CASEMENT (*U42)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         124.682,
         164.549,
@@ -1953,11 +2498,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U40",
+      "resolved_name": "ANDERSEN TILT-WASH (*U40)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         130.457,
         164.997,
@@ -1968,11 +2524,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "5",
+        "WIDTH": "0.30",
+        "HEIGHT": "1.4 m",
+        "STYLE": "TILT-WASH",
+        "REF#": "DHP1042",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "109.00"
+      }
     },
     {
       "block_name": "*U40",
+      "resolved_name": "ANDERSEN TILT-WASH (*U40)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         131.871,
         164.997,
@@ -1983,11 +2550,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "5",
+        "WIDTH": "0.30",
+        "HEIGHT": "1.4 m",
+        "STYLE": "TILT-WASH",
+        "REF#": "DHP1042",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "109.00"
+      }
     },
     {
       "block_name": "*U47",
+      "resolved_name": "ANDERSEN CASEMENT (*U47)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         133.308,
         168.266,
@@ -1998,11 +2576,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U43",
+      "resolved_name": "ANDERSEN CASEMENT (*U43)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.719,
         169.987,
@@ -2013,11 +2602,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "7",
+        "WIDTH": "1.40",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "W24",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U46",
+      "resolved_name": "ANDERSEN CASEMENT (*U46)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.262,
         172.632,
@@ -2028,11 +2628,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U41",
+      "resolved_name": "ANDERSEN CASEMENT (*U41)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         133.317,
         173.416,
@@ -2043,11 +2654,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U46",
+      "resolved_name": "ANDERSEN CASEMENT (*U46)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         138.714,
         172.632,
@@ -2058,11 +2680,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U46",
+      "resolved_name": "ANDERSEN CASEMENT (*U46)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         138.714,
         166.841,
@@ -2073,11 +2706,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C34",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "249.00"
+      }
     },
     {
       "block_name": "*U44",
+      "resolved_name": "ANDERSEN CASEMENT (*U44)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         141.035,
         164.609,
@@ -2088,11 +2732,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "6",
+        "WIDTH": "1.80",
+        "HEIGHT": ".9 m",
+        "STYLE": "CASEMENT",
+        "REF#": "C33",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "229.00"
+      }
     },
     {
       "block_name": "*U43",
+      "resolved_name": "ANDERSEN CASEMENT (*U43)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.171,
         169.927,
@@ -2103,11 +2758,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "7",
+        "WIDTH": "1.40",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "W24",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         147.706,
         166.258,
@@ -2118,11 +2784,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         147.706,
         167.558,
@@ -2133,11 +2810,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         147.706,
         169.086,
@@ -2148,11 +2836,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         147.706,
         170.386,
@@ -2163,11 +2862,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         147.306,
         165.058,
@@ -2178,11 +2888,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         145.087,
         165.058,
@@ -2193,11 +2914,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U45",
+      "resolved_name": "ANDERSEN CASEMENT (*U45)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         146.196,
         165.058,
@@ -2208,11 +2940,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "0.70",
+        "HEIGHT": ".6 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CW12",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "159.00"
+      }
     },
     {
       "block_name": "*U38",
+      "resolved_name": "TRU STYLE BI-FOLD (*U38)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         128.831,
         173.29,
@@ -2223,11 +2966,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "MANUFACTURER": "TRU STYLE",
+        "STYLE": "BI-FOLD",
+        "HEIGHT": "2 m",
+        "WIDTH": "1.5 m",
+        "REF#": "BF 5068",
+        "COST": "119.00",
+        "SYM.": "6"
+      }
     },
     {
       "block_name": "*U38",
+      "resolved_name": "TRU STYLE BI-FOLD (*U38)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         132.457,
         165.35,
@@ -2238,11 +2992,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "MANUFACTURER": "TRU STYLE",
+        "STYLE": "BI-FOLD",
+        "HEIGHT": "2 m",
+        "WIDTH": "1.5 m",
+        "REF#": "BF 5068",
+        "COST": "119.00",
+        "SYM.": "6"
+      }
     },
     {
       "block_name": "*U38",
+      "resolved_name": "TRU STYLE BI-FOLD (*U38)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         142.849,
         173.242,
@@ -2253,11 +3018,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "MANUFACTURER": "TRU STYLE",
+        "STYLE": "BI-FOLD",
+        "HEIGHT": "2 m",
+        "WIDTH": "1.5 m",
+        "REF#": "BF 5068",
+        "COST": "119.00",
+        "SYM.": "6"
+      }
     },
     {
       "block_name": "*U39",
+      "resolved_name": "TRU STYLE BI-FOLD (*U39)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         144.701,
         173.242,
@@ -2268,11 +3044,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "MANUFACTURER": "TRU STYLE",
+        "STYLE": "BI-FOLD",
+        "HEIGHT": "2 m",
+        "WIDTH": "1.5 m",
+        "REF#": "BF 5068",
+        "COST": "119.00",
+        "SYM.": "6"
+      }
     },
     {
       "block_name": "*B27",
+      "resolved_name": "TRU STYLE FRENCH DOORS (*B27)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         125.948,
         168.898,
@@ -2283,11 +3070,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "3",
+        "WIDTH": "1.5 m",
+        "HEIGHT": "2 m",
+        "STYLE": "FRENCH DOORS",
+        "REF#": "FL 301",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "329.00"
+      }
     },
     {
       "block_name": "Door - French",
+      "resolved_name": "Door - French",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         127.549,
         168.271,
@@ -2298,11 +3096,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "4",
+        "WIDTH": "1.5 m",
+        "HEIGHT": "2 m",
+        "STYLE": "FRENCH DOORS",
+        "REF#": "FL 1000",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "329.00"
+      }
     },
     {
       "block_name": "*B29",
+      "resolved_name": "TRU STYLE TWO PANEL (*B29)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         126.589,
         177.11,
@@ -2313,11 +3122,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "1",
+        "WIDTH": ".90 m",
+        "HEIGHT": "2 m",
+        "STYLE": "TWO PANEL",
+        "REF#": "TS 3010",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B30",
+      "resolved_name": "TRU STYLE ONE PANEL (*B30)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         126.424,
         177.034,
@@ -2328,11 +3148,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B31",
+      "resolved_name": "TRU STYLE ONE PANEL (*B31)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         128.92,
         177.034,
@@ -2343,11 +3174,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B32",
+      "resolved_name": "TRU STYLE TWO PANEL (*B32)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         131.771,
         165.197,
@@ -2358,11 +3200,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "1",
+        "WIDTH": ".90 m",
+        "HEIGHT": "2 m",
+        "STYLE": "TWO PANEL",
+        "REF#": "TS 3010",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B31",
+      "resolved_name": "TRU STYLE ONE PANEL (*B31)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         145.19,
         170.715,
@@ -2373,11 +3226,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B34",
+      "resolved_name": "TRU STYLE ONE PANEL (*B34)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         145.19,
         170.92,
@@ -2388,11 +3252,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B33",
+      "resolved_name": "TRU STYLE ONE PANEL (*B33)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         144.037,
         172.011,
@@ -2403,11 +3278,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B35",
+      "resolved_name": "TRU STYLE ONE PANEL (*B35)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         144.037,
         169.077,
@@ -2418,11 +3304,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B36",
+      "resolved_name": "TRU STYLE ONE PANEL (*B36)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         139.416,
         169.305,
@@ -2433,11 +3330,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": ".8 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*B37",
+      "resolved_name": "TRU STYLE ONE PANEL (*B37)",
       "layer": "Doors",
+      "space": "Model",
       "position": [
         142.225,
         169.305,
@@ -2448,11 +3356,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "5",
+        "WIDTH": ".70 m",
+        "HEIGHT": "2 m",
+        "STYLE": "ONE PANEL",
+        "REF#": "TS 1040",
+        "MANUFACTURER": "TRU STYLE",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         123.443,
         177.11,
@@ -2463,11 +3382,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         124.119,
         177.11,
@@ -2478,11 +3408,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         129.414,
         177.11,
@@ -2493,11 +3434,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         130.114,
         177.11,
@@ -2508,11 +3460,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U49",
+      "resolved_name": "ANDERSEN CASEMENT (*U49)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.979,
         164.997,
@@ -2523,11 +3486,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.919,
         165.258,
@@ -2538,11 +3512,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.919,
         168.61,
@@ -2553,11 +3538,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.919,
         171.063,
@@ -2568,11 +3564,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.919,
         174.402,
@@ -2583,11 +3590,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U51",
+      "resolved_name": "ANDERSEN CASEMENT (*U51)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         122.919,
         175.702,
@@ -2598,11 +3616,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "1",
+        "WIDTH": "0.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U51",
+      "resolved_name": "ANDERSEN CASEMENT (*U51)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         131.931,
         174.976,
@@ -2613,11 +3642,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "1",
+        "WIDTH": "0.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.932,
         174.916,
@@ -2628,11 +3668,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         140.632,
         174.916,
@@ -2643,11 +3694,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         141.332,
         174.916,
@@ -2658,11 +3720,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         145.045,
         174.916,
@@ -2673,11 +3746,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         145.745,
         174.916,
@@ -2688,11 +3772,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U48",
+      "resolved_name": "ANDERSEN CASEMENT (*U48)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         146.445,
         174.916,
@@ -2703,11 +3798,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.371,
         171.124,
@@ -2718,11 +3824,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.371,
         174.316,
@@ -2733,11 +3850,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.371,
         168.655,
@@ -2748,11 +3876,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U50",
+      "resolved_name": "ANDERSEN CASEMENT (*U50)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.371,
         165.318,
@@ -2763,11 +3902,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U52",
+      "resolved_name": "ANDERSEN CASEMENT (*U52)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         139.432,
         165.058,
@@ -2778,11 +3928,22 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "2",
+        "WIDTH": "0.50",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
     },
     {
       "block_name": "*U53",
+      "resolved_name": "ANDERSEN CASEMENT (*U53)",
       "layer": "DB - Windows",
+      "space": "Model",
       "position": [
         147.706,
         173.716,
@@ -2793,7 +3954,88 @@
         1.0,
         1.0,
         1.0
-      ]
+      ],
+      "attributes": {
+        "SYM.": "1",
+        "WIDTH": "0.80",
+        "HEIGHT": "1.2 m",
+        "STYLE": "CASEMENT",
+        "REF#": "CN14",
+        "MANUFACTURER": "ANDERSEN",
+        "COST": "189.00"
+      }
+    },
+    {
+      "block_name": "ARCHBDR-D",
+      "resolved_name": "ARCHBDR-D",
+      "layer": "0",
+      "space": "ISO A1",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        24.0,
+        24.0,
+        24.0
+      ],
+      "attributes": {
+        "NAME": "BOB M.",
+        "DATE": "",
+        "X\"=X'-X\"": "1/4\" =1'",
+        "0": "1",
+        "PROJECT": "ADDA",
+        "TITLE": "FLOOR PLANS",
+        "X": "",
+        "X/XX/XX": "",
+        "COMMENT": ""
+      }
+    },
+    {
+      "block_name": "*B13",
+      "resolved_name": "*B13",
+      "layer": "0",
+      "space": "ISO A1",
+      "position": [
+        360.532,
+        227.823,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "attributes": {
+        "VIEWNUMBER": "2",
+        "VIEWTITLE": "SECOND FLOOR PLAN",
+        "VIEWPORTSCALE": "SCALE:  20:1"
+      }
+    },
+    {
+      "block_name": "*B14",
+      "resolved_name": "*B14",
+      "layer": "0",
+      "space": "ISO A1",
+      "position": [
+        59.704,
+        220.028,
+        0.0
+      ],
+      "rotation": 0.0,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "attributes": {
+        "VIEWNUMBER": "1",
+        "VIEWTITLE": "FIRST FLOOR PLAN",
+        "VIEWPORTSCALE": "SCALE:  20:1"
+      }
     }
   ],
   "geometry_primitives": {
@@ -2801,13 +4043,15 @@
       "total_lines": 282,
       "total_arcs": 31,
       "total_polylines": 7,
-      "total_components": 161,
-      "total_annotations": 16
+      "total_components": 164,
+      "total_annotations": 17,
+      "total_dimensions": 0
     },
     "primitives": {
       "lines": [
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             129.18,
             162.864
@@ -2815,10 +4059,12 @@
           "end": [
             133.447,
             162.864
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             130.006,
             167.026
@@ -2826,10 +4072,12 @@
           "end": [
             130.006,
             165.197
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             128.99,
             167.026
@@ -2837,10 +4085,12 @@
           "end": [
             128.99,
             165.197
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             129.244,
             167.026
@@ -2848,10 +4098,12 @@
           "end": [
             129.244,
             165.197
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             129.498,
             167.026
@@ -2859,10 +4111,12 @@
           "end": [
             129.498,
             165.197
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             129.752,
             167.026
@@ -2870,10 +4124,12 @@
           "end": [
             129.752,
             165.197
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             128.679,
             165.197
@@ -2881,10 +4137,12 @@
           "end": [
             128.679,
             167.026
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             131.314,
             162.864
@@ -2892,10 +4150,12 @@
           "end": [
             131.314,
             162.356
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             131.314,
             162.356
@@ -2903,10 +4163,12 @@
           "end": [
             129.18,
             162.356
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             129.269,
             163.169
@@ -2914,10 +4176,12 @@
           "end": [
             129.269,
             164.997
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             129.244,
             163.169
@@ -2925,10 +4189,12 @@
           "end": [
             129.244,
             164.997
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             129.18,
             164.997
@@ -2936,10 +4202,12 @@
           "end": [
             129.18,
             162.356
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             129.18,
             162.61
@@ -2947,10 +4215,12 @@
           "end": [
             131.314,
             162.61
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             128.679,
             166.112
@@ -2958,10 +4228,12 @@
           "end": [
             130.26,
             166.112
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             127.765,
             167.026
@@ -2969,10 +4241,12 @@
           "end": [
             130.26,
             167.026
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             128.063,
             178.834
@@ -2980,10 +4254,12 @@
           "end": [
             128.063,
             177.31
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             128.317,
             178.834
@@ -2991,10 +4267,12 @@
           "end": [
             128.317,
             177.31
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             127.809,
             178.834
@@ -3002,10 +4280,12 @@
           "end": [
             127.809,
             177.31
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             126.285,
             177.31
@@ -3013,10 +4293,12 @@
           "end": [
             126.285,
             178.834
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             125.446,
             174.367
@@ -3024,10 +4306,12 @@
           "end": [
             127.015,
             174.367
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             125.446,
             174.367
@@ -3035,10 +4319,12 @@
           "end": [
             125.446,
             172.373
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             127.015,
             172.563
@@ -3046,10 +4332,12 @@
           "end": [
             127.015,
             174.367
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             126.285,
             178.834
@@ -3057,10 +4345,12 @@
           "end": [
             128.317,
             178.834
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             146.174,
             167.086
@@ -3068,10 +4358,12 @@
           "end": [
             146.174,
             165.258
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             146.428,
             167.086
@@ -3079,10 +4371,12 @@
           "end": [
             146.428,
             165.258
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             146.682,
             167.086
@@ -3090,10 +4384,12 @@
           "end": [
             146.682,
             165.258
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             145.412,
             167.086
@@ -3101,10 +4397,12 @@
           "end": [
             145.412,
             165.258
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             145.666,
             167.086
@@ -3112,10 +4410,12 @@
           "end": [
             145.666,
             165.258
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             145.92,
             167.086
@@ -3123,10 +4423,12 @@
           "end": [
             145.92,
             165.258
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             145.101,
             165.258
@@ -3134,10 +4436,12 @@
           "end": [
             145.101,
             167.086
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             133.384,
             163.169
@@ -3145,10 +4449,12 @@
           "end": [
             133.384,
             164.997
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             133.359,
             163.169
@@ -3156,10 +4462,12 @@
           "end": [
             133.359,
             164.997
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             133.447,
             164.997
@@ -3167,10 +4475,12 @@
           "end": [
             133.447,
             162.864
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             133.143,
             162.927
@@ -3178,10 +4488,12 @@
           "end": [
             131.466,
             162.927
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             133.143,
             162.953
@@ -3189,10 +4501,12 @@
           "end": [
             131.466,
             162.953
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             144.187,
             167.086
@@ -3200,10 +4514,12 @@
           "end": [
             146.682,
             167.086
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             124.532,
             172.373
@@ -3211,10 +4527,12 @@
           "end": [
             125.446,
             172.373
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "0",
+          "space": "Model",
           "start": [
             127.625,
             171.001
@@ -3222,10 +4540,12 @@
           "end": [
             127.625,
             171.001
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             122.919,
             168.271
@@ -3233,10 +4553,12 @@
           "end": [
             122.919,
             166.112
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             127.015,
             172.563
@@ -3244,10 +4566,12 @@
           "end": [
             127.015,
             172.792
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             123.376,
             171.306
@@ -3255,10 +4579,12 @@
           "end": [
             125.86,
             171.306
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             125.86,
             171.001
@@ -3266,10 +4592,12 @@
           "end": [
             125.86,
             171.306
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             123.376,
             171.306
@@ -3277,10 +4605,12 @@
           "end": [
             123.376,
             171.001
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             123.986,
             172.982
@@ -3288,10 +4618,12 @@
           "end": [
             123.986,
             172.373
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             122.919,
             174.062
@@ -3299,10 +4631,12 @@
           "end": [
             122.919,
             171.903
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             122.919,
             172.373
@@ -3310,10 +4644,12 @@
           "end": [
             123.986,
             172.373
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             123.986,
             172.373
@@ -3321,10 +4657,12 @@
           "end": [
             124.443,
             172.373
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             123.986,
             172.982
@@ -3332,10 +4670,12 @@
           "end": [
             123.986,
             174.062
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             124.443,
             172.373
@@ -3343,10 +4683,12 @@
           "end": [
             124.443,
             174.062
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             124.532,
             172.373
@@ -3354,10 +4696,12 @@
           "end": [
             124.532,
             174.062
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             124.443,
             172.373
@@ -3365,10 +4709,12 @@
           "end": [
             124.532,
             172.373
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             130.26,
             167.026
@@ -3376,10 +4722,12 @@
           "end": [
             130.26,
             165.197
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             129.714,
             166.569
@@ -3387,10 +4735,12 @@
           "end": [
             128.878,
             166.569
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             128.878,
             166.569
@@ -3398,10 +4748,12 @@
           "end": [
             129.103,
             166.794
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             128.878,
             166.569
@@ -3409,10 +4761,12 @@
           "end": [
             129.103,
             166.344
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Text",
+          "space": "Model",
           "start": [
             147.152,
             165.713
@@ -3420,10 +4774,12 @@
           "end": [
             146.316,
             165.713
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Text",
+          "space": "Model",
           "start": [
             146.316,
             165.713
@@ -3431,10 +4787,12 @@
           "end": [
             146.541,
             165.938
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Text",
+          "space": "Model",
           "start": [
             146.316,
             165.713
@@ -3442,10 +4800,12 @@
           "end": [
             146.541,
             165.488
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             127.015,
             172.563
@@ -3453,10 +4813,12 @@
           "end": [
             127.625,
             172.563
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             126.637,
             175.922
@@ -3464,10 +4826,12 @@
           "end": [
             127.033,
             176.151
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Dimensions",
+          "space": "Model",
           "start": [
             127.033,
             176.151
@@ -3475,10 +4839,12 @@
           "end": [
             127.429,
             175.922
-          ]
+          ],
+          "color": "#ff0000"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             147.506,
             169.218
@@ -3486,10 +4852,12 @@
           "end": [
             146.897,
             169.218
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Stairs",
+          "space": "Model",
           "start": [
             146.682,
             166.172
@@ -3497,10 +4865,12 @@
           "end": [
             144.187,
             166.172
-          ]
+          ],
+          "color": "#9152a5"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             126.348,
             177.31
@@ -3508,10 +4878,12 @@
           "end": [
             126.348,
             178.529
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             126.374,
             177.31
@@ -3519,10 +4891,12 @@
           "end": [
             126.374,
             178.529
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             126.589,
             178.77
@@ -3530,10 +4904,12 @@
           "end": [
             127.504,
             178.77
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Deck",
+          "space": "Model",
           "start": [
             126.589,
             178.745
@@ -3541,10 +4917,12 @@
           "end": [
             127.504,
             178.745
-          ]
+          ],
+          "color": "#00ffff"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             127.231,
             165.197
@@ -3552,10 +4930,12 @@
           "end": [
             123.834,
             165.197
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.086,
             164.6
@@ -3563,10 +4943,12 @@
           "end": [
             143.763,
             164.6
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.286,
             164.8
@@ -3574,10 +4956,12 @@
           "end": [
             143.563,
             164.8
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             143.763,
             164.6
@@ -3585,10 +4969,12 @@
           "end": [
             143.763,
             165.058
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             143.563,
             164.8
@@ -3596,10 +4982,12 @@
           "end": [
             143.563,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.086,
             164.6
@@ -3607,10 +4995,12 @@
           "end": [
             140.086,
             165.058
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.286,
             164.8
@@ -3618,10 +5008,12 @@
           "end": [
             140.286,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.086,
             165.058
@@ -3629,10 +5021,12 @@
           "end": [
             139.171,
             165.058
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.286,
             165.258
@@ -3640,10 +5034,12 @@
           "end": [
             139.371,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             165.058
@@ -3651,10 +5047,12 @@
           "end": [
             139.171,
             165.972
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.371,
             165.258
@@ -3662,10 +5060,12 @@
           "end": [
             139.371,
             166.172
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             165.972
@@ -3673,10 +5073,12 @@
           "end": [
             138.714,
             165.972
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.371,
             166.172
@@ -3684,10 +5086,12 @@
           "end": [
             138.914,
             166.172
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.714,
             165.972
@@ -3695,10 +5099,12 @@
           "end": [
             138.714,
             168.41
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.914,
             166.172
@@ -3706,10 +5112,12 @@
           "end": [
             138.914,
             168.21
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.714,
             168.41
@@ -3717,10 +5125,12 @@
           "end": [
             139.171,
             168.41
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.914,
             168.21
@@ -3728,10 +5138,12 @@
           "end": [
             139.371,
             168.21
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             168.41
@@ -3739,10 +5151,12 @@
           "end": [
             139.171,
             171.763
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.371,
             168.21
@@ -3750,10 +5164,12 @@
           "end": [
             139.371,
             169.155
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.371,
             169.305
@@ -3761,10 +5177,12 @@
           "end": [
             139.371,
             171.763
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             171.763
@@ -3772,10 +5190,12 @@
           "end": [
             138.714,
             171.763
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             171.963
@@ -3783,10 +5203,12 @@
           "end": [
             138.914,
             171.963
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.714,
             171.763
@@ -3794,10 +5216,12 @@
           "end": [
             138.714,
             174.202
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.914,
             171.963
@@ -3805,10 +5229,12 @@
           "end": [
             138.914,
             174.002
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.714,
             174.202
@@ -3816,10 +5242,12 @@
           "end": [
             139.171,
             174.202
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             138.914,
             174.002
@@ -3827,10 +5255,12 @@
           "end": [
             139.371,
             174.002
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             174.202
@@ -3838,10 +5268,12 @@
           "end": [
             139.171,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.371,
             174.002
@@ -3849,10 +5281,12 @@
           "end": [
             139.371,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             175.116
@@ -3860,10 +5294,12 @@
           "end": [
             147.706,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.371,
             174.916
@@ -3871,10 +5307,12 @@
           "end": [
             142.849,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             147.706,
             175.116
@@ -3882,10 +5320,12 @@
           "end": [
             147.706,
             165.058
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             147.506,
             174.916
@@ -3893,10 +5333,12 @@
           "end": [
             147.506,
             170.892
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             147.706,
             165.058
@@ -3904,10 +5346,12 @@
           "end": [
             143.763,
             165.058
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             147.506,
             165.258
@@ -3915,10 +5359,12 @@
           "end": [
             144.187,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.849,
             171.763
@@ -3926,10 +5372,12 @@
           "end": [
             139.371,
             171.763
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.171,
             171.763
@@ -3937,10 +5385,12 @@
           "end": [
             138.914,
             171.763
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.999,
             170.378
@@ -3948,10 +5398,12 @@
           "end": [
             141.999,
             171.813
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.849,
             170.228
@@ -3959,10 +5411,12 @@
           "end": [
             141.849,
             171.763
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             171.813
@@ -3970,10 +5424,12 @@
           "end": [
             141.999,
             171.813
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.999,
             170.378
@@ -3981,10 +5437,12 @@
           "end": [
             142.406,
             170.378
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.149,
             170.228
@@ -3992,10 +5450,12 @@
           "end": [
             142.406,
             170.228
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.149,
             170.228
@@ -4003,10 +5463,12 @@
           "end": [
             142.149,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.999,
             170.005
@@ -4014,10 +5476,12 @@
           "end": [
             141.999,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.216,
             169.305
@@ -4025,10 +5489,12 @@
           "end": [
             141.999,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.216,
             169.155
@@ -4036,10 +5502,12 @@
           "end": [
             142.225,
             169.155
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.149,
             169.305
@@ -4047,10 +5515,12 @@
           "end": [
             142.225,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.925,
             169.155
@@ -4058,10 +5528,12 @@
           "end": [
             142.925,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.225,
             169.155
@@ -4069,10 +5541,12 @@
           "end": [
             142.225,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             140.216,
             169.305
@@ -4080,10 +5554,12 @@
           "end": [
             140.216,
             169.155
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.406,
             170.228
@@ -4091,10 +5567,12 @@
           "end": [
             142.406,
             170.378
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.187,
             172.011
@@ -4102,10 +5580,12 @@
           "end": [
             144.187,
             169.077
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             172.011
@@ -4113,10 +5593,12 @@
           "end": [
             144.037,
             171.963
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             172.811
@@ -4124,10 +5606,12 @@
           "end": [
             144.187,
             172.811
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             172.011
@@ -4135,10 +5619,12 @@
           "end": [
             144.187,
             172.011
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             169.305
@@ -4146,10 +5632,12 @@
           "end": [
             142.925,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             169.155
@@ -4157,10 +5645,12 @@
           "end": [
             142.925,
             169.155
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             169.077
@@ -4168,10 +5658,12 @@
           "end": [
             144.037,
             169.155
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             169.077
@@ -4179,10 +5671,12 @@
           "end": [
             144.187,
             169.077
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             168.277
@@ -4190,10 +5684,12 @@
           "end": [
             144.187,
             168.277
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             169.305
@@ -4201,10 +5697,12 @@
           "end": [
             144.037,
             171.813
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.187,
             168.245
@@ -4212,10 +5710,12 @@
           "end": [
             144.187,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.187,
             168.277
@@ -4223,10 +5723,12 @@
           "end": [
             144.187,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             168.277
@@ -4234,10 +5736,12 @@
           "end": [
             144.037,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             165.258
@@ -4245,10 +5749,12 @@
           "end": [
             143.563,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             173.038
@@ -4256,10 +5762,12 @@
           "end": [
             145.19,
             171.72
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             172.888
@@ -4267,10 +5775,12 @@
           "end": [
             145.04,
             171.72
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             173.038
@@ -4278,10 +5788,12 @@
           "end": [
             144.701,
             173.038
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             172.888
@@ -4289,10 +5801,12 @@
           "end": [
             144.187,
             172.888
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.701,
             173.242
@@ -4300,10 +5814,12 @@
           "end": [
             144.701,
             173.038
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.551,
             173.242
@@ -4311,10 +5827,12 @@
           "end": [
             144.551,
             173.038
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.551,
             173.038
@@ -4322,10 +5840,12 @@
           "end": [
             143.85,
             173.038
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             143.85,
             173.038
@@ -4333,10 +5853,12 @@
           "end": [
             143.85,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             143.7,
             173.038
@@ -4344,10 +5866,12 @@
           "end": [
             143.7,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             143.85,
             174.916
@@ -4355,10 +5879,12 @@
           "end": [
             144.551,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.999,
             173.038
@@ -4366,10 +5892,12 @@
           "end": [
             143.7,
             173.038
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.849,
             172.888
@@ -4377,10 +5905,12 @@
           "end": [
             144.037,
             172.888
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.999,
             173.242
@@ -4388,10 +5918,12 @@
           "end": [
             142.999,
             173.038
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.849,
             173.242
@@ -4399,10 +5931,12 @@
           "end": [
             142.849,
             172.888
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.187,
             172.811
@@ -4410,10 +5944,12 @@
           "end": [
             144.187,
             172.888
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.037,
             172.811
@@ -4421,10 +5957,12 @@
           "end": [
             144.037,
             172.888
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             171.72
@@ -4432,10 +5970,12 @@
           "end": [
             145.19,
             171.72
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             170.92
@@ -4443,10 +5983,12 @@
           "end": [
             145.19,
             170.92
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             170.892
@@ -4454,10 +5996,12 @@
           "end": [
             147.506,
             170.892
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             170.742
@@ -4465,10 +6009,12 @@
           "end": [
             147.506,
             170.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             170.92
@@ -4476,10 +6022,12 @@
           "end": [
             145.19,
             170.892
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             170.92
@@ -4487,10 +6035,12 @@
           "end": [
             145.04,
             170.715
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             147.506,
             170.742
@@ -4498,10 +6048,12 @@
           "end": [
             147.506,
             168.085
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             170.742
@@ -4509,10 +6061,12 @@
           "end": [
             145.19,
             170.715
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             170.715
@@ -4520,10 +6074,12 @@
           "end": [
             145.19,
             170.715
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             169.915
@@ -4531,10 +6087,12 @@
           "end": [
             145.19,
             169.915
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             169.915
@@ -4542,10 +6100,12 @@
           "end": [
             145.19,
             168.085
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             169.915
@@ -4553,10 +6113,12 @@
           "end": [
             145.04,
             167.935
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.19,
             168.085
@@ -4564,10 +6126,12 @@
           "end": [
             147.506,
             168.085
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             145.04,
             167.935
@@ -4575,10 +6139,12 @@
           "end": [
             147.506,
             167.935
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             147.506,
             167.935
@@ -4586,10 +6152,12 @@
           "end": [
             147.506,
             165.258
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.416,
             169.305
@@ -4597,10 +6165,12 @@
           "end": [
             139.371,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.416,
             169.155
@@ -4608,10 +6178,12 @@
           "end": [
             139.371,
             169.155
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             139.416,
             169.155
@@ -4619,10 +6191,12 @@
           "end": [
             139.416,
             169.305
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.999,
             174.742
@@ -4630,10 +6204,12 @@
           "end": [
             142.849,
             174.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.999,
             173.242
@@ -4641,10 +6217,12 @@
           "end": [
             142.849,
             173.242
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.999,
             174.916
@@ -4652,10 +6230,12 @@
           "end": [
             142.999,
             174.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.849,
             174.916
@@ -4663,10 +6243,12 @@
           "end": [
             142.849,
             174.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             142.999,
             174.916
@@ -4674,10 +6256,12 @@
           "end": [
             143.7,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.551,
             174.742
@@ -4685,10 +6269,12 @@
           "end": [
             144.701,
             174.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.551,
             173.242
@@ -4696,10 +6282,12 @@
           "end": [
             144.701,
             173.242
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.701,
             174.916
@@ -4707,10 +6295,12 @@
           "end": [
             144.701,
             174.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.551,
             174.916
@@ -4718,10 +6308,12 @@
           "end": [
             144.551,
             174.742
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             144.701,
             174.916
@@ -4729,10 +6321,12 @@
           "end": [
             147.506,
             174.916
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             140.91,
             171.763
@@ -4740,10 +6334,12 @@
           "end": [
             140.91,
             171.155
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             140.91,
             171.155
@@ -4751,10 +6347,12 @@
           "end": [
             139.371,
             171.155
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "start": [
             146.897,
             169.218
@@ -4762,10 +6360,12 @@
           "end": [
             146.897,
             170.742
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.999,
             170.228
@@ -4773,10 +6373,12 @@
           "end": [
             141.999,
             170.005
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             177.034
@@ -4784,10 +6386,12 @@
           "end": [
             128.92,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             177.11
@@ -4795,10 +6399,12 @@
           "end": [
             131.174,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             131.174,
             177.11
@@ -4806,10 +6412,12 @@
           "end": [
             131.174,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             131.174,
             175.116
@@ -4817,10 +6425,12 @@
           "end": [
             128.92,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             175.116
@@ -4828,10 +6438,12 @@
           "end": [
             128.92,
             176.234
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             176.234
@@ -4839,10 +6451,12 @@
           "end": [
             128.831,
             176.234
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.831,
             176.234
@@ -4850,10 +6464,12 @@
           "end": [
             128.831,
             174.79
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.831,
             174.79
@@ -4861,10 +6477,12 @@
           "end": [
             128.92,
             174.79
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             174.79
@@ -4872,10 +6490,12 @@
           "end": [
             128.92,
             174.976
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             129.519,
             174.976
@@ -4883,10 +6503,12 @@
           "end": [
             129.519,
             173.128
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             129.519,
             173.128
@@ -4894,10 +6516,12 @@
           "end": [
             128.92,
             173.128
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             173.128
@@ -4905,10 +6529,12 @@
           "end": [
             128.92,
             173.29
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             173.29
@@ -4916,10 +6542,12 @@
           "end": [
             128.831,
             173.29
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.831,
             173.29
@@ -4927,10 +6555,12 @@
           "end": [
             128.831,
             172.989
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.831,
             172.989
@@ -4938,10 +6568,12 @@
           "end": [
             129.659,
             172.989
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             129.659,
             172.989
@@ -4949,10 +6581,12 @@
           "end": [
             129.659,
             174.976
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             129.659,
             174.976
@@ -4960,10 +6594,12 @@
           "end": [
             133.308,
             174.976
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             133.308,
             174.976
@@ -4971,10 +6607,12 @@
           "end": [
             133.308,
             167.166
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             133.308,
             167.166
@@ -4982,10 +6620,12 @@
           "end": [
             132.457,
             167.166
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.457,
             167.166
@@ -4993,10 +6633,12 @@
           "end": [
             132.457,
             166.85
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.457,
             166.85
@@ -5004,10 +6646,12 @@
           "end": [
             132.546,
             166.85
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.546,
             166.85
@@ -5015,10 +6659,12 @@
           "end": [
             132.546,
             167.026
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.546,
             167.026
@@ -5026,10 +6672,12 @@
           "end": [
             133.308,
             167.026
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             133.308,
             167.026
@@ -5037,10 +6685,12 @@
           "end": [
             133.308,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             133.308,
             165.197
@@ -5048,10 +6698,12 @@
           "end": [
             132.546,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.546,
             165.197
@@ -5059,10 +6711,12 @@
           "end": [
             132.546,
             165.35
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.546,
             165.35
@@ -5070,10 +6724,12 @@
           "end": [
             132.457,
             165.35
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.457,
             165.35
@@ -5081,10 +6737,12 @@
           "end": [
             132.457,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             132.457,
             165.197
@@ -5092,10 +6750,12 @@
           "end": [
             131.771,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             131.771,
             165.197
@@ -5103,10 +6763,12 @@
           "end": [
             131.771,
             164.997
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.504,
             177.31
@@ -5114,10 +6776,12 @@
           "end": [
             127.504,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.504,
             177.11
@@ -5125,10 +6789,12 @@
           "end": [
             128.831,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.831,
             177.11
@@ -5136,10 +6802,12 @@
           "end": [
             128.831,
             177.034
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.831,
             177.034
@@ -5147,10 +6815,12 @@
           "end": [
             128.92,
             177.034
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.231,
             165.197
@@ -5158,10 +6828,12 @@
           "end": [
             127.625,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             165.197
@@ -5169,10 +6841,12 @@
           "end": [
             127.625,
             168.271
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             168.271
@@ -5180,10 +6854,12 @@
           "end": [
             127.549,
             168.271
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.549,
             168.271
@@ -5191,10 +6867,12 @@
           "end": [
             127.549,
             168.36
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.549,
             168.36
@@ -5202,10 +6880,12 @@
           "end": [
             127.625,
             168.36
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             168.36
@@ -5213,10 +6893,12 @@
           "end": [
             127.625,
             168.569
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             168.569
@@ -5224,10 +6906,12 @@
           "end": [
             127.765,
             168.569
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.765,
             168.569
@@ -5235,10 +6919,12 @@
           "end": [
             127.765,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.765,
             165.197
@@ -5246,10 +6932,12 @@
           "end": [
             130.871,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             130.871,
             165.197
@@ -5257,10 +6945,12 @@
           "end": [
             130.871,
             164.997
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.589,
             177.31
@@ -5268,10 +6958,12 @@
           "end": [
             126.589,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.589,
             177.11
@@ -5279,10 +6971,12 @@
           "end": [
             126.513,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             177.11
@@ -5290,10 +6984,12 @@
           "end": [
             126.513,
             177.034
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             177.034
@@ -5301,10 +6997,12 @@
           "end": [
             126.424,
             177.034
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.424,
             177.034
@@ -5312,10 +7010,12 @@
           "end": [
             126.424,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.424,
             177.11
@@ -5323,10 +7023,12 @@
           "end": [
             122.919,
             177.11
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             177.11
@@ -5334,10 +7036,12 @@
           "end": [
             122.919,
             174.202
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             174.202
@@ -5345,10 +7049,12 @@
           "end": [
             124.748,
             174.202
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             124.748,
             174.202
@@ -5356,10 +7062,12 @@
           "end": [
             124.748,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             124.748,
             175.116
@@ -5367,10 +7075,12 @@
           "end": [
             126.424,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.424,
             175.116
@@ -5378,10 +7088,12 @@
           "end": [
             126.424,
             176.234
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             176.234
@@ -5389,10 +7101,12 @@
           "end": [
             126.513,
             175.967
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             175.967
@@ -5400,10 +7114,12 @@
           "end": [
             126.637,
             175.967
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.637,
             175.967
@@ -5411,10 +7127,12 @@
           "end": [
             126.637,
             175.878
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.637,
             175.878
@@ -5422,10 +7140,12 @@
           "end": [
             126.513,
             175.878
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             175.878
@@ -5433,10 +7153,12 @@
           "end": [
             126.513,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             175.116
@@ -5444,10 +7166,12 @@
           "end": [
             127.676,
             175.116
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.676,
             175.116
@@ -5455,10 +7179,12 @@
           "end": [
             127.676,
             175.878
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.676,
             175.878
@@ -5466,10 +7192,12 @@
           "end": [
             127.552,
             175.878
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.552,
             175.878
@@ -5477,10 +7205,12 @@
           "end": [
             127.552,
             175.967
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.552,
             175.967
@@ -5488,10 +7218,12 @@
           "end": [
             127.765,
             175.967
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.765,
             175.967
@@ -5499,10 +7231,12 @@
           "end": [
             127.765,
             170.703
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.765,
             170.703
@@ -5510,10 +7244,12 @@
           "end": [
             127.625,
             170.703
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             170.703
@@ -5521,10 +7257,12 @@
           "end": [
             127.625,
             170.912
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             170.912
@@ -5532,10 +7270,12 @@
           "end": [
             127.549,
             170.912
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.549,
             170.912
@@ -5543,10 +7283,12 @@
           "end": [
             127.549,
             171.001
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.549,
             171.001
@@ -5554,10 +7296,12 @@
           "end": [
             127.625,
             171.001
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             171.001
@@ -5565,10 +7309,12 @@
           "end": [
             127.625,
             174.976
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.625,
             174.976
@@ -5576,10 +7322,12 @@
           "end": [
             124.837,
             174.976
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             124.837,
             174.976
@@ -5587,10 +7335,12 @@
           "end": [
             124.837,
             174.062
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             124.837,
             174.062
@@ -5598,10 +7348,12 @@
           "end": [
             122.462,
             174.062
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.462,
             174.062
@@ -5609,10 +7361,12 @@
           "end": [
             122.462,
             171.903
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.462,
             171.903
@@ -5620,10 +7374,12 @@
           "end": [
             122.919,
             171.903
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             171.903
@@ -5631,10 +7387,12 @@
           "end": [
             122.919,
             171.001
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             171.001
@@ -5642,10 +7400,12 @@
           "end": [
             126.025,
             171.001
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.025,
             171.001
@@ -5653,10 +7413,12 @@
           "end": [
             126.025,
             170.912
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.025,
             170.912
@@ -5664,10 +7426,12 @@
           "end": [
             125.948,
             170.912
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.948,
             170.912
@@ -5675,10 +7439,12 @@
           "end": [
             125.948,
             170.398
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.948,
             170.398
@@ -5686,10 +7452,12 @@
           "end": [
             125.86,
             170.398
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.86,
             170.398
@@ -5697,10 +7465,12 @@
           "end": [
             125.86,
             170.912
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.86,
             170.912
@@ -5708,10 +7478,12 @@
           "end": [
             122.919,
             170.912
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             170.912
@@ -5719,10 +7491,12 @@
           "end": [
             122.919,
             168.36
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             168.36
@@ -5730,10 +7504,12 @@
           "end": [
             125.86,
             168.36
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.86,
             168.36
@@ -5741,10 +7517,12 @@
           "end": [
             125.86,
             168.898
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.86,
             168.898
@@ -5752,10 +7530,12 @@
           "end": [
             125.948,
             168.898
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.948,
             168.898
@@ -5763,10 +7543,12 @@
           "end": [
             125.948,
             168.36
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             125.948,
             168.36
@@ -5774,10 +7556,12 @@
           "end": [
             126.049,
             168.36
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.049,
             168.36
@@ -5785,10 +7569,12 @@
           "end": [
             126.049,
             168.271
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.049,
             168.271
@@ -5796,10 +7582,12 @@
           "end": [
             122.462,
             168.271
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.462,
             168.271
@@ -5807,10 +7595,12 @@
           "end": [
             122.462,
             166.112
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.462,
             166.112
@@ -5818,10 +7608,12 @@
           "end": [
             122.919,
             166.112
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             166.112
@@ -5829,10 +7621,12 @@
           "end": [
             122.919,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             122.919,
             165.197
@@ -5840,10 +7634,12 @@
           "end": [
             123.834,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             123.834,
             165.197
@@ -5851,10 +7647,12 @@
           "end": [
             123.834,
             164.74
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             123.834,
             164.74
@@ -5862,10 +7660,12 @@
           "end": [
             127.231,
             164.74
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             127.231,
             164.74
@@ -5873,10 +7673,12 @@
           "end": [
             127.231,
             165.197
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             126.513,
             176.234
@@ -5884,10 +7686,12 @@
           "end": [
             126.424,
             176.234
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             141.849,
             170.228
@@ -5895,10 +7699,12 @@
           "end": [
             141.999,
             170.228
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "start": [
             128.92,
             174.976
@@ -5906,324 +7712,388 @@
           "end": [
             129.519,
             174.976
-          ]
+          ],
+          "color": "#ffffff"
         }
       ],
       "arcs": [
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             140.725,
             170.074
           ],
           "radius": 0.627,
           "start_angle": 120.71,
-          "end_angle": 233.21
+          "end_angle": 233.21,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             142.695,
             170.074
           ],
           "radius": 0.627,
           "start_angle": 306.79,
-          "end_angle": 59.29
+          "end_angle": 59.29,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             142.08,
             172.76
           ],
           "radius": 0.627,
           "start_angle": 36.79,
-          "end_angle": 149.29
+          "end_angle": 149.29,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             145.959,
             172.032
           ],
           "radius": 0.627,
           "start_angle": 30.71,
-          "end_angle": 143.21
+          "end_angle": 143.21,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             145.959,
             169.351
           ],
           "radius": 0.627,
           "start_angle": 30.71,
-          "end_angle": 143.21
+          "end_angle": 143.21,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             143.23,
             168.16
           ],
           "radius": 0.639,
           "start_angle": 237.6,
-          "end_angle": 328.71
+          "end_angle": 328.71,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             142.044,
             167.3
           ],
           "radius": 0.627,
           "start_angle": 30.71,
-          "end_angle": 143.21
+          "end_angle": 143.21,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             146.304,
             166.858
           ],
           "radius": 2.051,
           "start_angle": 166.33,
-          "end_angle": 222.88
+          "end_angle": 222.88,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             145.779,
             169.324
           ],
           "radius": 3.92,
           "start_angle": 260.05,
-          "end_angle": 288.24
+          "end_angle": 288.24,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             145.761,
             166.485
           ],
           "radius": 1.578,
           "start_angle": 332.33,
-          "end_angle": 27.67
+          "end_angle": 27.67,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             144.003,
             169.74
           ],
           "radius": 2.474,
           "start_angle": 284.34,
-          "end_angle": 303.21
+          "end_angle": 303.21,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             146.522,
             169.362
           ],
           "radius": 2.199,
           "start_angle": 167.07,
-          "end_angle": 230.32
+          "end_angle": 230.32,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             135.238,
             173.666
           ],
           "radius": 9.791,
           "start_angle": 339.01,
-          "end_angle": 350.54
+          "end_angle": 350.54,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             144.537,
             172.23
           ],
           "radius": 0.385,
           "start_angle": 257.46,
-          "end_angle": 302.4
+          "end_angle": 302.4,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             127.03,
             166.448
           ],
           "radius": 0.664,
           "start_angle": 59.76,
-          "end_angle": 146.55
+          "end_angle": 146.55,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             125.663,
             167.083
           ],
           "radius": 0.575,
           "start_angle": 201.78,
-          "end_angle": 332.14
+          "end_angle": 332.14,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             130.252,
             167.012
           ],
           "radius": 0.697,
           "start_angle": 219.49,
-          "end_angle": 282.1
+          "end_angle": 282.1,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             133.195,
             169.153
           ],
           "radius": 1.811,
           "start_angle": 166.13,
-          "end_angle": 251.84
+          "end_angle": 251.84,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             129.26,
             171.065
           ],
           "radius": 2.68,
           "start_angle": 330.36,
-          "end_angle": 29.64
+          "end_angle": 29.64,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             127.06,
             171.977
           ],
           "radius": 0.875,
           "start_angle": 174.94,
-          "end_angle": 289.95
+          "end_angle": 289.95,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             124.88,
             172.954
           ],
           "radius": 1.641,
           "start_angle": 332.89,
-          "end_angle": 27.11
+          "end_angle": 27.11,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             125.988,
             171.539
           ],
           "radius": 0.669,
           "start_angle": 85.84,
-          "end_angle": 154.69
+          "end_angle": 154.69,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             124.653,
             172.965
           ],
           "radius": 1.619,
           "start_angle": 243.18,
-          "end_angle": 296.82
+          "end_angle": 296.82,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             124.311,
             172.701
           ],
           "radius": 1.161,
           "start_angle": 162.45,
-          "end_angle": 242.26
+          "end_angle": 242.26,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             124.507,
             168.015
           ],
           "radius": 1.84,
           "start_angle": 22.08,
-          "end_angle": 91.78
+          "end_angle": 91.78,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             126.641,
             170.909
           ],
           "radius": 1.39,
           "start_angle": 278.6,
-          "end_angle": 358.43
+          "end_angle": 358.43,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             129.645,
             176.818
           ],
           "radius": 1.003,
           "start_angle": 242.97,
-          "end_angle": 297.82
+          "end_angle": 297.82,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             124.692,
             173.308
           ],
           "radius": 2.894,
           "start_angle": 59.45,
-          "end_angle": 108.48
+          "end_angle": 108.48,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             127.944,
             176.647
           ],
           "radius": 0.221,
           "start_angle": 117.29,
-          "end_angle": 230.86
+          "end_angle": 230.86,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             125.985,
             174.948
           ],
           "radius": 2.616,
           "start_angle": 343.27,
-          "end_angle": 35.71
+          "end_angle": 35.71,
+          "color": "#ff0000"
         },
         {
           "layer": "Lighting",
+          "space": "Model",
           "center": [
             129.097,
             173.455
           ],
           "radius": 0.747,
           "start_angle": 144.3,
-          "end_angle": 281.4
+          "end_angle": 281.4,
+          "color": "#ff0000"
         }
       ],
       "polylines": [
         {
           "layer": "Walls",
+          "space": "Model",
           "is_closed": true,
           "points": [
             [
@@ -6290,10 +8160,12 @@
               139.171,
               171.763
             ]
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "is_closed": false,
           "points": [
             [
@@ -6304,10 +8176,12 @@
               141.815,
               171.763
             ]
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "is_closed": false,
           "points": [
             [
@@ -6326,10 +8200,12 @@
               128.92,
               176.03
             ]
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "is_closed": false,
           "points": [
             [
@@ -6348,10 +8224,12 @@
               127.32,
               172.563
             ]
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Cabinetry",
+          "space": "Model",
           "is_closed": false,
           "points": [
             [
@@ -6374,10 +8252,12 @@
               125.446,
               174.976
             ]
-          ]
+          ],
+          "color": "#3f7f3f"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "is_closed": false,
           "points": [
             [
@@ -6404,10 +8284,12 @@
               127.504,
               177.31
             ]
-          ]
+          ],
+          "color": "#ffffff"
         },
         {
           "layer": "Walls",
+          "space": "Model",
           "is_closed": false,
           "points": [
             [
@@ -6474,7 +8356,8 @@
               126.589,
               177.31
             ]
-          ]
+          ],
+          "color": "#ffffff"
         }
       ]
     }

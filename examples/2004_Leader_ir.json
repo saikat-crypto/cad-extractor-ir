@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V1",
+  "format": "LAVINCI_CAD_IR_V2",
   "metadata": {
     "source_file": "2004_Leader.dwg",
     "dxf_version": "AC1018",
@@ -20,11 +20,39 @@
     "width": 23.492,
     "height": 10.646
   },
+  "layouts": [
+    {
+      "name": "Layout1",
+      "is_active": false,
+      "extents_min": [
+        0.0,
+        0.0
+      ],
+      "extents_max": [
+        0.0,
+        0.0
+      ],
+      "viewports": []
+    },
+    {
+      "name": "Layout2",
+      "is_active": false,
+      "extents_min": [
+        0.0,
+        0.0
+      ],
+      "extents_max": [
+        0.0,
+        0.0
+      ],
+      "viewports": []
+    }
+  ],
   "layers": [
     {
       "name": "0",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -33,7 +61,7 @@
     {
       "name": "Defpoints",
       "color_aci": 7,
-      "hex_color": "#000000",
+      "hex_color": "#ffffff",
       "is_off": false,
       "is_locked": false,
       "is_frozen": false,
@@ -45,7 +73,9 @@
     {
       "type": "MTEXT",
       "layer": "0",
-      "text": "MTEXT",
+      "space": "Model",
+      "raw_text": "MTEXT",
+      "clean_text": "MTEXT",
       "position": [
         15.481,
         12.844
@@ -53,6 +83,7 @@
       "height": 0.18
     }
   ],
+  "dimensions": [],
   "components": [],
   "geometry_primitives": {
     "summary": {
@@ -60,12 +91,14 @@
       "total_arcs": 0,
       "total_polylines": 1,
       "total_components": 0,
-      "total_annotations": 1
+      "total_annotations": 1,
+      "total_dimensions": 0
     },
     "primitives": {
       "lines": [
         {
           "layer": "0",
+          "space": "Model",
           "start": [
             9.574,
             10.07
@@ -73,13 +106,15 @@
           "end": [
             14.631,
             10.07
-          ]
+          ],
+          "color": "#ffffff"
         }
       ],
       "arcs": [],
       "polylines": [
         {
           "layer": "0",
+          "space": "Model",
           "is_closed": true,
           "points": [
             [
@@ -110,7 +145,8 @@
               18.882,
               4.927
             ]
-          ]
+          ],
+          "color": "#ffffff"
         }
       ]
     }
