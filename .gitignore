@@ -33,4 +33,6 @@ htmlcov/
 # Local CAD files & logs
 *.log
 *.dxf
+!tests/fixtures/*.dxf
 temp/
+.agents/
