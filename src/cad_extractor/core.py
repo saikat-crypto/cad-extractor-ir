@@ -141,22 +141,20 @@ def resolve_block_name(name: str, attributes: Dict[str, str]) -> str:
 def extract_block_definitions(doc) -> Dict[str, CADBlockDefinition]:
     """
     Extracts all block definitions (BLOCK_RECORD) and their internal geometry primitives.
+    Recursively resolves nested blocks (blocks inside blocks) and converts ELLIPSE
+    and SPLINE entities into high-fidelity vector representations.
     Ignores root model space (*Model_Space) and paper space (*Paper_Space).
     """
-    block_defs = {}
-    for block in doc.blocks:
-        bname = block.name
-        # Skip top-level drawing containers
-        if bname.startswith("*Model") or bname.startswith("*Paper"):
-            continue
+    def _extract_single_block_geometry(block_obj, depth: int = 0) -> Dict[str, List[Any]]:
+        if depth > 10:
+            return {"lines": [], "arcs": [], "circles": [], "polylines": []}
 
-        base_pt = getattr(block, "base_point", (0.0, 0.0, 0.0))
         lines = []
         arcs = []
         circles = []
         polylines = []
 
-        for entity in block:
+        for entity in block_obj:
             etype = entity.dxftype()
             layer_name = getattr(entity.dxf, "layer", "0")
             ent_color = resolve_entity_color(entity)
@@ -208,14 +206,128 @@ def extract_block_definitions(doc) -> Dict[str, CADBlockDefinition]:
                         color=ent_color,
                     )
                 )
+            elif etype in ("ELLIPSE", "SPLINE"):
+                try:
+                    pts = [[round(p.x, 3), round(p.y, 3)] for p in entity.flattening(distance=2.0)]
+                    if len(pts) >= 2:
+                        is_closed = (math.dist(pts[0], pts[-1]) < 1e-4) or bool(getattr(entity, "closed", False))
+                        polylines.append(
+                            CADPolyline(
+                                layer=layer_name,
+                                space="Block",
+                                is_closed=is_closed,
+                                points=pts,
+                                color=ent_color,
+                            )
+                        )
+                except Exception:
+                    pass
+            elif etype == "INSERT":
+                # Handle nested block references inside this block!
+                child_bname = entity.dxf.name
+                if child_bname in doc.blocks and not (child_bname.startswith("*Model") or child_bname.startswith("*Paper")):
+                    child_geom = _extract_single_block_geometry(doc.blocks[child_bname], depth + 1)
+                    ip = entity.dxf.insert
+                    rot = math.radians(getattr(entity.dxf, "rotation", 0.0))
+                    sx = getattr(entity.dxf, "xscale", 1.0)
+                    sy = getattr(entity.dxf, "yscale", 1.0)
+                    cos_r, sin_r = math.cos(rot), math.sin(rot)
+
+                    def transform(x: float, y: float) -> List[float]:
+                        tx, ty = x * sx, y * sy
+                        return [round(tx * cos_r - ty * sin_r + ip.x, 3), round(tx * sin_r + ty * cos_r + ip.y, 3)]
+
+                    for l in child_geom["lines"]:
+                        lines.append(
+                            CADLine(
+                                layer=l.layer,
+                                space="Block",
+                                start=transform(l.start[0], l.start[1]),
+                                end=transform(l.end[0], l.end[1]),
+                                color=l.color,
+                            )
+                        )
+                    for c in child_geom["circles"]:
+                        if abs(sx - sy) < 1e-5:
+                            circles.append(
+                                CADCircle(
+                                    layer=c.layer,
+                                    space="Block",
+                                    center=transform(c.center[0], c.center[1]),
+                                    radius=round(c.radius * abs(sx), 3),
+                                    color=c.color,
+                                )
+                            )
+                        else:
+                            pts = [[round(c.center[0] + c.radius * math.cos(a), 3), round(c.center[1] + c.radius * math.sin(a), 3)] for a in [i * math.pi / 16 for i in range(33)]]
+                            polylines.append(
+                                CADPolyline(
+                                    layer=c.layer,
+                                    space="Block",
+                                    is_closed=True,
+                                    points=[transform(p[0], p[1]) for p in pts],
+                                    color=c.color,
+                                )
+                            )
+                    for pl in child_geom["polylines"]:
+                        polylines.append(
+                            CADPolyline(
+                                layer=pl.layer,
+                                space="Block",
+                                is_closed=pl.is_closed,
+                                points=[transform(p[0], p[1]) for p in pl.points],
+                                color=pl.color,
+                            )
+                        )
+                    for a in child_geom["arcs"]:
+                        if abs(sx - sy) < 1e-5 and sx > 0:
+                            new_c = transform(a.center[0], a.center[1])
+                            rot_deg = math.degrees(rot)
+                            arcs.append(
+                                CADArc(
+                                    layer=a.layer,
+                                    space="Block",
+                                    center=new_c,
+                                    radius=round(a.radius * sx, 3),
+                                    start_angle=round((a.start_angle + rot_deg) % 360, 2),
+                                    end_angle=round((a.end_angle + rot_deg) % 360, 2),
+                                    color=a.color,
+                                )
+                            )
+                        else:
+                            sa, ea = math.radians(a.start_angle), math.radians(a.end_angle)
+                            if ea <= sa:
+                                ea += 2 * math.pi
+                            steps = max(8, int(abs(ea - sa) / (math.pi / 16)))
+                            arc_pts = [[round(a.center[0] + a.radius * math.cos(sa + (ea - sa) * i / steps), 3), round(a.center[1] + a.radius * math.sin(sa + (ea - sa) * i / steps), 3)] for i in range(steps + 1)]
+                            polylines.append(
+                                CADPolyline(
+                                    layer=a.layer,
+                                    space="Block",
+                                    is_closed=False,
+                                    points=[transform(p[0], p[1]) for p in arc_pts],
+                                    color=a.color,
+                                )
+                            )
+
+        return {"lines": lines, "arcs": arcs, "circles": circles, "polylines": polylines}
+
+    block_defs = {}
+    for block in doc.blocks:
+        bname = block.name
+        if bname.startswith("*Model") or bname.startswith("*Paper"):
+            continue
+
+        base_pt = getattr(block, "base_point", (0.0, 0.0, 0.0))
+        geom = _extract_single_block_geometry(block, depth=0)
 
         block_defs[bname] = CADBlockDefinition(
             name=bname,
             base_point=[round(base_pt[0], 3), round(base_pt[1], 3), round(base_pt[2], 3)],
-            lines=lines,
-            arcs=arcs,
-            circles=circles,
-            polylines=polylines,
+            lines=geom["lines"],
+            arcs=geom["arcs"],
+            circles=geom["circles"],
+            polylines=geom["polylines"],
         )
 
     return block_defs
@@ -470,6 +582,25 @@ def _process_dxf_document(doc, source_file: str) -> CADIntermediateRepresentatio
                         color=ent_color,
                     )
                 )
+
+            elif etype in ("ELLIPSE", "SPLINE"):
+                try:
+                    pts = [[round(p.x, 3), round(p.y, 3)] for p in entity.flattening(distance=2.0)]
+                    if len(pts) >= 2:
+                        for px, py in pts:
+                            update_bounds(px, py)
+                        is_closed = (math.dist(pts[0], pts[-1]) < 1e-4) or bool(getattr(entity, "closed", False))
+                        polylines.append(
+                            CADPolyline(
+                                layer=layer_name,
+                                space=space_name,
+                                is_closed=is_closed,
+                                points=pts,
+                                color=ent_color,
+                            )
+                        )
+                except Exception:
+                    pass
 
             elif etype in ("TEXT", "MTEXT"):
                 pos = entity.dxf.insert
