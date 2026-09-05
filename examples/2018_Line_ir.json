@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V2",
+  "format": "LAVINCI_CAD_IR_V3",
   "metadata": {
     "source_file": "2018_Line.dwg",
     "dxf_version": "AC1032",
@@ -69,6 +69,7 @@
     }
   ],
   "bill_of_materials": {},
+  "block_definitions": {},
   "annotations": [],
   "dimensions": [],
   "components": [],
@@ -76,10 +77,12 @@
     "summary": {
       "total_lines": 1,
       "total_arcs": 0,
+      "total_circles": 0,
       "total_polylines": 0,
       "total_components": 0,
       "total_annotations": 0,
-      "total_dimensions": 0
+      "total_dimensions": 0,
+      "total_block_definitions": 0
     },
     "primitives": {
       "lines": [
@@ -94,10 +97,11 @@
             11.031,
             16.638
           ],
-          "color": "#ffffff"
+          "color": null
         }
       ],
       "arcs": [],
+      "circles": [],
       "polylines": []
     }
   }

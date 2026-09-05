@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V2",
+  "format": "LAVINCI_CAD_IR_V3",
   "metadata": {
     "source_file": "2010_Spline.dwg",
     "dxf_version": "AC1024",
@@ -69,6 +69,7 @@
     }
   ],
   "bill_of_materials": {},
+  "block_definitions": {},
   "annotations": [],
   "dimensions": [],
   "components": [],
@@ -76,14 +77,17 @@
     "summary": {
       "total_lines": 0,
       "total_arcs": 0,
+      "total_circles": 0,
       "total_polylines": 0,
       "total_components": 0,
       "total_annotations": 0,
-      "total_dimensions": 0
+      "total_dimensions": 0,
+      "total_block_definitions": 0
     },
     "primitives": {
       "lines": [],
       "arcs": [],
+      "circles": [],
       "polylines": []
     }
   }

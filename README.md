@@ -139,11 +139,11 @@ cad-extractor blueprint.dwg -o blueprint_ir.json
 
 ---
 
-## 📐 Intermediate Representation (IR v2) Sample Schema
+## 📐 Intermediate Representation (IR v3) Full-Fidelity Schema
 
 ```json
 {
-  "format": "LAVINCI_CAD_IR_V2",
+  "format": "LAVINCI_CAD_IR_V3",
   "metadata": {
     "source_file": "floor_plan.dwg",
     "cad_version": "R2007",
@@ -153,13 +153,6 @@ cad-extractor blueprint.dwg -o blueprint_ir.json
     "width": 524.403,
     "height": 501.854
   },
-  "layouts": [
-    {
-      "name": "ISO A1",
-      "is_active": false,
-      "viewports": [{ "center": [414.7, 279.2], "width": 848.88, "height": 636.32 }]
-    }
-  ],
   "layers": [
     { "name": "Lighting", "color_aci": 1, "hex_color": "#ff0000", "is_off": false },
     { "name": "Power", "color_aci": 6, "hex_color": "#ff00ff", "is_off": false }
@@ -171,6 +164,19 @@ cad-extractor blueprint.dwg -o blueprint_ir.json
     "TRU STYLE BI-FOLD (*U38)": 3,
     "Bathtub": 2,
     "Toilet": 1
+  },
+  "block_definitions": {
+    "Toilet": {
+      "name": "Toilet",
+      "base_point": [0.0, 0.0, 0.0],
+      "lines": [{ "layer": "0", "start": [0.102, -0.356], "end": [-0.102, -0.356], "color": null }],
+      "arcs": [{ "layer": "0", "center": [0.0, 0.0], "radius": 0.229, "start_angle": 0.0, "end_angle": 180.0, "color": null }]
+    },
+    "Receptacle": {
+      "name": "Receptacle",
+      "base_point": [0.0, 0.0, 0.0],
+      "circles": [{ "layer": "0", "center": [0.0, 0.0], "radius": 0.125, "color": null }]
+    }
   }
 }
 ```
@@ -181,8 +187,11 @@ cad-extractor blueprint.dwg -o blueprint_ir.json
 
 To maintain technical integrity and clear expectations, here is an explicit breakdown of what CAD Extractor IR solves and current architectural boundaries:
 
-### ✅ Hardened & Solved in v2:
-* **Full 256 ACI Palette & 24-bit TrueColor**: Maps AutoCAD's complete color table to web-native RGB hex strings with proper `ByLayer` inheritance.
+### ✅ Hardened & Solved in v3:
+* **Reusable Block Definitions (`block_definitions`)**: Captures full internal vector geometry (lines, arcs, circles, polylines) for every block in the drawing. Downstream DXF/SVG/PDF converters now render all components (doors, windows, plumbing, electrical fixtures) with 100% visual fidelity instead of empty stubs.
+* **True `BYLAYER` Color Semantics**: Leaves `color = None` for entities inheriting layer styling, preserving native AutoCAD layer-based style switching rather than baking static overrides.
+* **Full `CIRCLE` Primitive Extraction**: Ingests circular engineering geometries (pipe cross-sections, columns, receptacles) alongside lines and arcs.
+* **Native Arc Angles**: Preserves raw AutoCAD counter-clockwise arc angles (including wraps across $0^\circ$) preventing inverted or distorted sweeps.
 * **Paper Space & Print Layouts**: Scans all drawing layouts (A1, A3, ANSI sheets) and captures `VIEWPORT` bounding boxes and camera scales.
 * **Deep Block Inspection & Attribute Mining**: Mines `ATTRIB` tags (manufacturer, style, model, cost codes) directly off blocks.
 * **Anonymous Block Disambiguation**: Resolves cryptic internal block identifiers (e.g. `*U48`, `*B20`) into human-readable component labels (`ANDERSEN CASEMENT (*U48)`).

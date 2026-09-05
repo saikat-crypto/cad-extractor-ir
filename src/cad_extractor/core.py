@@ -1,10 +1,12 @@
 """
-Core Extraction Engine (v2 Hardened).
-Extracts AutoCAD DWG files into the standardized La Vinci CAD IR v2:
-- Full 256 ACI Palette + 24-bit TrueColor
+Core Extraction Engine (v3 Full Fidelity).
+Extracts AutoCAD DWG files into the standardized La Vinci CAD IR v3:
+- Reusable Block Definitions (doc.blocks internal primitives)
+- True BYLAYER semantics (color=None unless explicit override)
+- Unnormalized Arc Angles (passes native DXF sweep angles)
+- Full CIRCLE entity extraction
 - Both Model Space AND Paper Space (Layouts & Viewports)
-- Block Attribute (`ATTRIB`) extraction for real-world BIM data
-- Anonymous block resolution
+- Block Attribute (`ATTRIB`) extraction & Anonymous Block Disambiguation
 - DIMENSION entity extraction
 - Clean MTEXT escape-code sanitization
 """
@@ -28,10 +30,12 @@ from .models import (
     CADViewport,
     CADLayer,
     CADComponentInstance,
+    CADBlockDefinition,
     CADAnnotation,
     CADDimension,
     CADLine,
     CADArc,
+    CADCircle,
     CADPolyline,
     CADPrimitives,
     CADPrimitiveSummary,
@@ -54,9 +58,12 @@ def clean_cad_text(text: str) -> str:
     s = re.sub(r"[{}]", "", s)
     return s.strip()
 
-def resolve_entity_color(entity, layer_color_map: Dict[str, str]) -> str:
-    """Resolves entity color using TrueColor (24-bit RGB), ACI 1-255, or ByLayer inheritance."""
-    # 1. 24-bit TrueColor
+def resolve_entity_color(entity) -> Optional[str]:
+    """
+    Resolves entity color. Returns None if entity inherits BYLAYER (ACI 256 or default).
+    Only returns an explicit Hex string if an intentional TrueColor or ACI override is present.
+    """
+    # 1. Explicit 24-bit TrueColor
     if hasattr(entity.dxf, "true_color") and entity.dxf.true_color is not None:
         tc = entity.dxf.true_color
         r = (tc >> 16) & 0xFF
@@ -66,17 +73,19 @@ def resolve_entity_color(entity, layer_color_map: Dict[str, str]) -> str:
 
     # 2. ACI color code
     aci = getattr(entity.dxf, "color", 256)
-    if aci == 256:  # ByLayer
-        layer_name = entity.dxf.layer
-        return layer_color_map.get(layer_name, "#000000")
-    if aci == 0:    # ByBlock
-        return "#777777"
+    if aci == 256 or aci is None:
+        # BYLAYER: Do NOT hardcode hex color! Downstream tools inherit layer styling dynamically
+        return None
+    if aci == 0:
+        # BYBLOCK: Inherits insertion block's color
+        return "BYBLOCK"
     
+    # Explicit indexed color override (1 - 255)
     rgb = aci2rgb(aci)
     return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
 
 def resolve_aci_to_hex(aci: int) -> str:
-    """Maps any of the 256 ACI colors to Hex."""
+    """Maps any of the 256 ACI colors to Hex for Layer definitions."""
     if 0 <= aci <= 255:
         rgb = aci2rgb(aci)
         return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
@@ -97,7 +106,6 @@ def resolve_block_name(name: str, attributes: Dict[str, str]) -> str:
     """Resolves anonymous block handles (*U48, *B20) to human-meaningful names via attributes."""
     if not name.startswith("*"):
         return name
-    # Check attributes for common identifier keys
     for key in ["STYLE", "MANUFACTURER", "REF#", "SYM.", "TAG", "NAME"]:
         if key in attributes and attributes[key]:
             mfg = attributes.get("MANUFACTURER", "")
@@ -105,6 +113,88 @@ def resolve_block_name(name: str, attributes: Dict[str, str]) -> str:
             label = f"{mfg} {style}".strip() or attributes[key]
             return f"{label} ({name})"
     return name
+
+def extract_block_definitions(doc) -> Dict[str, CADBlockDefinition]:
+    """
+    Extracts all block definitions (BLOCK_RECORD) and their internal geometry primitives.
+    Ignores root model space (*Model_Space) and paper space (*Paper_Space).
+    """
+    block_defs = {}
+    for block in doc.blocks:
+        bname = block.name
+        # Skip top-level drawing containers
+        if bname.startswith("*Model") or bname.startswith("*Paper"):
+            continue
+
+        base_pt = getattr(block, "base_point", (0.0, 0.0, 0.0))
+        lines = []
+        arcs = []
+        circles = []
+        polylines = []
+
+        for entity in block:
+            etype = entity.dxftype()
+            layer_name = entity.dxf.layer
+            ent_color = resolve_entity_color(entity)
+
+            if etype == "LINE":
+                p1 = entity.dxf.start
+                p2 = entity.dxf.end
+                lines.append(
+                    CADLine(
+                        layer=layer_name,
+                        space="Block",
+                        start=[round(p1.x, 3), round(p1.y, 3)],
+                        end=[round(p2.x, 3), round(p2.y, 3)],
+                        color=ent_color,
+                    )
+                )
+            elif etype == "ARC":
+                c = entity.dxf.center
+                arcs.append(
+                    CADArc(
+                        layer=layer_name,
+                        space="Block",
+                        center=[round(c.x, 3), round(c.y, 3)],
+                        radius=round(entity.dxf.radius, 3),
+                        start_angle=round(entity.dxf.start_angle, 2),
+                        end_angle=round(entity.dxf.end_angle, 2),
+                        color=ent_color,
+                    )
+                )
+            elif etype == "CIRCLE":
+                c = entity.dxf.center
+                circles.append(
+                    CADCircle(
+                        layer=layer_name,
+                        space="Block",
+                        center=[round(c.x, 3), round(c.y, 3)],
+                        radius=round(entity.dxf.radius, 3),
+                        color=ent_color,
+                    )
+                )
+            elif etype == "LWPOLYLINE":
+                pts = [[round(p[0], 3), round(p[1], 3)] for p in entity.get_points()]
+                polylines.append(
+                    CADPolyline(
+                        layer=layer_name,
+                        space="Block",
+                        is_closed=bool(entity.closed),
+                        points=pts,
+                        color=ent_color,
+                    )
+                )
+
+        block_defs[bname] = CADBlockDefinition(
+            name=bname,
+            base_point=[round(base_pt[0], 3), round(base_pt[1], 3), round(base_pt[2], 3)],
+            lines=lines,
+            arcs=arcs,
+            circles=circles,
+            polylines=polylines,
+        )
+
+    return block_defs
 
 def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIntermediateRepresentation:
     if not os.path.exists(dwg_path):
@@ -132,13 +222,11 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
             author=header.get("$LOGINNAME", "Unknown"),
         )
 
-        # Build Layer Table & Color Map
+        # Build Layer Table
         layers = []
-        layer_color_map = {}
         for layer in doc.layers:
             aci_color = layer.color
             hex_col = resolve_aci_to_hex(aci_color)
-            layer_color_map[layer.dxf.name] = hex_col
             layers.append(
                 CADLayer(
                     name=layer.dxf.name,
@@ -150,6 +238,9 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
                     linetype=layer.dxf.linetype
                 )
             )
+
+        # Extract Block Definitions
+        block_definitions = extract_block_definitions(doc)
 
         # Extract Layouts & Viewports (Paper Space)
         layouts = []
@@ -177,7 +268,7 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
                 )
             )
 
-        # Collect entities from ALL spaces (Model space + all Paper space layouts)
+        # Collect entities from ALL spaces (Model space + Paper space layouts)
         spaces_to_scan = [("Model", doc.modelspace())]
         for l in doc.layouts:
             if l.name != "Model":
@@ -189,6 +280,7 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
         dimensions = []
         lines = []
         arcs = []
+        circles = []
         polylines = []
 
         min_x, min_y = float("inf"), float("inf")
@@ -205,7 +297,7 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
             for entity in space:
                 etype = entity.dxftype()
                 layer_name = entity.dxf.layer
-                ent_color = resolve_entity_color(entity, layer_color_map)
+                ent_color = resolve_entity_color(entity)
 
                 if etype == "INSERT":
                     raw_bname = entity.dxf.name
@@ -254,6 +346,7 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
                 elif etype == "ARC":
                     c = entity.dxf.center
                     update_bounds(c.x, c.y)
+                    # Preserve raw DXF angles natively without normalizing
                     arcs.append(
                         CADArc(
                             layer=layer_name,
@@ -262,6 +355,19 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
                             radius=round(entity.dxf.radius, 3),
                             start_angle=round(entity.dxf.start_angle, 2),
                             end_angle=round(entity.dxf.end_angle, 2),
+                            color=ent_color,
+                        )
+                    )
+
+                elif etype == "CIRCLE":
+                    c = entity.dxf.center
+                    update_bounds(c.x, c.y)
+                    circles.append(
+                        CADCircle(
+                            layer=layer_name,
+                            space=space_name,
+                            center=[round(c.x, 3), round(c.y, 3)],
+                            radius=round(entity.dxf.radius, 3),
                             color=ent_color,
                         )
                     )
@@ -326,25 +432,29 @@ def extract_cad_ir(dwg_path: str, dwg2dxf_binary: Optional[str] = None) -> CADIn
             summary=CADPrimitiveSummary(
                 total_lines=len(lines),
                 total_arcs=len(arcs),
+                total_circles=len(circles),
                 total_polylines=len(polylines),
                 total_components=len(components),
                 total_annotations=len(annotations),
                 total_dimensions=len(dimensions),
+                total_block_definitions=len(block_definitions),
             ),
             primitives=CADPrimitives(
                 lines=lines,
                 arcs=arcs,
+                circles=circles,
                 polylines=polylines,
             )
         )
 
         return CADIntermediateRepresentation(
-            format="LAVINCI_CAD_IR_V2",
+            format="LAVINCI_CAD_IR_V3",
             metadata=metadata,
             extents=extents,
             layouts=layouts,
             layers=layers,
             bill_of_materials=dict(block_counts.most_common()),
+            block_definitions=block_definitions,
             annotations=annotations,
             dimensions=dimensions,
             components=components,

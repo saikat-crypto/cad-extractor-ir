@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V2",
+  "format": "LAVINCI_CAD_IR_V3",
   "metadata": {
     "source_file": "2000_Leader.dwg",
     "dxf_version": "AC1015",
@@ -69,6 +69,60 @@
     }
   ],
   "bill_of_materials": {},
+  "block_definitions": {
+    "_Open30": {
+      "name": "_Open30",
+      "base_point": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lines": [
+        {
+          "layer": "0",
+          "space": "Block",
+          "start": [
+            -1.0,
+            0.268
+          ],
+          "end": [
+            0.0,
+            0.0
+          ],
+          "color": "BYBLOCK"
+        },
+        {
+          "layer": "0",
+          "space": "Block",
+          "start": [
+            0.0,
+            0.0
+          ],
+          "end": [
+            -1.0,
+            -0.268
+          ],
+          "color": "BYBLOCK"
+        },
+        {
+          "layer": "0",
+          "space": "Block",
+          "start": [
+            0.0,
+            0.0
+          ],
+          "end": [
+            -1.0,
+            0.0
+          ],
+          "color": "BYBLOCK"
+        }
+      ],
+      "arcs": [],
+      "circles": [],
+      "polylines": []
+    }
+  },
   "annotations": [
     {
       "type": "MTEXT",
@@ -89,10 +143,12 @@
     "summary": {
       "total_lines": 1,
       "total_arcs": 0,
+      "total_circles": 0,
       "total_polylines": 1,
       "total_components": 0,
       "total_annotations": 1,
-      "total_dimensions": 0
+      "total_dimensions": 0,
+      "total_block_definitions": 1
     },
     "primitives": {
       "lines": [
@@ -107,10 +163,11 @@
             14.631,
             10.07
           ],
-          "color": "#ffffff"
+          "color": null
         }
       ],
       "arcs": [],
+      "circles": [],
       "polylines": [
         {
           "layer": "0",
@@ -146,7 +203,7 @@
               4.927
             ]
           ],
-          "color": "#ffffff"
+          "color": null
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "format": "LAVINCI_CAD_IR_V2",
+  "format": "LAVINCI_CAD_IR_V3",
   "metadata": {
     "source_file": "2013_Arc.dwg",
     "dxf_version": "AC1027",
@@ -69,6 +69,7 @@
     }
   ],
   "bill_of_materials": {},
+  "block_definitions": {},
   "annotations": [],
   "dimensions": [],
   "components": [],
@@ -76,10 +77,12 @@
     "summary": {
       "total_lines": 0,
       "total_arcs": 1,
+      "total_circles": 0,
       "total_polylines": 0,
       "total_components": 0,
       "total_annotations": 0,
-      "total_dimensions": 0
+      "total_dimensions": 0,
+      "total_block_definitions": 0
     },
     "primitives": {
       "lines": [],
@@ -94,9 +97,10 @@
           "radius": 8.293,
           "start_angle": 114.73,
           "end_angle": 87.02,
-          "color": "#ffffff"
+          "color": null
         }
       ],
+      "circles": [],
       "polylines": []
     }
   }
