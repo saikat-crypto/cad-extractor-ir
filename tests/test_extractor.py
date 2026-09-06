@@ -62,5 +62,18 @@ class TestCADExtractorV3(unittest.TestCase):
         iso_a1 = [l for l in self.ir.layouts if l.name == "ISO A1"][0]
         self.assertGreater(len(iso_a1.viewports), 0)
 
+    def test_polyline_bulge_tessellation(self):
+        import ezdxf
+        from cad_extractor.core import extract_entity_polyline_points
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        # Create polyline with semicircular arc bulge (bulge=1.0)
+        poly = msp.add_lwpolyline([(0, 0), (10, 0, 0, 0, 1.0), (10, 10)])
+        pts = extract_entity_polyline_points(poly, flatten_distance=0.5)
+        # Without bulge tessellation, this would only be 3 straight points
+        self.assertGreater(len(pts), 5, "Polyline with arc bulges must be tessellated into curved coordinates")
+        # Ensure coordinates are floats and non-empty
+        self.assertTrue(all(len(p) == 2 and isinstance(p[0], float) for p in pts))
+
 if __name__ == "__main__":
     unittest.main()

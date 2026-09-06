@@ -26,6 +26,7 @@ from collections import Counter
 from typing import Dict, Any, List, Optional, Tuple
 
 import ezdxf
+import ezdxf.path
 import ezdxf.tools.crypt as _ezdxf_crypt
 from ezdxf.colors import aci2rgb
 
@@ -142,6 +143,31 @@ def resolve_aci_to_hex(aci: int) -> str:
         return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
     return "#000000"
 
+def extract_entity_polyline_points(entity, flatten_distance: float = 1.0) -> List[List[float]]:
+    """
+    Extracts 2D coordinate points from LWPOLYLINE or POLYLINE entities.
+    If the polyline contains curved bulge arc segments, it uses ezdxf.path to tessellate
+    and flatten the true mathematical curves, preventing collapse into straight chords.
+    """
+    if getattr(entity, "has_arc", False):
+        try:
+            path_obj = ezdxf.path.make_path(entity)
+            pts = [[round(float(pt.x), 3), round(float(pt.y), 3)] for pt in path_obj.flattening(distance=flatten_distance)]
+            is_closed = bool(getattr(entity, "is_closed", False) or getattr(entity, "closed", False))
+            if len(pts) >= 2 and is_closed:
+                if math.dist(pts[0], pts[-1]) < 1e-4:
+                    pts.pop()
+            if pts:
+                return pts
+        except Exception:
+            pass
+
+    if hasattr(entity, "get_points"):
+        return [[round(float(p[0]), 3), round(float(p[1]), 3)] for p in entity.get_points()]
+    elif hasattr(entity, "vertices"):
+        return [[round(float(v.dxf.location.x), 3), round(float(v.dxf.location.y), 3)] for v in entity.vertices]
+    return []
+
 def find_dwg2dxf_binary() -> str:
     found = shutil.which("dwg2dxf")
     if found:
@@ -222,17 +248,19 @@ def extract_block_definitions(doc) -> Dict[str, CADBlockDefinition]:
                         color=ent_color,
                     )
                 )
-            elif etype == "LWPOLYLINE":
-                pts = [[round(p[0], 3), round(p[1], 3)] for p in entity.get_points()]
-                polylines.append(
-                    CADPolyline(
-                        layer=layer_name,
-                        space="Block",
-                        is_closed=bool(entity.closed),
-                        points=pts,
-                        color=ent_color,
+            elif etype in ("LWPOLYLINE", "POLYLINE"):
+                pts = extract_entity_polyline_points(entity, flatten_distance=1.0)
+                if pts:
+                    is_closed = bool(getattr(entity, "is_closed", False) or getattr(entity, "closed", False))
+                    polylines.append(
+                        CADPolyline(
+                            layer=layer_name,
+                            space="Block",
+                            is_closed=is_closed,
+                            points=pts,
+                            color=ent_color,
+                        )
                     )
-                )
             elif etype in ("ELLIPSE", "SPLINE"):
                 try:
                     pts = [[round(p.x, 3), round(p.y, 3)] for p in entity.flattening(distance=2.0)]
@@ -596,19 +624,21 @@ def _process_dxf_document(doc, source_file: str) -> CADIntermediateRepresentatio
                     )
                 )
 
-            elif etype == "LWPOLYLINE":
-                pts = [[round(p[0], 3), round(p[1], 3)] for p in entity.get_points()]
-                for px, py in pts:
-                    update_bounds(px, py)
-                polylines.append(
-                    CADPolyline(
-                        layer=layer_name,
-                        space=space_name,
-                        is_closed=bool(entity.closed),
-                        points=pts,
-                        color=ent_color,
+            elif etype in ("LWPOLYLINE", "POLYLINE"):
+                pts = extract_entity_polyline_points(entity, flatten_distance=1.0)
+                if pts:
+                    for px, py in pts:
+                        update_bounds(px, py)
+                    is_closed = bool(getattr(entity, "is_closed", False) or getattr(entity, "closed", False))
+                    polylines.append(
+                        CADPolyline(
+                            layer=layer_name,
+                            space=space_name,
+                            is_closed=is_closed,
+                            points=pts,
+                            color=ent_color,
+                        )
                     )
-                )
 
             elif etype in ("ELLIPSE", "SPLINE"):
                 try:
