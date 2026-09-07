@@ -429,16 +429,24 @@ def extract_cad_ir(input_path: str, dwg2dxf_binary: Optional[str] = None) -> CAD
             raise TimeoutError(f"LibreDWG conversion timed out after 120 seconds on: {input_path}") from e
 
         # Strict error check: if exit code != 0, fail cleanly (FM-04 resolved)
-        if proc.returncode != 0:
-            raise RuntimeError(f"Underlying LibreDWG parser failed: {proc.stderr or proc.stdout}")
-
-        if not os.path.exists(temp_dxf):
-            raise RuntimeError(f"LibreDWG failed to generate intermediate DXF file: {proc.stderr or proc.stdout}")
+        if proc.returncode != 0 or not os.path.exists(temp_dxf):
+            # Fallback to minimal mode (-m) for complex/corrupted DWG files
+            proc_min = subprocess.run([exe, "-y", "-m", os.path.abspath(input_path), "-o", temp_dxf], capture_output=True, text=True, timeout=120)
+            if proc_min.returncode != 0 or not os.path.exists(temp_dxf):
+                raise RuntimeError(f"Underlying LibreDWG parser failed: {proc.stderr or proc.stdout}")
 
         try:
             doc = ezdxf.readfile(temp_dxf)
         except Exception as e:
-            raise RuntimeError(f"Failed to read converted DXF from DWG: {str(e)}") from e
+            # Fallback to minimal mode (-m) if full DXF tables/classes have parsing errors
+            try:
+                proc_min = subprocess.run([exe, "-y", "-m", os.path.abspath(input_path), "-o", temp_dxf], capture_output=True, text=True, timeout=120)
+                if proc_min.returncode == 0 and os.path.exists(temp_dxf):
+                    doc = ezdxf.readfile(temp_dxf)
+                else:
+                    raise e
+            except Exception:
+                raise RuntimeError(f"Failed to read converted DXF from DWG: {str(e)}") from e
 
         return _process_dxf_document(doc, os.path.basename(input_path))
 
