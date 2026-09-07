@@ -684,10 +684,36 @@ def _process_dxf_document(doc, source_file: str) -> CADIntermediateRepresentatio
                 meas = getattr(entity.dxf, "actual_measurement", None)
                 dim_text = clean_cad_text(getattr(entity.dxf, "text", ""))
                 
+                tm = getattr(entity.dxf, "text_midpoint", None)
+                text_h = getattr(entity.dxf, "text_height", None) or getattr(entity.dxf, "char_height", None)
+                text_rot = getattr(entity.dxf, "text_rotation", None)
+
+                # Fallback to anonymous dimension block (*D...) MTEXT if needed
+                geom_name = getattr(entity.dxf, "geometry", None)
+                if (not dim_text or text_h is None or tm is None) and geom_name and geom_name in doc.blocks:
+                    for sub in doc.blocks[geom_name]:
+                        if sub.dxftype() == "MTEXT":
+                            if not dim_text:
+                                dim_text = clean_cad_text(sub.text)
+                            if text_h is None:
+                                text_h = getattr(sub.dxf, "char_height", None)
+                            if tm is None:
+                                tm = getattr(sub.dxf, "insert", None)
+                            if text_rot is None:
+                                text_rot = getattr(sub.dxf, "rotation", None)
+                            break
+
                 # Robust Dimension Bounding Box updating defpoint AND defpoint2 (FM-05 resolved)
                 update_bounds(dp[0], dp[1])
                 if dp2 is not None:
                     update_bounds(dp2[0], dp2[1])
+
+                tm_list = None
+                if tm is not None and len(tm) >= 2 and math.isfinite(tm[0]) and math.isfinite(tm[1]):
+                    tm_list = [round(float(tm[0]), 3), round(float(tm[1]), 3)]
+
+                safe_h = round(float(text_h), 2) if (text_h is not None and math.isfinite(text_h) and text_h > 0) else None
+                safe_rot = round(float(text_rot), 2) if (text_rot is not None and math.isfinite(text_rot)) else None
 
                 dimensions.append(
                     CADDimension(
@@ -697,7 +723,10 @@ def _process_dxf_document(doc, source_file: str) -> CADIntermediateRepresentatio
                         measurement=round(meas, 3) if meas is not None else None,
                         text=dim_text,
                         defpoint=[round(dp[0], 3), round(dp[1], 3)],
-                        defpoint2=[round(dp2[0], 3), round(dp2[1], 3)] if dp2 else None
+                        defpoint2=[round(dp2[0], 3), round(dp2[1], 3)] if dp2 else None,
+                        text_midpoint=tm_list,
+                        text_height=safe_h,
+                        text_rotation=safe_rot,
                     )
                 )
 

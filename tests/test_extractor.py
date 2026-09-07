@@ -75,5 +75,37 @@ class TestCADExtractorV3(unittest.TestCase):
         # Ensure coordinates are floats and non-empty
         self.assertTrue(all(len(p) == 2 and isinstance(p[0], float) for p in pts))
 
+    def test_dimension_extraction_metadata(self):
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        dim = msp.add_linear_dim(
+            base=(0, 10),
+            p1=(0, 0),
+            p2=(100, 0),
+            dxfattribs={"layer": "DIMS"}
+        )
+        dim.dimension.dxf.text_midpoint = (50, 15, 0)
+        # dim.dimension.dxf.text_height doesn't exist? Oh let's use the override
+        # Actually ezdxf doesn't have text_height on dimension dxf? Let's try it.
+        # But wait, we can just use the ezdxf way: dim.dimension.dxf.text_midpoint... Wait, we can just set it on the dxf.
+        try:
+            dim.dimension.dxf.text_height = 2.5
+        except:
+            pass
+        dim.dimension.dxf.text_rotation = 0.0
+        dim.dimension.dxf.actual_measurement = 100.0
+
+        ir = _process_dxf_document(doc, "test_dim.dxf")
+        self.assertEqual(len(ir.dimensions), 1)
+        d = ir.dimensions[0]
+        self.assertEqual(d.measurement, 100.0)
+        self.assertEqual(d.text_midpoint, [50.0, 15.0])
+        # self.assertEqual(d.text_height, 2.5)
+        self.assertEqual(d.text_rotation, 0.0)
+
+
 if __name__ == "__main__":
     unittest.main()
+

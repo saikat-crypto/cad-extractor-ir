@@ -163,6 +163,9 @@ Ingests native CAD engineering dimension entities:
 * `measurement`: Explicit distance or measurement value.
 * `text`: Explicit dimension text or label override.
 * `defpoint` / `defpoint2`: Definition point anchors.
+* `text_midpoint`: Optional explicitly positioned text midpoint `[x, y]`.
+* `text_height`: Optional dimension text character height in CAD drawing units.
+* `text_rotation`: Optional dimension text rotation angle in degrees.
 
 ### 3.8 Components & Bill of Materials (`CADComponentInstance` & `bill_of_materials`)
 AutoCAD block references (symbol instances) linked to `block_definitions`:

@@ -97,6 +97,9 @@ class CADDimension(BaseModel):
     text: Optional[str] = None
     defpoint: List[float] = Field(default_factory=lambda: [0.0, 0.0])
     defpoint2: Optional[List[float]] = None
+    text_midpoint: Optional[List[float]] = None
+    text_height: Optional[float] = None
+    text_rotation: Optional[float] = None
 
 class CADPrimitives(BaseModel):
     lines: List[CADLine] = Field(default_factory=list)
