@@ -38,6 +38,7 @@ class CADLine(BaseModel):
     start: List[float]
     end: List[float]
     color: Optional[str] = None  # None indicates BYLAYER inheritance
+    linetype: Optional[str] = None  # None indicates BYLAYER inheritance
 
 class CADArc(BaseModel):
     layer: str
@@ -47,6 +48,7 @@ class CADArc(BaseModel):
     start_angle: float
     end_angle: float
     color: Optional[str] = None  # None indicates BYLAYER inheritance
+    linetype: Optional[str] = None  # None indicates BYLAYER inheritance
 
 class CADCircle(BaseModel):
     layer: str
@@ -54,6 +56,7 @@ class CADCircle(BaseModel):
     center: List[float]
     radius: float
     color: Optional[str] = None  # None indicates BYLAYER inheritance
+    linetype: Optional[str] = None  # None indicates BYLAYER inheritance
 
 class CADPolyline(BaseModel):
     layer: str
@@ -61,6 +64,7 @@ class CADPolyline(BaseModel):
     is_closed: bool
     points: List[List[float]]
     color: Optional[str] = None  # None indicates BYLAYER inheritance
+    linetype: Optional[str] = None  # None indicates BYLAYER inheritance
 
 class CADBlockDefinition(BaseModel):
     name: str

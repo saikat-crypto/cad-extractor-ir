@@ -102,10 +102,135 @@ class TestCADExtractorV3(unittest.TestCase):
         d = ir.dimensions[0]
         self.assertEqual(d.measurement, 100.0)
         self.assertEqual(d.text_midpoint, [50.0, 15.0])
-        # self.assertEqual(d.text_height, 2.5)
         self.assertEqual(d.text_rotation, 0.0)
+
+    # -------------------------------------------------------------------------
+    # Feature 4: Unhandled Entity Types (SOLID, HATCH, WIPEOUT, POINT)
+    # -------------------------------------------------------------------------
+    def test_solid_quad_and_triangle_ingestion(self):
+        """Feature 4: DXF SOLID quads and triangles ingest as closed CADPolylines."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        # Quad solid in DXF bowtie order
+        msp.add_solid([(0, 0), (10, 0), (0, 10), (10, 10)], dxfattribs={"layer": "STRUCT", "color": 1})
+        # Triangle solid
+        msp.add_solid([(20, 20), (30, 20), (25, 30)], dxfattribs={"layer": "ARROW", "color": 3})
+        ir = _process_dxf_document(doc, "test_solids.dxf")
+        polys = ir.geometry_primitives.primitives.polylines
+        self.assertEqual(len(polys), 2)
+        # Verify quad has 4 perimeter points
+        self.assertEqual(len(polys[0].points), 4)
+        self.assertTrue(polys[0].is_closed)
+        self.assertEqual(polys[0].points, [[0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0]])
+        # Verify triangle has 3 points
+        self.assertEqual(len(polys[1].points), 3)
+        self.assertTrue(polys[1].is_closed)
+
+    def test_hatch_multi_boundary_loops_ingestion(self):
+        """Feature 4: HATCH with multiple loops ingests into discrete closed CADPolylines."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        h = msp.add_hatch(color=2, dxfattribs={"layer": "PLATES"})
+        h.paths.add_polyline_path([(0, 0), (100, 0), (100, 100), (0, 100)], is_closed=True)
+        h.paths.add_polyline_path([(20, 20), (40, 20), (40, 40), (20, 40)], is_closed=True)
+        ir = _process_dxf_document(doc, "test_hatch.dxf")
+        polys = ir.geometry_primitives.primitives.polylines
+        self.assertEqual(len(polys), 2)
+        self.assertTrue(all(p.is_closed for p in polys))
+
+    def test_wipeout_boundary_ingestion(self):
+        """Feature 4: WIPEOUT extracts as a closed CADPolyline in WCS."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        msp.add_wipeout([(10, 10), (50, 10), (50, 50), (10, 50)], dxfattribs={"layer": "MASKS"})
+        ir = _process_dxf_document(doc, "test_wipeout.dxf")
+        polys = ir.geometry_primitives.primitives.polylines
+        self.assertEqual(len(polys), 1)
+        self.assertEqual(len(polys[0].points), 4)
+        self.assertTrue(polys[0].is_closed)
+
+    def test_point_entity_ingestion(self):
+        """Feature 4: POINT entity ingests and expands global bounding extents."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        msp.add_point((500.0, 700.0, 0.0), dxfattribs={"layer": "SURVEY"})
+        ir = _process_dxf_document(doc, "test_point.dxf")
+        circles = ir.geometry_primitives.primitives.circles
+        self.assertEqual(len(circles), 1)
+        self.assertEqual(circles[0].center, [500.0, 700.0])
+        self.assertGreaterEqual(ir.extents.max[0], 500.0)
+        self.assertGreaterEqual(ir.extents.max[1], 700.0)
+
+    # -------------------------------------------------------------------------
+    # Feature 3: Entity-Level Linetype Extraction
+    # -------------------------------------------------------------------------
+    def test_entity_level_linetype_extraction(self):
+        """Feature 3: Explicit entity linetype overrides are preserved, BYLAYER is None."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        msp.add_line((0, 0), (10, 10), dxfattribs={"layer": "0", "linetype": "DASHED"})
+        msp.add_line((10, 10), (20, 20), dxfattribs={"layer": "0", "linetype": "BYLAYER"})
+        msp.add_circle((30, 30), radius=5, dxfattribs={"layer": "0", "linetype": "ACAD_ISO04W100"})
+        msp.add_arc((40, 40), radius=5, start_angle=0, end_angle=90, dxfattribs={"layer": "0", "linetype": "CENTER"})
+        msp.add_lwpolyline([(50, 50), (60, 50)], dxfattribs={"layer": "0", "linetype": "HIDDEN"})
+
+        ir = _process_dxf_document(doc, "test_linetypes.dxf")
+        lines = ir.geometry_primitives.primitives.lines
+        self.assertEqual(lines[0].linetype, "DASHED")
+        self.assertIsNone(lines[1].linetype)
+
+        circles = ir.geometry_primitives.primitives.circles
+        self.assertEqual(circles[0].linetype, "ACAD_ISO04W100")
+
+        arcs = ir.geometry_primitives.primitives.arcs
+        self.assertEqual(arcs[0].linetype, "CENTER")
+
+        polys = ir.geometry_primitives.primitives.polylines
+        self.assertEqual(polys[0].linetype, "HIDDEN")
+
+    def test_schema_backward_compatibility_without_linetypes(self):
+        """Feature 3: Existing IR JSON without linetype deserializes cleanly with default None."""
+        from cad_extractor.models import CADLine
+        raw_json = '{"layer":"0","space":"Model","start":[0.0, 0.0],"end":[10.0, 10.0]}'
+        line = CADLine.model_validate_json(raw_json)
+        self.assertIsNone(line.linetype)
+        self.assertEqual(line.start, [0.0, 0.0])
+
+    # -------------------------------------------------------------------------
+    # Feature 2: True Composite Bounding Box Extents
+    # -------------------------------------------------------------------------
+    def test_composite_extents_transformed_component(self):
+        """Feature 2: Component block geometry expands global bounding extents with affine transform."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        blk = doc.blocks.new("SUB_ASSEMBLY")
+        blk.add_line((0, 0), (100, 50))
+        blk.add_circle((50, 25), radius=10)
+
+        msp = doc.modelspace()
+        # Insert block at (1000, 2000) with scale 2.0
+        msp.add_blockref("SUB_ASSEMBLY", insert=(1000, 2000, 0), dxfattribs={"xscale": 2.0, "yscale": 2.0})
+
+        ir = _process_dxf_document(doc, "test_composite.dxf")
+        # Transformed line reaches (1000 + 200, 2000 + 100) = (1200, 2100), starts at (1000, 2000)
+        self.assertGreaterEqual(ir.extents.max[0], 1200.0)
+        self.assertGreaterEqual(ir.extents.max[1], 2100.0)
+        self.assertAlmostEqual(ir.extents.min[0], 1000.0, delta=1.0)
+        self.assertAlmostEqual(ir.extents.min[1], 2000.0, delta=1.0)
 
 
 if __name__ == "__main__":
     unittest.main()
+
 

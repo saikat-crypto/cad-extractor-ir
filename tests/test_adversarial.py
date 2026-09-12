@@ -18,6 +18,7 @@ Verifies R2 Invariants:
 
 import os
 import glob
+import math
 import json
 import unittest
 from pathlib import Path
@@ -241,5 +242,210 @@ class TestAdversarialStress(unittest.TestCase):
         self.assertAlmostEqual(ir.extents.width, 16.586, places=2)
         self.assertAlmostEqual(ir.extents.height, 16.586, places=2)
 
+    # -------------------------------------------------------------------------
+    # Feature 1: Coordinate Sanitization & Astronomical Float Hardening
+    # -------------------------------------------------------------------------
+    def test_feature1_nan_inf_polyline_points_filtered(self):
+        """FM-12 / F1: Polyline points containing NaN, Inf, or -Inf are cleanly filtered."""
+        import ezdxf
+        from cad_extractor.core import extract_entity_polyline_points
+        doc = ezdxf.new("R2000")
+        msp = doc.modelspace()
+        poly = msp.add_lwpolyline([(0.0, 0.0), (10.0, float("nan")), (20.0, 20.0), (float("inf"), 30.0)])
+        pts = extract_entity_polyline_points(poly)
+        self.assertEqual(pts, [[0.0, 0.0], [20.0, 20.0]])
+
+    def test_feature1_astronomical_floats_sanitized(self):
+        """F1: Pathological floats (> 1e7) and uninitialized subnormal buffer noise are dropped."""
+        import ezdxf
+        from cad_extractor.core import extract_entity_polyline_points
+        doc = ezdxf.new("R2000")
+        msp = doc.modelspace()
+        poly = msp.add_lwpolyline([
+            (100.0, 100.0),
+            (606.284, -1.772124872286364e+281),
+            (200.0, 200.0),
+            (1.967e-96, -3.241e-245),
+            (300.0, 300.0)
+        ])
+        pts = extract_entity_polyline_points(poly)
+        self.assertEqual(pts, [[100.0, 100.0], [200.0, 200.0], [300.0, 300.0]])
+
+    def test_feature1_degenerate_polyline_discarded(self):
+        """F1: Polylines with fewer than 2 valid vertices after sanitization return empty list."""
+        import ezdxf
+        from cad_extractor.core import extract_entity_polyline_points
+        doc = ezdxf.new("R2000")
+        msp = doc.modelspace()
+        poly = msp.add_lwpolyline([(10.0, 10.0), (float("nan"), float("nan"))])
+        pts = extract_entity_polyline_points(poly)
+        self.assertEqual(pts, [])
+
+    def test_feature1_schema_roundtrip_with_extreme_kato_handles(self):
+        """F1: Kato crane handles 3ADEC and 3E878 serialize and re-validate strictly without null errors."""
+        import ezdxf
+        from cad_extractor.core import extract_entity_polyline_points
+        from cad_extractor.models import CADPolyline
+        simulated_points = [[476.908 + i * 0.1, 2675.669 - i * 0.5] for i in range(50)]
+        simulated_points.extend([[606.284, -1.77e+281], [1.96e-96, -3.24e-245]])
+        doc = ezdxf.new("R2000")
+        msp = doc.modelspace()
+        poly = msp.add_lwpolyline(simulated_points)
+        clean_pts = extract_entity_polyline_points(poly)
+        cad_pl = CADPolyline(points=clean_pts, is_closed=False, layer="0")
+        dumped_dict = cad_pl.model_dump()
+        for pt in dumped_dict["points"]:
+            self.assertNotIn(None, pt)
+        restored = CADPolyline.model_validate_json(cad_pl.model_dump_json())
+        self.assertEqual(len(restored.points), 50)
+        for pt in restored.points:
+            self.assertTrue(all(isinstance(c, float) and math.isfinite(c) for c in pt))
+
+    # -------------------------------------------------------------------------
+    # Feature 2: Composite Extents Boundary Conditions
+    # -------------------------------------------------------------------------
+    def test_feature2_negative_scale_reflection(self):
+        """F2: Negative scale (mirroring) produces correct bounding box."""
+        from cad_extractor.models import CADBlockDefinition, CADLine
+        from cad_extractor.core import update_bounds_with_component_geometry
+        bdef = CADBlockDefinition(
+            name="MIRROR_BOX",
+            base_point=[0.0, 0.0, 0.0],
+            lines=[CADLine(layer="0", start=[10.0, 5.0], end=[30.0, 15.0])]
+        )
+        min_x, min_y = float("inf"), float("inf")
+        max_x, max_y = float("-inf"), float("-inf")
+        def update(x, y):
+            nonlocal min_x, min_y, max_x, max_y
+            min_x = min(min_x, x)
+            min_y = min(min_y, y)
+            max_x = max(max_x, x)
+            max_y = max(max_y, y)
+
+        update_bounds_with_component_geometry(
+            comp_pos=[100.0, 50.0],
+            comp_scale=[-1.0, 1.0],
+            comp_rotation=0.0,
+            bdef=bdef,
+            update_bounds_fn=update
+        )
+        self.assertAlmostEqual(min_x, 70.0, places=2)
+        self.assertAlmostEqual(max_x, 90.0, places=2)
+        self.assertAlmostEqual(min_y, 55.0, places=2)
+        self.assertAlmostEqual(max_y, 65.0, places=2)
+
+    def test_feature2_empty_block_fallback(self):
+        """F2: Empty block returns False so caller can fall back to insertion point."""
+        from cad_extractor.models import CADBlockDefinition
+        from cad_extractor.core import update_bounds_with_component_geometry
+        bdef = CADBlockDefinition(name="EMPTY", base_point=[0, 0, 0])
+        min_x, min_y = float("inf"), float("inf")
+        def update(x, y):
+            nonlocal min_x, min_y
+            min_x, min_y = x, y
+        has_geom = update_bounds_with_component_geometry(
+            comp_pos=[50.0, 60.0],
+            comp_scale=[1.0, 1.0],
+            comp_rotation=0.0,
+            bdef=bdef,
+            update_bounds_fn=update
+        )
+        self.assertFalse(has_geom)
+        self.assertEqual(min_x, float("inf"))
+
+    def test_feature2_extreme_float_resilience(self):
+        """F2: Corrupted float (>1e15) inside block polyline is safely ignored during extents update."""
+        from cad_extractor.models import CADBlockDefinition, CADPolyline
+        from cad_extractor.core import update_bounds_with_component_geometry
+        bdef = CADBlockDefinition(
+            name="CORRUPT_POLY",
+            base_point=[0, 0, 0],
+            polylines=[
+                CADPolyline(
+                    layer="0",
+                    is_closed=False,
+                    points=[[10.0, 20.0], [15.0, -1.77e281], [30.0, 40.0]]
+                )
+            ]
+        )
+        min_y = float("inf")
+        def update(x, y):
+            nonlocal min_y
+            min_y = min(min_y, y)
+
+        update_bounds_with_component_geometry(
+            comp_pos=[0.0, 0.0],
+            comp_scale=[1.0, 1.0],
+            comp_rotation=0.0,
+            bdef=bdef,
+            update_bounds_fn=update
+        )
+        self.assertEqual(min_y, 20.0)
+
+    # -------------------------------------------------------------------------
+    # Feature 3: Entity-Level Linetype Semantics
+    # -------------------------------------------------------------------------
+    def test_feature3_resolve_entity_linetype_semantics(self):
+        """F3: BYLAYER -> None, BYBLOCK -> BYBLOCK, and named linetypes preserved."""
+        from cad_extractor.core import resolve_entity_linetype
+        class MockDXF:
+            def __init__(self, lt=None, has=True):
+                self.linetype = lt
+                self._has = has
+            def hasattr(self, name):
+                return self._has
+        class MockEntity:
+            def __init__(self, lt=None, has=True):
+                self.dxf = MockDXF(lt, has)
+
+        self.assertIsNone(resolve_entity_linetype(MockEntity(None, False)))
+        self.assertIsNone(resolve_entity_linetype(MockEntity("BYLAYER", True)))
+        self.assertIsNone(resolve_entity_linetype(MockEntity("bylayer", True)))
+        self.assertEqual(resolve_entity_linetype(MockEntity("BYBLOCK", True)), "BYBLOCK")
+        self.assertEqual(resolve_entity_linetype(MockEntity("byblock", True)), "BYBLOCK")
+        self.assertEqual(resolve_entity_linetype(MockEntity("ACAD_ISO04W100", True)), "ACAD_ISO04W100")
+        self.assertEqual(resolve_entity_linetype(MockEntity("DASHED", True)), "DASHED")
+
+    # -------------------------------------------------------------------------
+    # Feature 5: Cyclic and Explosive Nested Blocks Safeguards
+    # -------------------------------------------------------------------------
+    def test_cat3_cyclic_self_reference_safe_termination(self):
+        """FM-17: Block referencing itself terminates cleanly without recursion error."""
+        dwg = os.path.join(FIXTURES_DIR, "blocks_02_cyclic_self_ref.dxf")
+        ir = extract_cad_ir(dwg)
+        self.assertIsInstance(ir, CADIntermediateRepresentation)
+        self.assertIn("CYCLIC_SELF", ir.block_definitions)
+
+    def test_cat3_cyclic_mutual_pair_safe_termination(self):
+        """FM-18: Mutual recursion (A -> B -> A) terminates cleanly via cycle detection."""
+        dwg = os.path.join(FIXTURES_DIR, "blocks_03_cyclic_pair.dxf")
+        ir = extract_cad_ir(dwg)
+        self.assertIsInstance(ir, CADIntermediateRepresentation)
+        self.assertIn("CYCLIC_A", ir.block_definitions)
+        self.assertIn("CYCLIC_B", ir.block_definitions)
+
+    def test_cat3_block_bomb_combinatorial_guard(self):
+        """FM-19: Billion-Laughs exponential block bomb is constrained by expansion quota."""
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions
+        doc = ezdxf.new()
+        prev = None
+        for i in range(6):
+            bname = f"BOMB_{i}"
+            blk = doc.blocks.new(name=bname)
+            if prev is None:
+                blk.add_line((0, 0), (1, 1))
+            else:
+                for j in range(10):
+                    blk.add_blockref(prev, insert=(j * 10, 0, 0))
+            prev = bname
+
+        # 10^5 = 100,000 potential lines; must complete rapidly without OOM or infinite loop
+        bdefs = extract_block_definitions(doc)
+        self.assertIn("BOMB_5", bdefs)
+        self.assertLessEqual(len(bdefs["BOMB_5"].lines), 100_000)
+
+
 if __name__ == "__main__":
     unittest.main()
+
