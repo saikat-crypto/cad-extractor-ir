@@ -229,6 +229,87 @@ class TestCADExtractorV3(unittest.TestCase):
         self.assertAlmostEqual(ir.extents.min[0], 1000.0, delta=1.0)
         self.assertAlmostEqual(ir.extents.min[1], 2000.0, delta=1.0)
 
+    def test_all_primitives_support_linetype(self):
+        """Feature 3: Verify CADLine, CADCircle, CADArc, CADPolyline all support linetype and serialize properly."""
+        from cad_extractor.models import CADLine, CADCircle, CADArc, CADPolyline
+        l = CADLine(layer="0", start=[0, 0], end=[1, 1], linetype="DASHED")
+        c = CADCircle(layer="0", center=[0, 0], radius=5.0, linetype="CENTER")
+        a = CADArc(layer="0", center=[0, 0], radius=5.0, start_angle=0, end_angle=90, linetype="HIDDEN")
+        pl = CADPolyline(layer="0", is_closed=True, points=[[0, 0], [1, 0], [1, 1]], linetype="ACAD_ISO04W100")
+        
+        self.assertEqual(l.linetype, "DASHED")
+        self.assertEqual(c.linetype, "CENTER")
+        self.assertEqual(a.linetype, "HIDDEN")
+        self.assertEqual(pl.linetype, "ACAD_ISO04W100")
+        
+        # Test roundtrip serialization
+        dumped_pl = CADPolyline.model_validate_json(pl.model_dump_json())
+        self.assertEqual(dumped_pl.linetype, "ACAD_ISO04W100")
+
+    def test_unhandled_entities_inside_block_definition(self):
+        """Feature 4: SOLID, HATCH, WIPEOUT, and POINT inside block definition are ingested into block_definitions."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        blk = doc.blocks.new("SPECIAL_BLOCK")
+        # Solid inside block
+        blk.add_solid([(0, 0), (10, 0), (0, 10), (10, 10)], dxfattribs={"layer": "B_SOLID"})
+        # Hatch inside block
+        h = blk.add_hatch(color=1, dxfattribs={"layer": "B_HATCH"})
+        h.paths.add_polyline_path([(50, 50), (100, 50), (100, 100), (50, 100)], is_closed=True)
+        # Wipeout inside block
+        blk.add_wipeout([(200, 200), (250, 200), (250, 250), (200, 250)], dxfattribs={"layer": "B_WIPEOUT"})
+        # Point inside block
+        blk.add_point((300, 300, 0), dxfattribs={"layer": "B_POINT"})
+
+        ir = _process_dxf_document(doc, "test_block_unhandled.dxf")
+        self.assertIn("SPECIAL_BLOCK", ir.block_definitions)
+        bdef = ir.block_definitions["SPECIAL_BLOCK"]
+        # Polylines must contain the solid, hatch, and wipeout
+        self.assertGreaterEqual(len(bdef.polylines), 3)
+        # Circles must contain the point
+        self.assertGreaterEqual(len(bdef.circles), 1)
+        point_circle = [c for c in bdef.circles if c.layer == "B_POINT"][0]
+        self.assertEqual(point_circle.center, [300.0, 300.0])
+
+    def test_composite_extents_with_rotation_scale_and_base_point(self):
+        """Feature 2: Composite extents accounts for non-zero base_point, rotation, and non-uniform scaling."""
+        from cad_extractor.models import CADBlockDefinition, CADLine, CADCircle
+        from cad_extractor.core import update_bounds_with_component_geometry
+        bdef = CADBlockDefinition(
+            name="ROTATED_BLOCK",
+            base_point=[10.0, 10.0, 0.0],
+            lines=[
+                CADLine(layer="0", start=[10.0, 10.0], end=[30.0, 10.0]),
+                CADLine(layer="0", start=[30.0, 10.0], end=[30.0, 20.0]),
+            ],
+            circles=[
+                CADCircle(layer="0", center=[20.0, 15.0], radius=5.0)
+            ]
+        )
+        
+        min_x, min_y = float("inf"), float("inf")
+        max_x, max_y = float("-inf"), float("-inf")
+        def update(x, y):
+            nonlocal min_x, min_y, max_x, max_y
+            min_x = min(min_x, x)
+            min_y = min(min_y, y)
+            max_x = max(max_x, x)
+            max_y = max(max_y, y)
+            
+        has_geom = update_bounds_with_component_geometry(
+            comp_pos=[100.0, 200.0],
+            comp_scale=[2.0, 3.0],
+            comp_rotation=90.0,
+            bdef=bdef,
+            update_bounds_fn=update
+        )
+        self.assertTrue(has_geom)
+        self.assertAlmostEqual(min_x, 70.0, places=2)
+        self.assertAlmostEqual(max_x, 100.0, places=2)
+        self.assertAlmostEqual(min_y, 200.0, places=2)
+        self.assertAlmostEqual(max_y, 240.0, places=2)
+
 
 if __name__ == "__main__":
     unittest.main()

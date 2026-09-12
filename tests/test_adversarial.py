@@ -445,6 +445,39 @@ class TestAdversarialStress(unittest.TestCase):
         self.assertIn("BOMB_5", bdefs)
         self.assertLessEqual(len(bdefs["BOMB_5"].lines), 100_000)
 
+    # -------------------------------------------------------------------------
+    # Feature 1 & 4 Adversarial Hardening
+    # -------------------------------------------------------------------------
+    def test_feature1_subnormal_memory_noise_dropped(self):
+        """F1: Subnormal uninitialized memory floats (< 1e-6) dropped, true 0.0 preserved."""
+        from cad_extractor.core import sanitize_polyline_coordinates
+        raw = [[0.0, 0.0], [10.0, 10.0], [1.9675e-96, -3.241e-245], [20.0, 20.0]]
+        clean = sanitize_polyline_coordinates(raw)
+        self.assertEqual(clean, [[0.0, 0.0], [10.0, 10.0], [20.0, 20.0]])
+
+    def test_feature1_closed_polyline_closing_point_deduplicated(self):
+        """F1: Closed polyline closing point matching start is deduplicated to prevent zero-length segment."""
+        from cad_extractor.core import sanitize_polyline_coordinates
+        raw = [[0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 0.0]]
+        clean = sanitize_polyline_coordinates(raw, is_closed=True)
+        self.assertEqual(clean, [[0.0, 0.0], [10.0, 0.0], [10.0, 10.0]])
+
+    def test_feature4_adversarial_malformed_hatch_and_wipeout(self):
+        """F4: Malformed or degenerate HATCH/WIPEOUT with fewer than 3 vertices is safely skipped."""
+        from cad_extractor.core import _process_dxf_document
+        doc = ezdxf.new()
+        msp = doc.modelspace()
+        # Degenerate hatch with only 2 collinear points
+        h = msp.add_hatch(color=1, dxfattribs={"layer": "DEGEN_HATCH"})
+        h.paths.add_polyline_path([(0, 0), (1, 1)], is_closed=True)
+        # Wipeout with degenerate 2-point boundary
+        msp.add_wipeout([(0, 0), (1, 1)], dxfattribs={"layer": "DEGEN_WIPEOUT"})
+
+        ir = _process_dxf_document(doc, "degen_test.dxf")
+        # Neither degenerate hatch nor degenerate wipeout should produce invalid <3 point polylines
+        degen_polys = [p for p in ir.geometry_primitives.primitives.polylines if len(p.points) < 2]
+        self.assertEqual(len(degen_polys), 0)
+
 
 if __name__ == "__main__":
     unittest.main()
