@@ -676,13 +676,14 @@ def extract_block_definitions(doc) -> Dict[str, CADBlockDefinition]:
             "child_inserts": child_inserts,
         }
 
-    # Phase 2: Memoized hierarchical resolution with cycle detection
-    resolved_cache: Dict[str, Dict[str, List[Any]]] = {}
+    # Phase 2: Relative depth-budgeted hierarchical resolution with cycle detection
+    resolved_cache: Dict[Tuple[str, int], Dict[str, List[Any]]] = {}
 
-    def _resolve_block(bname: str, depth: int, active_path: Set[str]) -> Dict[str, List[Any]]:
-        if bname in resolved_cache:
-            return resolved_cache[bname]
-        if depth > MAX_BLOCK_DEPTH or bname in active_path or bname not in raw_blocks:
+    def _resolve_block(bname: str, budget: int, active_path: Set[str]) -> Dict[str, List[Any]]:
+        cache_key = (bname, budget)
+        if cache_key in resolved_cache:
+            return resolved_cache[cache_key]
+        if bname in active_path or bname not in raw_blocks:
             return {"lines": [], "arcs": [], "circles": [], "polylines": []}
 
         active_path.add(bname)
@@ -695,134 +696,140 @@ def extract_block_definitions(doc) -> Dict[str, CADBlockDefinition]:
 
         total_entities = len(lines) + len(arcs) + len(circles) + len(polylines)
 
-        for child_bname, ip, rot, sx, sy in raw["child_inserts"]:
-            if total_entities >= MAX_BLOCK_EXPANDED_ENTITIES:
-                break
-
-            child_geom = _resolve_block(child_bname, depth + 1, active_path)
-            cos_r, sin_r = math.cos(rot), math.sin(rot)
-
-            def transform(x: float, y: float) -> List[float]:
-                tx, ty = x * sx, y * sy
-                px = tx * cos_r - ty * sin_r + ip.x
-                py = tx * sin_r + ty * cos_r + ip.y
-                return [round(px, 3), round(py, 3)]
-
-            for l in child_geom["lines"]:
-                tp1 = transform(l.start[0], l.start[1])
-                tp2 = transform(l.end[0], l.end[1])
-                if (
-                    is_valid_coordinate_point(tp1, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
-                    and is_valid_coordinate_point(tp2, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
-                ):
-                    lines.append(
-                        CADLine(
-                            layer=l.layer,
-                            space="Block",
-                            start=tp1,
-                            end=tp2,
-                            color=l.color,
-                            linetype=l.linetype,
-                        )
-                    )
-            for c in child_geom["circles"]:
-                tc = transform(c.center[0], c.center[1])
-                if not is_valid_coordinate_point(tc, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0):
+        if budget > 0:
+            for child_bname, ip, rot, sx, sy in raw["child_inserts"]:
+                if total_entities >= MAX_BLOCK_EXPANDED_ENTITIES:
+                    break
+                if child_bname not in raw_blocks:
                     continue
-                if abs(sx - sy) < 1e-5:
-                    rad = round(c.radius * abs(sx), 3)
-                    if is_valid_coordinate_value(rad, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0) and rad > 0:
-                        circles.append(
-                            CADCircle(
-                                layer=c.layer,
-                                space="Block",
-                                center=tc,
-                                radius=rad,
-                                color=c.color,
-                                linetype=c.linetype,
-                            )
-                        )
-                else:
-                    pts = [[round(c.center[0] + c.radius * math.cos(a), 3), round(c.center[1] + c.radius * math.sin(a), 3)] for a in [i * math.pi / 16 for i in range(33)]]
-                    tpts = [transform(p[0], p[1]) for p in pts]
-                    clean_tpts = [p for p in tpts if is_valid_coordinate_point(p, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)]
-                    if len(clean_tpts) >= 2:
-                        polylines.append(
-                            CADPolyline(
-                                layer=c.layer,
-                                space="Block",
-                                is_closed=True,
-                                points=clean_tpts,
-                                color=c.color,
-                                linetype=c.linetype,
-                            )
-                        )
-            for pl in child_geom["polylines"]:
-                tpts = [transform(p[0], p[1]) for p in pl.points]
-                clean_tpts = [p for p in tpts if is_valid_coordinate_point(p, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)]
-                if len(clean_tpts) >= 2:
-                    polylines.append(
-                        CADPolyline(
-                            layer=pl.layer,
-                            space="Block",
-                            is_closed=pl.is_closed,
-                            points=clean_tpts,
-                            color=pl.color,
-                            linetype=pl.linetype,
-                        )
-                    )
-            for a in child_geom["arcs"]:
-                if abs(sx - sy) < 1e-5 and sx > 0:
-                    new_c = transform(a.center[0], a.center[1])
-                    rot_deg = math.degrees(rot)
-                    rad = round(a.radius * sx, 3)
-                    if (
-                        is_valid_coordinate_point(new_c, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
-                        and is_valid_coordinate_value(rad, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
-                        and rad > 0
-                    ):
-                        arcs.append(
-                            CADArc(
-                                layer=a.layer,
-                                space="Block",
-                                center=new_c,
-                                radius=rad,
-                                start_angle=round((a.start_angle + rot_deg) % 360, 2),
-                                end_angle=round((a.end_angle + rot_deg) % 360, 2),
-                                color=a.color,
-                                linetype=a.linetype,
-                            )
-                        )
-                else:
-                    sa, ea = math.radians(a.start_angle), math.radians(a.end_angle)
-                    if ea <= sa:
-                        ea += 2 * math.pi
-                    steps = max(8, int(abs(ea - sa) / (math.pi / 16)))
-                    arc_pts = [[round(a.center[0] + a.radius * math.cos(sa + (ea - sa) * i / steps), 3), round(a.center[1] + a.radius * math.sin(sa + (ea - sa) * i / steps), 3)] for i in range(steps + 1)]
-                    tpts = [transform(p[0], p[1]) for p in arc_pts]
-                    clean_tpts = [p for p in tpts if is_valid_coordinate_point(p, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)]
-                    if len(clean_tpts) >= 2:
-                        polylines.append(
-                            CADPolyline(
-                                layer=a.layer,
-                                space="Block",
-                                is_closed=False,
-                                points=clean_tpts,
-                                color=a.color,
-                                linetype=a.linetype,
-                            )
-                        )
 
-            total_entities = len(lines) + len(arcs) + len(circles) + len(polylines)
+                child_geom = _resolve_block(child_bname, budget - 1, active_path)
+                cos_r, sin_r = math.cos(rot), math.sin(rot)
+                cbx = float(raw_blocks[child_bname]["base_point"][0]) if len(raw_blocks[child_bname]["base_point"]) >= 1 else 0.0
+                cby = float(raw_blocks[child_bname]["base_point"][1]) if len(raw_blocks[child_bname]["base_point"]) >= 2 else 0.0
+
+                def transform(x: float, y: float) -> List[float]:
+                    dx = (x - cbx) * sx
+                    dy = (y - cby) * sy
+                    px = dx * cos_r - dy * sin_r + ip.x
+                    py = dx * sin_r + dy * cos_r + ip.y
+                    return [round(px, 3), round(py, 3)]
+
+                for l in child_geom["lines"]:
+                    tp1 = transform(l.start[0], l.start[1])
+                    tp2 = transform(l.end[0], l.end[1])
+                    if (
+                        is_valid_coordinate_point(tp1, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
+                        and is_valid_coordinate_point(tp2, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
+                    ):
+                        lines.append(
+                            CADLine(
+                                layer=l.layer,
+                                space="Block",
+                                start=tp1,
+                                end=tp2,
+                                color=l.color,
+                                linetype=l.linetype,
+                            )
+                        )
+                for c in child_geom["circles"]:
+                    tc = transform(c.center[0], c.center[1])
+                    if not is_valid_coordinate_point(tc, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0):
+                        continue
+                    if abs(sx - sy) < 1e-5:
+                        rad = round(c.radius * abs(sx), 3)
+                        if is_valid_coordinate_value(rad, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0) and rad > 0:
+                            circles.append(
+                                CADCircle(
+                                    layer=c.layer,
+                                    space="Block",
+                                    center=tc,
+                                    radius=rad,
+                                    color=c.color,
+                                    linetype=c.linetype,
+                                )
+                            )
+                    else:
+                        pts = [[round(c.center[0] + c.radius * math.cos(a), 3), round(c.center[1] + c.radius * math.sin(a), 3)] for a in [i * math.pi / 16 for i in range(33)]]
+                        tpts = [transform(p[0], p[1]) for p in pts]
+                        clean_tpts = [p for p in tpts if is_valid_coordinate_point(p, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)]
+                        if len(clean_tpts) >= 2:
+                            polylines.append(
+                                CADPolyline(
+                                    layer=c.layer,
+                                    space="Block",
+                                    is_closed=True,
+                                    points=clean_tpts,
+                                    color=c.color,
+                                    linetype=c.linetype,
+                                )
+                            )
+                for pl in child_geom["polylines"]:
+                    tpts = [transform(p[0], p[1]) for p in pl.points]
+                    clean_tpts = [p for p in tpts if is_valid_coordinate_point(p, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)]
+                    if len(clean_tpts) >= 2:
+                        polylines.append(
+                            CADPolyline(
+                                layer=pl.layer,
+                                space="Block",
+                                is_closed=pl.is_closed,
+                                points=clean_tpts,
+                                color=pl.color,
+                                linetype=pl.linetype,
+                            )
+                        )
+                for a in child_geom["arcs"]:
+                    if abs(sx - sy) < 1e-5 and sx > 0:
+                        new_c = transform(a.center[0], a.center[1])
+                        rot_deg = math.degrees(rot)
+                        rad = round(a.radius * sx, 3)
+                        if (
+                            is_valid_coordinate_point(new_c, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
+                            and is_valid_coordinate_value(rad, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)
+                            and rad > 0
+                        ):
+                            arcs.append(
+                                CADArc(
+                                    layer=a.layer,
+                                    space="Block",
+                                    center=new_c,
+                                    radius=rad,
+                                    start_angle=round((a.start_angle + rot_deg) % 360, 2),
+                                    end_angle=round((a.end_angle + rot_deg) % 360, 2),
+                                    color=a.color,
+                                    linetype=a.linetype,
+                                )
+                            )
+                    else:
+                        sa, ea = math.radians(a.start_angle), math.radians(a.end_angle)
+                        if ea <= sa:
+                            ea += 2 * math.pi
+                        steps = max(8, int(abs(ea - sa) / (math.pi / 16)))
+                        arc_pts = [[round(a.center[0] + a.radius * math.cos(sa + (ea - sa) * i / steps), 3), round(a.center[1] + a.radius * math.sin(sa + (ea - sa) * i / steps), 3)] for i in range(steps + 1)]
+                        tpts = [transform(p[0], p[1]) for p in arc_pts]
+                        clean_tpts = [p for p in tpts if is_valid_coordinate_point(p, max_coord=MAX_EXTENTS_COORD, min_nonzero=0.0)]
+                        if len(clean_tpts) >= 2:
+                            polylines.append(
+                                CADPolyline(
+                                    layer=a.layer,
+                                    space="Block",
+                                    is_closed=False,
+                                    points=clean_tpts,
+                                    color=a.color,
+                                    linetype=a.linetype,
+                                )
+                            )
+
+                total_entities = len(lines) + len(arcs) + len(circles) + len(polylines)
 
         active_path.remove(bname)
         res = {"lines": lines, "arcs": arcs, "circles": circles, "polylines": polylines}
-        resolved_cache[bname] = res
+        resolved_cache[cache_key] = res
         return res
 
     block_defs = {}
     for bname, raw in raw_blocks.items():
-        geom = _resolve_block(bname, depth=0, active_path=set())
+        geom = _resolve_block(bname, budget=MAX_BLOCK_DEPTH, active_path=set())
         block_defs[bname] = CADBlockDefinition(
             name=bname,
             base_point=raw["base_point"],

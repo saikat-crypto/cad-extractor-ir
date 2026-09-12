@@ -478,6 +478,197 @@ class TestAdversarialStress(unittest.TestCase):
         degen_polys = [p for p in ir.geometry_primitives.primitives.polylines if len(p.points) < 2]
         self.assertEqual(len(degen_polys), 0)
 
+    # -------------------------------------------------------------------------
+    # Challenger Failure Mode Remediations (FM-CH-01 & FM-CH-02)
+    # -------------------------------------------------------------------------
+    def test_remediation_fm_ch_01_bottom_up_linear_nesting_depth_guard(self):
+        """FM-CH-01: Bottom-up registered linear nesting chain (depth 16 > 10) is constrained by MAX_BLOCK_DEPTH."""
+        import time
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions, MAX_BLOCK_DEPTH
+        doc = ezdxf.new()
+        for i in range(16):
+            blk = doc.blocks.new(name=f"DEEP_{i}")
+            blk.add_line((i, 0), (i + 1, 0))
+        for i in range(1, 16):
+            doc.blocks.get(f"DEEP_{i}").add_blockref(f"DEEP_{i-1}", insert=(1, 0, 0))
+
+        t0 = time.perf_counter()
+        bdefs = extract_block_definitions(doc)
+        dt = time.perf_counter() - t0
+
+        self.assertIn("DEEP_15", bdefs)
+        self.assertLessEqual(
+            len(bdefs["DEEP_15"].lines),
+            MAX_BLOCK_DEPTH + 1,
+            f"REGRESSION FM-CH-01: DEEP_15 expanded {len(bdefs['DEEP_15'].lines)} lines, bypassing MAX_BLOCK_DEPTH={MAX_BLOCK_DEPTH}"
+        )
+        self.assertLess(dt, 0.5, f"Resolution took too long: {dt:.3f}s")
+
+    def test_remediation_fm_ch_01_exponential_binary_tree_depth_guard(self):
+        """FM-CH-01: Exponential binary tree nesting (depth 14) is constrained by MAX_BLOCK_DEPTH."""
+        import time
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions, MAX_BLOCK_DEPTH
+        doc = ezdxf.new()
+        prev = None
+        for i in range(14):
+            bname = f"EXP_{i}"
+            blk = doc.blocks.new(name=bname)
+            if prev is None:
+                blk.add_line((0, 0), (1, 1))
+            else:
+                blk.add_blockref(prev, insert=(0, 0, 0))
+                blk.add_blockref(prev, insert=(10, 10, 0))
+            prev = bname
+
+        t0 = time.perf_counter()
+        bdefs = extract_block_definitions(doc)
+        dt = time.perf_counter() - t0
+
+        self.assertIn("EXP_13", bdefs)
+        exp_lines = len(bdefs["EXP_13"].lines)
+        self.assertLessEqual(
+            exp_lines,
+            2 ** MAX_BLOCK_DEPTH,
+            f"REGRESSION FM-CH-01: EXP_13 expanded {exp_lines} lines, exponential bloat unconstrained!"
+        )
+        self.assertLess(dt, 1.0, f"Exponential expansion took too long: {dt:.3f}s")
+
+    def test_remediation_fm_ch_01_order_invariant_depth_enforcement(self):
+        """FM-CH-01: Depth guard must be enforced consistently regardless of block registration order."""
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions, MAX_BLOCK_DEPTH
+        # Top-down document
+        doc_top = ezdxf.new()
+        for i in reversed(range(16)):
+            blk = doc_top.blocks.new(name=f"ORDER_{i}")
+            blk.add_line((i, 0), (i + 1, 0))
+        for i in range(1, 16):
+            doc_top.blocks.get(f"ORDER_{i}").add_blockref(f"ORDER_{i-1}", insert=(1, 0, 0))
+
+        bdefs_top = extract_block_definitions(doc_top)
+        top_lines = len(bdefs_top["ORDER_15"].lines)
+
+        # Bottom-up document
+        doc_bot = ezdxf.new()
+        for i in range(16):
+            blk = doc_bot.blocks.new(name=f"ORDER_{i}")
+            blk.add_line((i, 0), (i + 1, 0))
+        for i in range(1, 16):
+            doc_bot.blocks.get(f"ORDER_{i}").add_blockref(f"ORDER_{i-1}", insert=(1, 0, 0))
+
+        bdefs_bot = extract_block_definitions(doc_bot)
+        bot_lines = len(bdefs_bot["ORDER_15"].lines)
+
+        self.assertLessEqual(top_lines, MAX_BLOCK_DEPTH + 1)
+        self.assertLessEqual(bot_lines, MAX_BLOCK_DEPTH + 1)
+        self.assertEqual(
+            top_lines,
+            bot_lines,
+            f"REGRESSION FM-CH-01: Inconsistent depth enforcement (top-down={top_lines}, bottom-up={bot_lines})"
+        )
+
+    def test_remediation_fm_ch_02_child_block_base_point_offset_translation(self):
+        """FM-CH-02: Nested child block base_point offset is subtracted during affine expansion for all primitives."""
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions
+        doc = ezdxf.new()
+        blk_child = doc.blocks.new(name="CHILD_OFFSET", base_point=(50.0, 50.0, 0.0))
+        blk_child.add_line((50.0, 50.0), (60.0, 50.0))
+        blk_child.add_circle((50.0, 50.0), radius=5.0)
+        blk_child.add_arc((50.0, 50.0), radius=8.0, start_angle=0.0, end_angle=90.0)
+        blk_child.add_lwpolyline([(50.0, 50.0), (70.0, 50.0), (70.0, 60.0), (50.0, 60.0)], close=True)
+
+        blk_parent = doc.blocks.new(name="PARENT", base_point=(0.0, 0.0, 0.0))
+        blk_parent.add_blockref("CHILD_OFFSET", insert=(100.0, 100.0, 0.0))
+
+        bdefs = extract_block_definitions(doc)
+        parent_def = bdefs["PARENT"]
+
+        self.assertEqual(len(parent_def.lines), 1)
+        self.assertEqual(parent_def.lines[0].start, [100.0, 100.0])
+        self.assertEqual(parent_def.lines[0].end, [110.0, 100.0])
+        self.assertEqual(len(parent_def.circles), 1)
+        self.assertEqual(parent_def.circles[0].center, [100.0, 100.0])
+        self.assertAlmostEqual(parent_def.circles[0].radius, 5.0)
+        self.assertEqual(len(parent_def.arcs), 1)
+        self.assertEqual(parent_def.arcs[0].center, [100.0, 100.0])
+        self.assertAlmostEqual(parent_def.arcs[0].radius, 8.0)
+        self.assertEqual(len(parent_def.polylines), 1)
+        self.assertEqual(parent_def.polylines[0].points[0], [100.0, 100.0])
+        self.assertEqual(parent_def.polylines[0].points[1], [120.0, 100.0])
+
+    def test_remediation_fm_ch_02_child_block_base_point_with_rotation_and_scaling(self):
+        """FM-CH-02: Nested child block with non-zero base_point, rotation, and scaling transforms accurately."""
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions
+        doc = ezdxf.new()
+        blk_child = doc.blocks.new(name="CHILD_TRANS", base_point=(20.0, 30.0, 0.0))
+        blk_child.add_line((20.0, 30.0), (30.0, 30.0))
+
+        blk_parent = doc.blocks.new(name="PARENT_TRANS")
+        blk_parent.add_blockref(
+            "CHILD_TRANS",
+            insert=(200.0, 100.0, 0.0),
+            dxfattribs={"rotation": 90.0, "xscale": 2.0, "yscale": 2.0}
+        )
+
+        bdefs = extract_block_definitions(doc)
+        parent_def = bdefs["PARENT_TRANS"]
+
+        self.assertEqual(len(parent_def.lines), 1)
+        self.assertEqual(parent_def.lines[0].start, [200.0, 100.0])
+        self.assertEqual(parent_def.lines[0].end, [200.0, 120.0])
+
+    def test_remediation_fm_ch_02_multi_level_nested_base_point_offsets(self):
+        """FM-CH-02: Multi-level hierarchy (Leaf -> Mid -> Root) threads base points without drift."""
+        import ezdxf
+        from cad_extractor.core import extract_block_definitions
+        doc = ezdxf.new()
+        blk_leaf = doc.blocks.new(name="LEAF", base_point=(10.0, 10.0, 0.0))
+        blk_leaf.add_line((10.0, 10.0), (20.0, 10.0))
+
+        blk_mid = doc.blocks.new(name="MID", base_point=(50.0, 50.0, 0.0))
+        blk_mid.add_blockref("LEAF", insert=(50.0, 50.0, 0.0))
+
+        blk_root = doc.blocks.new(name="ROOT", base_point=(0.0, 0.0, 0.0))
+        blk_root.add_blockref("MID", insert=(100.0, 100.0, 0.0))
+
+        bdefs = extract_block_definitions(doc)
+        root_def = bdefs["ROOT"]
+
+        self.assertEqual(len(root_def.lines), 1)
+        self.assertEqual(root_def.lines[0].start, [100.0, 100.0])
+        self.assertEqual(root_def.lines[0].end, [110.0, 100.0])
+
+    def test_remediation_fm_ch_02_extents_consistency_direct_vs_nested(self):
+        """FM-CH-02 / Invariant: Nested component extraction bounds match direct insertion bounds."""
+        import ezdxf
+        from cad_extractor.core import _process_dxf_document
+        # Document 1: Direct insertion of child block in modelspace
+        doc_direct = ezdxf.new()
+        blk1 = doc_direct.blocks.new(name="ITEM", base_point=(40.0, 40.0, 0.0))
+        blk1.add_line((40.0, 40.0), (70.0, 40.0))
+        msp1 = doc_direct.modelspace()
+        msp1.add_blockref("ITEM", insert=(100.0, 100.0, 0.0))
+        ir_direct = _process_dxf_document(doc_direct, "direct.dxf")
+
+        # Document 2: Insertion of child inside an identity wrapper block in modelspace
+        doc_nested = ezdxf.new()
+        blk2 = doc_nested.blocks.new(name="ITEM", base_point=(40.0, 40.0, 0.0))
+        blk2.add_line((40.0, 40.0), (70.0, 40.0))
+        wrapper = doc_nested.blocks.new(name="WRAPPER", base_point=(0.0, 0.0, 0.0))
+        wrapper.add_blockref("ITEM", insert=(100.0, 100.0, 0.0))
+        msp2 = doc_nested.modelspace()
+        msp2.add_blockref("WRAPPER", insert=(0.0, 0.0, 0.0))
+        ir_nested = _process_dxf_document(doc_nested, "nested.dxf")
+
+        self.assertEqual(ir_direct.extents.min, [100.0, 100.0])
+        self.assertEqual(ir_direct.extents.max, [130.0, 100.0])
+        self.assertEqual(ir_nested.extents.min, ir_direct.extents.min)
+        self.assertEqual(ir_nested.extents.max, ir_direct.extents.max)
+
 
 if __name__ == "__main__":
     unittest.main()
