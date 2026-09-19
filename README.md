@@ -8,7 +8,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Multi--stage%20Container-blue.svg)](https://docker.com)
 [![Ecosystem](https://img.shields.io/badge/Project-La%20Vinci-purple.svg)](#)
 
-**High-performance, serverless CAD binary extractor lifting raw AutoCAD `.dwg` files into a clean, queryable Intermediate Representation (IR).**
+**High-performance, serverless CAD binary extractor lifting raw AutoCAD `.dwg`, `.dwt` (Templates), and `.dxf` files into a clean, queryable Intermediate Representation (IR).**
 
 *Engineered by **Saikat Dutta Chowdhury** as part of the **La Vinci** engineering initiative.*
 
