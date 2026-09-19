@@ -141,6 +141,8 @@ cad-extractor blueprint.dwg -o blueprint_ir.json
 
 ## 📐 Intermediate Representation (IR v3) Full-Fidelity Schema
 
+For the complete API contract, calling conventions, error conditions, and wrapper guidelines, see the [Technical Handoff Guide](docs/TECHNICAL_HANDOFF.md) and [CAD IR Specification](docs/CAD_IR_SPECIFICATION.md).
+
 ```json
 {
   "format": "LAVINCI_CAD_IR_V3",
