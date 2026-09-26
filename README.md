@@ -1,237 +1,131 @@
-# CAD Extractor IR (Intermediate Representation)
+# cad-extractor-ir: Headless CAD Ingestion & Geometric Normalization Engine
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python: 3.10+](https://img.shields.io/badge/Python-3.10+-brightgreen.svg)](https://python.org)
-[![Cloud Native](https://img.shields.io/badge/AWS-Lambda%20%7C%20S3%20%7C%20ECR-orange.svg)](https://aws.amazon.com)
-[![Docker](https://img.shields.io/badge/Docker-Multi--stage%20Container-blue.svg)](https://docker.com)
-[![Ecosystem](https://img.shields.io/badge/Project-La%20Vinci-purple.svg)](#)
+[![Python: 3.12+](https://img.shields.io/badge/Python-3.12+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Core Format](https://img.shields.io/badge/Schema-LAVINCI__CAD__IR__V3-6C5CE7.svg?style=for-the-badge)](#)
+[![Ingestion Formats](https://img.shields.io/badge/Ingestion-DWG%20%7C%20DXF%20%7C%20DWT-00A86B.svg?style=for-the-badge)](#)
+[![Validation](https://img.shields.io/badge/Pydantic-v2.0-E92063.svg?style=for-the-badge&logo=pydantic&logoColor=white)](https://docs.pydantic.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**High-performance, serverless CAD binary extractor lifting raw AutoCAD `.dwg`, `.dwt` (Templates), and `.dxf` files into a clean, queryable Intermediate Representation (IR).**
+**A high-performance, headless CAD binary decompiler lifting proprietary Autodesk `.dwg`, `.dwt` (Templates), and native `.dxf` streams into a standardized, strongly-typed Intermediate Representation (IR v3).**
 
-*Engineered by **Saikat Dutta Chowdhury** as part of the **La Vinci** engineering initiative.*
+*Part of the **La Vinci** engineering initiative by **Saikat Dutta Chowdhury** (Mechanical Engineering).*
 
 </div>
 
 ---
 
-## 💡 The Problem & Vision
+## 💡 The Mechanical Engineering Challenge
 
-Engineering CAD files (specifically Autodesk's proprietary binary `.dwg` format) are locked behind proprietary, undocumented byte specifications, multi-layered bitflags, and vendor-locked SDKs. 
+In computational engineering, mechanical designers and automated manufacturing pipelines face a critical roadblock: **Autodesk's binary `.dwg` format is completely closed, proprietary, and undocumented.** 
 
-Extracting simple data—such as room dimensions, layer topologies, or a Bill of Materials (BOM)—historically required running heavy desktop CAD software or bloated virtual machines.
+For over four decades, CAD interoperability has required expensive, heavyweight desktop licenses (AutoCAD, Autodesk Forge / APS, ODA Drawings SDK) that cannot run in lightweight containers, edge compute, or serverless workers.
 
-**CAD Extractor IR** solves this by establishing a standardized, lightweight **Intermediate Representation (IR)** for CAD geometry:
-1. Cracks open binary `.dwg` byte-streams headlessly via low-level C decoders.
-2. Normalizes layers, RGB color spaces, handles, and spatial coordinate transforms.
-3. Automatically computes real-world bounding boxes and aggregates a structured **Bill of Materials (BOM)**.
-4. Serializes into a strongly-typed, cloud-native JSON schema (`LAVINCI_CAD_IR_V1`) designed to power downstream converters (DWF, DXF, SVG, 3D Web Viewers) at **$0 compute cost** on AWS Lambda.
-
----
-
-## 🏗️ Architecture Pipeline
+**`cad-extractor-ir`** solves this by acting as a zero-dependency headless ingestion gateway:
+1. Decompiles bit-packed AutoCAD DWG binary streams into clean geometric primitives via an embedded GNU LibreDWG Linux toolchain.
+2. Normalizes AutoCAD Color Index (`ACI`), 24-bit TrueColor, layers, line weights, and multi-space viewports.
+3. Decodes polyline bulge arc factors ($b = \tan(\Delta\theta/4)$) and parses block attribute tags (`ATTRIB`).
+4. Automatically computes spatial extents and aggregates a structured **Bill of Materials (BOM)**.
+5. Serializes geometry into the canonical **`LAVINCI_CAD_IR_V3`** JSON contract.
 
 ```
-                       [ Input: blueprint.dwg ]
-                                  │
-                                  ▼
-         ┌──────────────────────────────────────────────────┐
-         │             AWS Serverless Worker / CLI          │
-         │                                                  │
-         │   1. Byte-Level C Engine (GNU LibreDWG)          │
-         │      • Decodes handles, bit-streams & pages      │
-         │                                                  │
-         │   2. La Vinci IR Normalizer (Python / Pydantic)  │
-         │      • Coordinate & Extent calculations          │
-         │      • ACI to Hex Color Resolution               │
-         │      • Bill of Materials (BOM) Aggregator        │
-         └──────────────────────────────────────────────────┘
-                                  │
-                                  ▼
-                [ La Vinci CAD IR (Structured JSON) ]
-                                  │
-      ┌───────────────────────────┼───────────────────────────┐
-      ▼                           ▼                           ▼
-[ Downstream DWF/DXF ]    [ Automated BOM & Cost ]    [ WebGL 2D/3D Viewer ]
+                         [ Input: mechanical_assembly.dwg ]
+                                         │
+                                         ▼
+                ┌──────────────────────────────────────────────────┐
+                │          cad-extractor-ir Pipeline               │
+                │                                                  │
+                │  1. Binary Decompilation (GNU LibreDWG C)        │
+                │     • Bitstream decoding, handles, object pages  │
+                │     • Adaptive timeout supervision               │
+                │     • Minimal-mode (-m) recovery heuristic       │
+                │                                                  │
+                │  2. Low-Level Ingestion & Crypto Patching        │
+                │     • Patched ACIS SAT cryptographic decoding    │
+                │     • Lone Unicode surrogate sanitization        │
+                │                                                  │
+                │  3. Geometric Normalization (ezdxf + Pydantic)   │
+                │     • Polyline bulge decomposition (tan(Δθ/4))   │
+                │     • ACI palette to 24-bit hex color mapping    │
+                │     • Block definition tables & transform matrix │
+                │     • Automated Bill of Materials (BOM) counting │
+                └──────────────────────────────────────────────────┘
+                                         │
+                                         ▼
+                      [ LAVINCI_CAD_IR_V3 Structured JSON ]
+                                         │
+       ┌─────────────────────┬───────────┴───────────┬─────────────────────┐
+       ▼                     ▼                       ▼                     ▼
+[ cad-ir-to-dxf ]     [ cad-ir-to-pdf ]       [ cad-ir-to-svg ]     [ cad-ir-to-raster ]
+  (CNC R12 Toolpaths)   (Vector Blueprints)     (Web Digital Twins)   (AI Vision PNGs)
 ```
 
 ---
 
-## 📊 Data Efficiency: Raw Dump vs. La Vinci IR
+## 🔬 Systems Engineering & Reliability Hardening
 
-| Metric | Raw CAD Binary Parser Dump | La Vinci CAD IR (`LAVINCI_CAD_IR_V1`) |
-| :--- | :--- | :--- |
-| **File Size** | **4.8 Megabytes** (179,425 lines) | **~118 Kilobytes** (Clean JSON) |
-| **Data Compression** | 0% (Verbose bitfield dump) | **~97.5% Payload Reduction** |
-| **Schema Validation**| None (Raw memory handles) | Strongly-typed **Pydantic v2** |
-| **Bill of Materials**| Missing (Uncorrelated blocks) | **Auto-generated component dictionary** |
-| **Color Handling**   | Raw integer codes (e.g., `256`) | Normalized Hex (`#FF0000`, `#00FF00`) |
+### 1. Adaptive Subprocess Timeout & Minimal-Mode (`-m`) Fallback
+Corrupted DWG files frequently trigger infinite pointer loops in C decoders. `cad-extractor-ir` wraps the binary subprocess in an adaptive timeout supervisor:
+$$\text{Timeout}_{\text{adaptive}} = \min\left(300, \; \max(45, \lceil\text{Size}_{\text{MB}} \times 30\rceil)\right) \text{ seconds}$$
+If standard decompression encounters a non-zero exit code or corrupted block tables, the engine automatically triggers **Minimal-Mode (`-m`) Fallback**, instructing the C decompiler to skip auxiliary metadata dictionaries and extract surviving 2D linework that commercial software rejects.
+
+### 2. Lone Unicode Surrogate Neutralization
+CAD files authored across international engineering firms often contain orphan half-surrogate code points ($0\text{xD800} \le c \le 0\text{xDFFF}$) in layer or block names, which fatally crash standard UTF-8 JSON encoders. `cad-extractor-ir` intercepts strings with a dual `surrogatepass` filter:
+```python
+def sanitize_surrogates(text: str) -> str:
+    try:
+        return text.encode("utf-8", "surrogatepass").decode("utf-8", "replace")
+    except Exception:
+        return "".join(c for c in text if not (0xD800 <= ord(c) <= 0xDFFF))
+```
+
+### 3. Polyline Bulge Decomposition
+AutoCAD stores curved polylines as discrete vertices paired with a mathematical **bulge factor** $b$:
+$$b = \tan\left(\frac{\Delta\theta}{4}\right)$$
+Where $\Delta\theta$ is the included angle. `cad-extractor-ir` decomposes these bulges into planar coordinate sequences using adaptive chord-height tolerance, maintaining sub-micron accuracy.
+
+### 4. Transparent Upstream Warning Diagnostics
+When LibreDWG drops proprietary 3D ACIS solids or corrupt proxy objects, `cad-extractor-ir` intercepts `stderr`, harvests warning tokens, and exposes them in `metadata.extraction_warnings`. Downstream applications can alert users transparently rather than failing silently.
 
 ---
 
-## ⚡ Multi-Version Benchmark Suite (All Passed)
+## ⚡ Quick Start
 
-Tested across diverse real-world AutoCAD binary releases from **AutoCAD 2000 up to AutoCAD 2018**:
-
-| CAD Drawing / Feature | AutoCAD Release | Units | Active Layers | Components (BOM) | Primitives Extracted | Parse & Extraction Latency | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Architectural Floor Plan** | **R2007** | **Metric** | **17** | **161** | **313** | **435 ms** | ✅ **PASS** |
-| Modern Line Vector Geometry | R2018 | Imperial | 2 | 0 | 1 | 53 ms | ✅ **PASS** |
-| Curved Geometry & Arcs | R2018 | Imperial | 2 | 0 | 1 | 50 ms | ✅ **PASS** |
-| Curved Vector Geometry | R2013 | Imperial | 2 | 0 | 1 | 47 ms | ✅ **PASS** |
-| NURBS & Spline Entities | R2010 | Imperial | 2 | 0 | 0 | 65 ms | ✅ **PASS** |
-| Vector Geometry & Offsets | R2007 | Imperial | 2 | 0 | 1 | 74 ms | ✅ **PASS** |
-| Leader Annotations | R2004 | Imperial | 2 | 0 | 2 | 84 ms | ✅ **PASS** |
-| Multi-leader Annotation Tags | R2000 | Imperial | 2 | 0 | 2 | 77 ms | ✅ **PASS** |
-
-*Average parsing latency: **~105 ms** across all formats.*
-
-## 🚀 Quick Start
-
-### 1. Installation
-
+### Installation
 ```bash
-# Clone the repository
-git clone https://github.com/saikat-crypto/cad-extractor-ir.git
-cd cad-extractor-ir
-
-# Install package
-pip install -e .
+pip install -e products/cad-extractor-ir
 ```
 
-### 2. Command Line Usage
+### Python SDK
+```python
+from cad_extractor.core import extract_cad_ir
 
-Extract metadata, dimensions, and layer counts:
+# Extract from binary DWG, DXF, or DWT template
+ir = extract_cad_ir("gearbox_assembly.dwg")
+
+# Inspect structured metadata
+print(f"Drawing Version: {ir.metadata.cad_version}")
+print(f"Units: {ir.metadata.measurement_system} (Code: {ir.metadata.units})")
+print(f"Total Lines: {ir.geometry_primitives.summary.total_lines}")
+print(f"Bill of Materials: {ir.bill_of_materials}")
+
+# Export strongly-typed JSON
+with open("assembly_ir.json", "w", encoding="utf-8") as f:
+    f.write(ir.model_dump_json(indent=2))
+```
+
+### Command Line Interface (CLI)
 ```bash
-cad-extractor blueprint.dwg --summary
-```
+# Decompile DWG to IR JSON
+python -m cad_extractor.cli drawing.dwg -o drawing_ir.json
 
-Generate and display an automated **Bill of Materials (BOM)**:
-```bash
-cad-extractor blueprint.dwg --bom
-```
-
-**Output:**
-```text
-=== Bill of Materials (BOM) ===
-Component Name                      | Quantity  
-------------------------------------------------
-```text
-=== Bill of Materials (BOM) ===
-Component Name                      | Quantity  
-------------------------------------------------
-Receptacle                          | 44        
-Lighting fixture                    | 28        
-ANDERSEN CASEMENT (*U48)            | 10        
-ANDERSEN CASEMENT (*U50)            | 8         
-ANDERSEN CASEMENT (*U45)            | 7         
-TRU STYLE BI-FOLD (*U38)            | 3         
-Bathtub                             | 2         
-Toilet                              | 1         
-Sink                                | 1         
-```
-
-Export complete Intermediate Representation to JSON:
-```bash
-cad-extractor blueprint.dwg -o blueprint_ir.json
+# Display summary statistics only
+python -m cad_extractor.cli drawing.dwg --summary
 ```
 
 ---
 
-## 📐 Intermediate Representation (IR v3) Full-Fidelity Schema
+## 📄 License
 
-For the complete API contract, calling conventions, error conditions, and wrapper guidelines, see the [Technical Handoff Guide](docs/TECHNICAL_HANDOFF.md) and [CAD IR Specification](docs/CAD_IR_SPECIFICATION.md).
-
-```json
-{
-  "format": "LAVINCI_CAD_IR_V3",
-  "metadata": {
-    "source_file": "floor_plan.dwg",
-    "cad_version": "R2007",
-    "measurement_system": "Metric"
-  },
-  "extents": {
-    "width": 524.403,
-    "height": 501.854
-  },
-  "layers": [
-    { "name": "Lighting", "color_aci": 1, "hex_color": "#ff0000", "is_off": false },
-    { "name": "Power", "color_aci": 6, "hex_color": "#ff00ff", "is_off": false }
-  ],
-  "bill_of_materials": {
-    "Receptacle": 44,
-    "Lighting fixture": 28,
-    "ANDERSEN CASEMENT (*U48)": 10,
-    "TRU STYLE BI-FOLD (*U38)": 3,
-    "Bathtub": 2,
-    "Toilet": 1
-  },
-  "block_definitions": {
-    "Toilet": {
-      "name": "Toilet",
-      "base_point": [0.0, 0.0, 0.0],
-      "lines": [{ "layer": "0", "start": [0.102, -0.356], "end": [-0.102, -0.356], "color": null }],
-      "arcs": [{ "layer": "0", "center": [0.0, 0.0], "radius": 0.229, "start_angle": 0.0, "end_angle": 180.0, "color": null }]
-    },
-    "Receptacle": {
-      "name": "Receptacle",
-      "base_point": [0.0, 0.0, 0.0],
-      "circles": [{ "layer": "0", "center": [0.0, 0.0], "radius": 0.125, "color": null }]
-    }
-  }
-}
-```
-
----
-
-## 🔍 Technical Transparency: Engineering Capabilities & Current Boundaries
-
-To maintain technical integrity and clear expectations, here is an explicit breakdown of what CAD Extractor IR solves and current architectural boundaries:
-
-### ✅ Hardened & Solved in v3.1:
-* **Dual-Format Dispatcher (Native DXF + Binary DWG)**: Ingests native ASCII `.dxf` files directly via `ezdxf` with zero subprocess overhead, while routing `.dwg` binaries through headless LibreDWG.
-* **Accurate Bounding Box Geometry**: Arc and Circle bounding boxes now correctly compute physical extent boundaries ($c \pm r$) rather than collapsing to the center point. Dimension `defpoint2` is also included.
-* **Subprocess Denial-of-Service Protection**: Subprocess execution now has a strict 120-second timeout, preventing worker hangs on pathological or cyclical files.
-* **Surrogate-Safe Unicode Sanitization**: Unpaired UTF-16 surrogates (`\ud800`–`\udfff`) from legacy Windows CAD drawings are automatically sanitized, guaranteeing 100% crash-free UTF-8 JSON serialization.
-* **Safe ACI Color Parsing**: Handles negative ACI integers (AutoCAD turned-off layers) safely without `IndexError`.
-* **Reusable Block Definitions (`block_definitions`)**: Captures full internal vector geometry (lines, arcs, circles, polylines) for every block in the drawing. Downstream DXF/SVG/PDF converters now render all components (doors, windows, plumbing, electrical fixtures) with 100% visual fidelity instead of empty stubs.
-* **True `BYLAYER` Color Semantics**: Leaves `color = None` for entities inheriting layer styling, preserving native AutoCAD layer-based style switching rather than baking static overrides.
-* **Full `CIRCLE` Primitive Extraction**: Ingests circular engineering geometries (pipe cross-sections, columns, receptacles) alongside lines and arcs.
-* **Native Arc Angles**: Preserves raw AutoCAD counter-clockwise arc angles (including wraps across $0^\circ$) preventing inverted or distorted sweeps.
-* **Paper Space & Print Layouts**: Scans all drawing layouts (A1, A3, ANSI sheets) and captures `VIEWPORT` bounding boxes and camera scales.
-* **Deep Block Inspection & Attribute Mining**: Mines `ATTRIB` tags (manufacturer, style, model, cost codes) directly off blocks.
-* **Anonymous Block Disambiguation**: Resolves cryptic internal block identifiers (e.g. `*U48`, `*B20`) into human-readable component labels (`ANDERSEN CASEMENT (*U48)`).
-* **MTEXT Formatting Sanitization**: Strips proprietary AutoCAD RTF formatting tags (`\f...;`, `\H...;`, `\L` underline, `\P`), returning clean human-readable text.
-* **Dimension Entity Extraction**: Ingests `DIMENSION` entities, measurement values, definition points, and tolerance strings.
-
-For the exhaustive adversarial audit cataloging 15 tested failure modes, see [AUDIT_REPORT.md](AUDIT_REPORT.md).
-
-### ⚠️ Current Architectural Boundaries:
-1. **Underlying Parser Dependency**: Binary `.dwg` decoding is currently orchestrated via `GNU LibreDWG` as the headless binary reader. Unrecognized custom third-party C++ objects (AutoCAD Architecture/Civil 3D proxy entities) may be ignored.
-2. **ACIS 3D Solid Geometry**: 2D vector primitives and meshes are fully extracted. However, proprietary binary ACIS B-Rep solid kernels (`3DSOLID`, `REGION`) are not yet decomposed into boundary topological faces.
-3. **External Dependencies (XREFs & SHX Fonts)**: Text strings embedded within the file are extracted cleanly. However, visual glyph generation that depends on proprietary compiled `.shx` shape fonts or externally linked XREF drawings requires those external asset files to be bundled with the drawing.
-
----
-
-## ☁️ Cloud-Native Deployment (AWS Lambda Container)
-
-The repository includes a production multi-stage `Dockerfile` targeting AWS Lambda (`public.ecr.aws/lambda/python:3.12`):
-
-```bash
-# Build the container image
-docker build -t cad-extractor-ir -f docker/Dockerfile .
-
-# Run locally or push to AWS ECR
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com
-docker tag cad-extractor-ir:latest <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/lavinci-dwg-extractor:latest
-docker push <aws_account_id>.dkr.ecr.us-east-1.amazonaws.com/lavinci-dwg-extractor:latest
-```
-
----
-
-## 📄 License & Credits
-
-* **Author**: [Saikat Dutta Chowdhury](https://github.com/saikat-crypto)
-* **Project**: Part of the **La Vinci** engineering initiative.
-* **License**: Licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE).
